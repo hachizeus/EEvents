@@ -1,6 +1,10 @@
-# Editor directories and files
-**/.vscode/*
-!**/.vscode/extensions.json
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Editor
+**/.vscode
 **/.idea
 **/.DS_Store
 **/*.suo
@@ -8,16 +12,37 @@
 **/*.njsproj
 **/*.sln
 **/*.sw?
-misc
 
+# Environment files (never bake secrets into image)
+**/.env
+**/.env.*
+!**/.env.example
+
+# Frontend — not needed for backend Docker build
+frontend/node_modules
+frontend/dist
+frontend/.next
+frontend/build
+
+# Backend dev dependencies and caches
+backend/vendor
+backend/node_modules
+backend/storage/logs/*.log
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/.phpunit.cache
+backend/coverage
+
+# Docker files themselves
+docker/
+Dockerfile.all-in-one
 fly.toml
 
-frontend/.env*
-backend/.env*
+# Docs
+*.md
+DEPLOYMENT_GUIDE.md
+PRODUCTION_CHECKLIST.md
 
-# Exclude node_modules - Docker will install them fresh
-frontend/node_modules
-node_modules
-
-# Exclude git history
-.git
+# Misc
+misc
