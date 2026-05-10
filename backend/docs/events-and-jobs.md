@@ -2,7 +2,7 @@
 
 ## Overview
 
-Hi.Events implements a dual-layer event architecture combining Laravel's event system with custom domain events. This enables clean separation between internal workflows (application events) and external integrations (infrastructure events).
+E Events implements a dual-layer event architecture combining Laravel's event system with custom domain events. This enables clean separation between internal workflows (application events) and external integrations (infrastructure events).
 
 ```mermaid
 graph LR
@@ -821,7 +821,7 @@ class UpdateEventStatisticsJob implements ShouldQueue
 
 ## Summary
 
-Hi.Events implements a sophisticated event-driven architecture:
+E Events implements a sophisticated event-driven architecture:
 
 **Components**:
 - 3 application events (internal workflows)

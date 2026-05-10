@@ -1,23 +1,23 @@
 <div align="center">
 
-<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="Hi.Events - Nyílt forráskódú eseménykezelő és jegyértékesítő platform" width="100%">
+<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="E.Events - Nyílt forráskódú eseménykezelő és jegyértékesítő platform" width="100%">
 
-# Hi.Events
+# E.Events
 
 ### Nyílt forráskódú eseménykezelő és jegyértékesítő platform
 
 Adjon el jegyeket online konferenciákra, szórakozóhelyi eseményekre, koncertekre, klubestekre, workshopokra és fesztiválokra.
 Saját szerveren vagy felhőben. Az Ön eseményei, az Ön márkája, az Ön adatai.
 
-[Próbálja ki a felhőt →](https://app.hi.events/auth/register?utm_source=gh-readme) · [Élő demó](https://app.hi.events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Dokumentáció](https://hi.events/docs?utm_source=gh-readme) · [Weboldal](https://hi.events?utm_source=gh-readme)
+[Próbálja ki a felhőt →](https://app.E.Events/auth/register?utm_source=gh-readme) · [Élő demó](https://app.E.Events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Dokumentáció](https://E.Events/docs?utm_source=gh-readme) · [Weboldal](https://E.Events?utm_source=gh-readme)
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/Hi.Events/blob/develop/LICENCE)
-[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/hi.events?include_prereleases)](https://github.com/HiEventsDev/hi.events/releases)
-[![Run Unit Tests](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml)
-[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/hi.events-all-in-one)](https://hub.docker.com/r/daveearley/hi.events-all-in-one)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/E.Events/blob/develop/LICENCE)
+[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/E.Events?include_prereleases)](https://github.com/HiEventsDev/E.Events/releases)
+[![Run Unit Tests](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/E.Events-all-in-one)](https://hub.docker.com/r/daveearley/E.Events-all-in-one)
 
 <a href="https://trendshift.io/repositories/10563" target="_blank">
-  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2Fhi.events | Trendshift" width="250" height="55"/>
+  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2FE.Events | Trendshift" width="250" height="55"/>
 </a>
 
 <p>
@@ -28,9 +28,9 @@ Saját szerveren vagy felhőben. Az Ön eseményei, az Ön márkája, az Ön ada
 
 <br>
 
-## Miért a Hi.Events?
+## Miért a E.Events?
 
-A legtöbb jegyértékesítő platform jegyenkénti díjakat számít fel, és az adatait a saját ökoszisztémájába zárja. **A Hi.Events egy modern,
+A legtöbb jegyértékesítő platform jegyenkénti díjakat számít fel, és az adatait a saját ökoszisztémájába zárja. **A E.Events egy modern,
 nyílt forráskódú alternatíva az Eventbrite, Tickettailor, Dice.fm és más jegyértékesítő platformokkal szemben** azoknak a szervezőknek, akik
 teljes kontrollt szeretnének a márkaépítés, a fizetés, az adatok és az infrastruktúra felett.
 
@@ -38,7 +38,7 @@ Készült szórakozóhelyi promóterek, fesztiválszervezők, helyszínek, köz�
 
 <br>
 
-<img alt="Hi.Events irányítópult" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
+<img alt="E.Events irányítópult" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
 
 <br>
 
@@ -112,7 +112,7 @@ Automatikus számlázás · Eseményarchívum · Többnyelvű támogatás · Tel
 
 ## Összehasonlítás
 
-| Funkció                                   | Hi.Events | Eventbrite | Tickettailor | Dice     |
+| Funkció                                   | E.Events | Eventbrite | Tickettailor | Dice     |
 |:------------------------------------------|:----------|:-----------|:-------------|:---------|
 | Saját szerveren futtatható opció          | ✅         | ❌          | ❌            | ❌        |
 | Nyílt forráskódú                          | ✅         | ❌          | ❌            | ❌        |
@@ -128,16 +128,16 @@ Automatikus számlázás · Eseményarchívum · Többnyelvű támogatás · Tel
 
 ### Egy kattintásos telepítés
 
-[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/hi.events-digitalocean)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/hi.events-render.com)
+[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/E.Events-digitalocean)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/E.Events-render.com)
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/8CGKmu?referralCode=KvSr11)
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/8DIRY6)
 
 ### Docker
 
 ```bash
-git clone git@github.com:HiEventsDev/hi.events.git
-cd hi.events/docker/all-in-one
+git clone git@github.com:HiEventsDev/E.Events.git
+cd E.Events/docker/all-in-one
 
 # Kulcsok generálása (Linux/macOS)
 echo "APP_KEY=base64:$(openssl rand -base64 32)" >> .env
@@ -151,16 +151,16 @@ docker compose up -d
 
 Nyissa meg a `http://localhost:8123` címet és hozza létre fiókját.
 
-📖 [Teljes telepítési útmutató](https://hi.events/docs/getting-started?utm_source=gh-readme)
+📖 [Teljes telepítési útmutató](https://E.Events/docs/getting-started?utm_source=gh-readme)
 
 <br>
 
-## Hi.Events Cloud
+## E.Events Cloud
 
-Inkább nem szeretne saját szervert üzemeltetni? A **[Hi.Events Cloud](https://app.hi.events/auth/register?utm_source=gh-readme)** egy teljesen
+Inkább nem szeretne saját szervert üzemeltetni? A **[E.Events Cloud](https://app.E.Events/auth/register?utm_source=gh-readme)** egy teljesen
 felügyelt megoldás nulla beállítással, automatikus frissítésekkel és felügyelt infrastruktúrával.
 
-[Kezdje el →](https://app.hi.events/auth/register?utm_source=gh-readme)
+[Kezdje el →](https://app.E.Events/auth/register?utm_source=gh-readme)
 
 <br>
 
@@ -168,10 +168,10 @@ felügyelt megoldás nulla beállítással, automatikus frissítésekkel és fel
 
 | Forrás          | Link                                                                                          |
 |:----------------|:----------------------------------------------------------------------------------------------|
-| Első lépések    | [hi.events/docs/getting-started](https://hi.events/docs/getting-started?utm_source=gh-readme) |
-| Konfiguráció    | [hi.events/docs/configuration](https://hi.events/docs/configuration?utm_source=gh-readme)     |
-| API referencia  | [hi.events/docs/api](https://hi.events/docs/api?utm_source=gh-readme)                         |
-| Webhookok       | [hi.events/docs/webhooks](https://hi.events/docs/webhooks?utm_source=gh-readme)               |
+| Első lépések    | [E.Events/docs/getting-started](https://E.Events/docs/getting-started?utm_source=gh-readme) |
+| Konfiguráció    | [E.Events/docs/configuration](https://E.Events/docs/configuration?utm_source=gh-readme)     |
+| API referencia  | [E.Events/docs/api](https://E.Events/docs/api?utm_source=gh-readme)                         |
+| Webhookok       | [E.Events/docs/webhooks](https://E.Events/docs/webhooks?utm_source=gh-readme)               |
 
 <br>
 
@@ -183,28 +183,28 @@ Szívesen fogadunk közreműködéseket. A részletekért lásd a [közreműköd
 
 ## Támogatás
 
-📖 [Dokumentáció](https://hi.events/docs?utm_source=gh-readme) · 📧 [hello@hi.events](mailto:hello@hi.events) ·
-🐛 [GitHub Issues](https://github.com/HiEventsDev/hi.events/issues)
+📖 [Dokumentáció](https://E.Events/docs?utm_source=gh-readme) · 📧 [hello@E.Events](mailto:hello@E.Events) ·
+🐛 [GitHub Issues](https://github.com/HiEventsDev/E.Events/issues)
 
 <br>
 
 ## Változásnapló
 
 Maradjon naprakész az új funkciókkal és fejlesztésekkel a
-[kiadások oldalon](https://github.com/HiEventsDev/hi.events/releases).
+[kiadások oldalon](https://github.com/HiEventsDev/E.Events/releases).
 
 <br>
 
 ## Licenc
 
-A Hi.Events **AGPL-3.0 licenc alatt áll további feltételekkel**. Kereskedelmi licenc
-elérhető. [Tudjon meg többet](https://hi.events/licensing).
+A E.Events **AGPL-3.0 licenc alatt áll további feltételekkel**. Kereskedelmi licenc
+elérhető. [Tudjon meg többet](https://E.Events/licensing).
 
 <br>
 
 <div align="center">
 
-**[Weboldal](https://hi.events)** · **[Dokumentáció](https://hi.events/docs)** · *
+**[Weboldal](https://E.Events)** · **[Dokumentáció](https://E.Events/docs)** · *
 *[Twitter/X](https://x.com/HiEventsTickets)**
 
 Készült ☘️-vel Írországban

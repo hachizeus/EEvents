@@ -131,15 +131,16 @@ class GetAdminDashboardDataHandler
                 a.name,
                 a.email,
                 a.created_at,
-                a.stripe_connect_setup_complete,
                 a.account_verified_at,
+                CASE WHEN aps.is_active = true THEN true ELSE false END as paystack_connected,
                 COUNT(DISTINCT e.id) as events_count,
                 COUNT(DISTINCT au.user_id) as users_count
             FROM accounts a
+            LEFT JOIN account_paystack_settings aps ON aps.account_id = a.id AND aps.is_active = true
             LEFT JOIN events e ON e.account_id = a.id AND e.deleted_at IS NULL
             LEFT JOIN account_users au ON au.account_id = a.id AND au.deleted_at IS NULL
             WHERE a.deleted_at IS NULL
-            GROUP BY a.id, a.name, a.email, a.created_at, a.stripe_connect_setup_complete, a.account_verified_at
+            GROUP BY a.id, a.name, a.email, a.created_at, a.account_verified_at, aps.is_active
             ORDER BY a.created_at DESC
             LIMIT :limit
         SQL;

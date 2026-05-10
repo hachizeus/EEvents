@@ -89,7 +89,7 @@ jobs:
         if: env.TEST_MODE != 'true'
         working-directory: ./backend
         run: |
-          aws s3 cp s3://hi.events-env-secrets/.env.${{ env.VAPOR_ENV }}.encrypted .env.${{ env.VAPOR_ENV }}.encrypted
+          aws s3 cp s3://e.events-env-secrets/.env.${{ env.VAPOR_ENV }}.encrypted .env.${{ env.VAPOR_ENV }}.encrypted
           echo "✅ Downloaded .env.${{ env.VAPOR_ENV }}.encrypted from S3"
 
       - name: Validate Deployment Configuration

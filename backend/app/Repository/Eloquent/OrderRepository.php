@@ -226,10 +226,10 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         $exists = $this->model
             ->join('events', 'orders.event_id', '=', 'events.id')
-            ->join('stripe_payments', 'orders.id', '=', 'stripe_payments.order_id')
+            ->join('paystack_payments', 'orders.id', '=', 'paystack_payments.order_id')
             ->where('events.account_id', $accountId)
             ->where('orders.payment_status', OrderPaymentStatus::PAYMENT_RECEIVED->name)
-            ->whereNotNull('stripe_payments.payment_intent_id')
+            ->whereNotNull('paystack_payments.reference')
             ->exists();
 
         $this->resetModel();

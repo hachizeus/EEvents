@@ -69,54 +69,60 @@ export const Register = () => {
 
     return (
         <>
-            <header className={classes.header}>
-                <h2>{t`Get started`}</h2>
-                <p>
-                    <Trans>
-                        Already have an account?{' '}
-                        <NavLink to={`/auth/login${location.search}`}>
-                            {t`Log in`}
-                        </NavLink>
-                    </Trans>
-                </p>
-            </header>
+            <div className={classes.topBar}>
+                <span>Already have an account?</span>
+                <NavLink to={`/auth/login${location.search}`}>
+                    {t`Sign in`}
+                </NavLink>
+            </div>
+
+            <div className={classes.heading}>
+                <h2>{t`Create your account`}</h2>
+                <p>{t`Start selling tickets in minutes — no credit card required`}</p>
+            </div>
 
             <div className={classes.registerCard}>
                 <form onSubmit={form.onSubmit((values) => registerUser(values as RegisterAccountRequest))}>
 
+                    <p className={classes.sectionLabel}>{t`Account details`}</p>
+
+                    <TextInput
+                        mb={0}
+                        {...form.getInputProps('email')}
+                        label={t`Email address`}
+                        placeholder={'you@example.com'}
+                        required
+                    />
+
+                    <p className={classes.sectionLabel}>{t`Your name`}</p>
+
                     <SimpleGrid verticalSpacing={{base: "md", sm: 0}} cols={{base: 1, sm: 2}} mb="md">
                         <TextInput
                             {...form.getInputProps('first_name')}
-                            label={t`First Name`}
+                            label={t`First name`}
                             placeholder={t`John`}
                             required
                         />
                         <TextInput
                             {...form.getInputProps('last_name')}
-                            label={t`Last Name`}
+                            label={t`Last name`}
                             placeholder={t`Smith`}
                         />
                     </SimpleGrid>
 
-                    <TextInput
-                        mb={0}
-                        {...form.getInputProps('email')}
-                        label={t`Email`}
-                        placeholder={'your@email.com'}
-                        required
-                    />
+                    <p className={classes.sectionLabel}>{t`Set a password`}</p>
 
-                    <SimpleGrid verticalSpacing={{base: "md", sm: 0}} cols={{base: 1, sm: 2}} mt="md" mb="md">
+                    <SimpleGrid verticalSpacing={{base: "md", sm: 0}} cols={{base: 1, sm: 2}} mb="md">
                         <PasswordInput
                             {...form.getInputProps('password')}
                             label={t`Password`}
-                            placeholder={t`Your password`}
+                            placeholder={t`Min. 8 characters`}
                             required
                         />
                         <PasswordInput
                             {...form.getInputProps('password_confirmation')}
-                            label={t`Confirm Password`}
-                            placeholder={t`Confirm password`}
+                            label={t`Confirm password`}
+                            placeholder={t`Repeat password`}
                             required
                         />
                     </SimpleGrid>
@@ -130,20 +136,20 @@ export const Register = () => {
                     <Checkbox
                         mb="md"
                         {...form.getInputProps('marketing_opt_in', {type: 'checkbox'})}
-                        label={<Trans>Receive product updates from {getConfig("VITE_APP_NAME", "Hi.Events")}.</Trans>}
+                        label={<Trans>Receive product updates from {getConfig("VITE_APP_NAME", "E.Events")}.</Trans>}
                     />
 
-                    <Button color="secondary.5" type="submit" fullWidth disabled={mutate.isPending}>
-                        {mutate.isPending ? t`Working...` : t`Register`}
+                    <Button color="primary" type="submit" fullWidth disabled={mutate.isPending}>
+                        {mutate.isPending ? t`Creating account...` : t`Create account`}
                     </Button>
                 </form>
                 <footer>
                     <Trans>
                         By registering you agree to our <NavLink target={'_blank'}
-                                                                 to={getConfig("VITE_TOS_URL", "https://hi.events/terms-of-service?utm_source=app-register-footer") as string}>Terms
+                                                                 to={getConfig("VITE_TOS_URL", "https://elitjohnsdigital.com/terms") as string}>Terms
                         of Service</NavLink> and <NavLink
                         target={'_blank'}
-                        to={getConfig("VITE_PRIVACY_URL", 'https://hi.events/privacy-policy?utm_source=app-register-footer') as string}>Privacy Policy</NavLink>.
+                        to={getConfig("VITE_PRIVACY_URL", 'https://elitjohnsdigital.com/privacy') as string}>Privacy Policy</NavLink>.
                     </Trans>
                 </footer>
             </div>

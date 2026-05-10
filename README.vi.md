@@ -1,23 +1,23 @@
 <div align="center">
 
-<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="Hi.Events - Nền tảng Bán vé Sự kiện Mã nguồn Mở" width="100%">
+<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="E.Events - Nền tảng Bán vé Sự kiện Mã nguồn Mở" width="100%">
 
-# Hi.Events
+# E.Events
 
 ### Nền tảng bán vé và quản lý sự kiện mã nguồn mở
 
 Bán vé trực tuyến cho hội nghị, sự kiện giải trí, hòa nhạc, đêm câu lạc bộ, hội thảo và lễ hội.
 Tự lưu trữ hoặc đám mây. Sự kiện của bạn, thương hiệu của bạn, dữ liệu của bạn.
 
-[Dùng thử Cloud →](https://app.hi.events/auth/register?utm_source=gh-readme) · [Demo trực tiếp](https://app.hi.events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Tài liệu](https://hi.events/docs?utm_source=gh-readme) · [Website](https://hi.events?utm_source=gh-readme)
+[Dùng thử Cloud →](https://app.E.Events/auth/register?utm_source=gh-readme) · [Demo trực tiếp](https://app.E.Events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Tài liệu](https://E.Events/docs?utm_source=gh-readme) · [Website](https://E.Events?utm_source=gh-readme)
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/Hi.Events/blob/develop/LICENCE)
-[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/hi.events?include_prereleases)](https://github.com/HiEventsDev/hi.events/releases)
-[![Run Unit Tests](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml)
-[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/hi.events-all-in-one)](https://hub.docker.com/r/daveearley/hi.events-all-in-one)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/E.Events/blob/develop/LICENCE)
+[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/E.Events?include_prereleases)](https://github.com/HiEventsDev/E.Events/releases)
+[![Run Unit Tests](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/E.Events-all-in-one)](https://hub.docker.com/r/daveearley/E.Events-all-in-one)
 
 <a href="https://trendshift.io/repositories/10563" target="_blank">
-  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2Fhi.events | Trendshift" width="250" height="55"/>
+  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2FE.Events | Trendshift" width="250" height="55"/>
 </a>
 
 <p>
@@ -26,15 +26,15 @@ Tự lưu trữ hoặc đám mây. Sự kiện của bạn, thương hiệu củ
 
 <br>
 
-## Tại sao chọn Hi.Events?
+## Tại sao chọn E.Events?
 
-Hầu hết các nền tảng bán vé tính phí cho mỗi vé và khóa dữ liệu của bạn vào hệ sinh thái của họ. **Hi.Events là một giải pháp thay thế mã nguồn mở hiện đại cho Eventbrite, Tickettailor, Dice.fm, và các nền tảng bán vé khác** dành cho những người tổ chức muốn kiểm soát hoàn toàn thương hiệu, thanh toán, dữ liệu và cơ sở hạ tầng.
+Hầu hết các nền tảng bán vé tính phí cho mỗi vé và khóa dữ liệu của bạn vào hệ sinh thái của họ. **E.Events là một giải pháp thay thế mã nguồn mở hiện đại cho Eventbrite, Tickettailor, Dice.fm, và các nền tảng bán vé khác** dành cho những người tổ chức muốn kiểm soát hoàn toàn thương hiệu, thanh toán, dữ liệu và cơ sở hạ tầng.
 
 Được xây dựng cho người quảng bá giải trí đêm, người tổ chức lễ hội, địa điểm sự kiện, nhóm cộng đồng và người tổ chức hội nghị.
 
 <br>
 
-<img alt="Bảng điều khiển Hi.Events" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
+<img alt="Bảng điều khiển E.Events" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
 
 <br>
 
@@ -108,7 +108,7 @@ Lập hóa đơn tự động · Lưu trữ sự kiện · Hỗ trợ đa ngôn 
 
 ## So sánh
 
-| Tính năng                                | Hi.Events | Eventbrite | Tickettailor | Dice    |
+| Tính năng                                | E.Events | Eventbrite | Tickettailor | Dice    |
 |:-----------------------------------------|:----------|:-----------|:-------------|:--------|
 | Tùy chọn tự lưu trữ                      | ✅         | ❌          | ❌            | ❌       |
 | Mã nguồn mở                              | ✅         | ❌          | ❌            | ❌       |
@@ -124,16 +124,16 @@ Lập hóa đơn tự động · Lưu trữ sự kiện · Hỗ trợ đa ngôn 
 
 ### Triển khai Một cú nhấp chuột
 
-[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/hi.events-digitalocean)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/hi.events-render.com)
+[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/E.Events-digitalocean)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/E.Events-render.com)
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/8CGKmu?referralCode=KvSr11)
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/8DIRY6)
 
 ### Docker
 
 ```bash
-git clone git@github.com:HiEventsDev/hi.events.git
-cd hi.events/docker/all-in-one
+git clone git@github.com:HiEventsDev/E.Events.git
+cd E.Events/docker/all-in-one
 
 # Tạo khóa (Linux/macOS)
 echo "APP_KEY=base64:$(openssl rand -base64 32)" >> .env
@@ -147,15 +147,15 @@ docker compose up -d
 
 Mở `http://localhost:8123` và tạo tài khoản của bạn.
 
-📖 [Hướng dẫn cài đặt đầy đủ](https://hi.events/docs/getting-started?utm_source=gh-readme)
+📖 [Hướng dẫn cài đặt đầy đủ](https://E.Events/docs/getting-started?utm_source=gh-readme)
 
 <br>
 
-## Hi.Events Cloud
+## E.Events Cloud
 
-Không muốn tự lưu trữ? **[Hi.Events Cloud](https://app.hi.events/auth/register?utm_source=gh-readme)** là một tùy chọn được quản lý hoàn toàn với không cần thiết lập, cập nhật tự động và cơ sở hạ tầng được quản lý.
+Không muốn tự lưu trữ? **[E.Events Cloud](https://app.E.Events/auth/register?utm_source=gh-readme)** là một tùy chọn được quản lý hoàn toàn với không cần thiết lập, cập nhật tự động và cơ sở hạ tầng được quản lý.
 
-[Bắt đầu →](https://app.hi.events/auth/register?utm_source=gh-readme)
+[Bắt đầu →](https://app.E.Events/auth/register?utm_source=gh-readme)
 
 <br>
 
@@ -163,10 +163,10 @@ Không muốn tự lưu trữ? **[Hi.Events Cloud](https://app.hi.events/auth/re
 
 | Tài nguyên      | Liên kết                                                                                      |
 |:----------------|:----------------------------------------------------------------------------------------------|
-| Bắt đầu         | [hi.events/docs/getting-started](https://hi.events/docs/getting-started?utm_source=gh-readme) |
-| Cấu hình        | [hi.events/docs/configuration](https://hi.events/docs/configuration?utm_source=gh-readme)     |
-| Tham chiếu API  | [hi.events/docs/api](https://hi.events/docs/api?utm_source=gh-readme)                         |
-| Webhooks        | [hi.events/docs/webhooks](https://hi.events/docs/webhooks?utm_source=gh-readme)               |
+| Bắt đầu         | [E.Events/docs/getting-started](https://E.Events/docs/getting-started?utm_source=gh-readme) |
+| Cấu hình        | [E.Events/docs/configuration](https://E.Events/docs/configuration?utm_source=gh-readme)     |
+| Tham chiếu API  | [E.Events/docs/api](https://E.Events/docs/api?utm_source=gh-readme)                         |
+| Webhooks        | [E.Events/docs/webhooks](https://E.Events/docs/webhooks?utm_source=gh-readme)               |
 
 <br>
 
@@ -178,28 +178,28 @@ Chúng tôi hoan nghênh các đóng góp. Xem [hướng dẫn đóng góp](CONT
 
 ## Hỗ trợ
 
-📖 [Tài liệu](https://hi.events/docs?utm_source=gh-readme) · 📧 [hello@hi.events](mailto:hello@hi.events) ·
-🐛 [GitHub Issues](https://github.com/HiEventsDev/hi.events/issues)
+📖 [Tài liệu](https://E.Events/docs?utm_source=gh-readme) · 📧 [hello@E.Events](mailto:hello@E.Events) ·
+🐛 [GitHub Issues](https://github.com/HiEventsDev/E.Events/issues)
 
 <br>
 
 ## Nhật ký thay đổi
 
 Luôn cập nhật với các tính năng mới và cải tiến trên
-[trang phát hành](https://github.com/HiEventsDev/hi.events/releases).
+[trang phát hành](https://github.com/HiEventsDev/E.Events/releases).
 
 <br>
 
 ## Giấy phép
 
-Hi.Events được cấp phép theo **AGPL-3.0 với các điều khoản bổ sung**. Cấp phép thương mại
-có sẵn. [Tìm hiểu thêm](https://hi.events/licensing).
+E.Events được cấp phép theo **AGPL-3.0 với các điều khoản bổ sung**. Cấp phép thương mại
+có sẵn. [Tìm hiểu thêm](https://E.Events/licensing).
 
 <br>
 
 <div align="center">
 
-**[Website](https://hi.events)** · **[Tài liệu](https://hi.events/docs)** · *
+**[Website](https://E.Events)** · **[Tài liệu](https://E.Events/docs)** · *
 *[Twitter/X](https://x.com/HiEventsTickets)**
 
 Được tạo ra với ☘️ tại Ireland

@@ -34,7 +34,7 @@ jobs:
         id: meta_all_in_one
         uses: docker/metadata-action@v5
         with:
-          images: daveearley/hi.events-all-in-one
+          images: daveearley/e.events-all-in-one
           tags: |
             type=ref,event=tag
             type=raw,value=latest,enable=${{ github.event.release.prerelease == false }}
@@ -56,7 +56,7 @@ jobs:
         id: meta_backend
         uses: docker/metadata-action@v3
         with:
-          images: daveearley/hi.events-backend
+          images: daveearley/e.events-backend
           tags: |
             type=ref,event=tag
             type=raw,value=latest,enable=${{ github.event.release.prerelease == false }}
@@ -75,7 +75,7 @@ jobs:
         id: meta_frontend
         uses: docker/metadata-action@v3
         with:
-          images: daveearley/hi.events-frontend
+          images: daveearley/e.events-frontend
           tags: |
             type=ref,event=tag
             type=raw,value=latest,enable=${{ github.event.release.prerelease == false }}

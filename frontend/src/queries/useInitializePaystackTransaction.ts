@@ -1,0 +1,22 @@
+import {useQuery} from "@tanstack/react-query";
+import {orderClientPublic} from "../api/order.client.ts";
+import {IdParam} from "../types.ts";
+
+export const INITIALIZE_PAYSTACK_TRANSACTION_QUERY_KEY = 'initializePaystackTransaction';
+
+export const useInitializePaystackTransaction = (eventId: IdParam, orderShortId: IdParam) => {
+    return useQuery({
+        queryKey: [INITIALIZE_PAYSTACK_TRANSACTION_QUERY_KEY, eventId, orderShortId],
+
+        queryFn: async () => {
+            return await orderClientPublic.initializePaystackTransaction(
+                Number(eventId),
+                String(orderShortId),
+            );
+        },
+
+        retry: false,
+        staleTime: 0,
+        gcTime: 0,
+    });
+};

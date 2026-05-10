@@ -26,6 +26,7 @@ import {isConsentPending, setConsentState, updateGoogleConsentMode} from "./util
 declare global {
     interface Window {
         hievents: Record<string, string>;
+        eevents: Record<string, string>;
     }
 }
 
@@ -77,8 +78,39 @@ export const App: FC<
                         secondary: generateColors(getConfig("VITE_APP_SECONDARY_COLOR", "#3d0b44") as string),
                     },
                     primaryColor: "primary",
-                    fontFamily: "Outfit, sans-serif",
+                    fontFamily: "Inter, sans-serif",
+                    headings: {
+                        fontFamily: "Sora, sans-serif",
+                    },
                     primaryShade: 8,
+                    defaultRadius: "md",
+                    components: {
+                        Button: {
+                            defaultProps: {
+                                radius: "md",
+                            },
+                        },
+                        TextInput: {
+                            defaultProps: {
+                                radius: "md",
+                            },
+                        },
+                        PasswordInput: {
+                            defaultProps: {
+                                radius: "md",
+                            },
+                        },
+                        Select: {
+                            defaultProps: {
+                                radius: "md",
+                            },
+                        },
+                        Card: {
+                            defaultProps: {
+                                radius: "lg",
+                            },
+                        },
+                    },
                 }}
             >
                 <HelmetProvider context={props.helmetContext}>
@@ -89,7 +121,7 @@ export const App: FC<
                                 <ThirdPartyScripts/>
                                 <ModalsProvider>
                                     <Helmet>
-                                        <title>{getConfig("VITE_APP_NAME", "Hi.Events")}</title>
+                                        <title>{getConfig("VITE_APP_NAME", "E.Events")}</title>
                                         <link rel="icon"
                                               type="image/svg+xml"
                                               href={getConfig("VITE_APP_FAVICON", "/favicon.svg")}

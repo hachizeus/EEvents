@@ -41,7 +41,7 @@ class OrderPlatformFeePassThroughService
      * Where r = percentage rate, P = platform fee
      *
      * This ensures that when the platform fee (P) is added to the order total,
-     * the resulting Stripe application fee calculated on the new total equals P.
+     * the resulting application fee calculated on the new total equals P.
      * In other words: application_fee(total + P) = P
      */
     public function calculatePlatformFee(

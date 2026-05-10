@@ -30,3 +30,5 @@ class StripeClientFactory
         return new StripeClient($secretKey);
     }
 }
+
+// This file is deprecated as Paystack is now the primary payment provider.

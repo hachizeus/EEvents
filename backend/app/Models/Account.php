@@ -42,9 +42,9 @@ class Account extends BaseModel
         );
     }
 
-    public function account_stripe_platforms(): HasMany
+    public function account_paystack_settings(): HasMany
     {
-        return $this->hasMany(AccountStripePlatform::class);
+        return $this->hasMany(AccountPaystackSetting::class);
     }
 
     public function account_vat_setting(): HasOne

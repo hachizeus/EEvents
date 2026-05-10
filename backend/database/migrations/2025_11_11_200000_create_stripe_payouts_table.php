@@ -30,3 +30,5 @@ return new class extends Migration
     }
 };
 
+// This migration is deprecated as Paystack is now the primary payment provider.
+

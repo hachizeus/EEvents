@@ -4,10 +4,10 @@ namespace HiEvents\Services\Domain\Message;
 
 use Carbon\Carbon;
 use HiEvents\DomainObjects\AccountMessagingTierDomainObject;
-use HiEvents\DomainObjects\AccountStripePlatformDomainObject;
 use HiEvents\DomainObjects\Enums\MessagingEligibilityFailureEnum;
 use HiEvents\DomainObjects\Enums\MessagingTierViolationEnum;
 use HiEvents\Repository\Interfaces\AccountMessagingTierRepositoryInterface;
+use HiEvents\Repository\Interfaces\AccountPaystackSettingRepositoryInterface;
 use HiEvents\Repository\Interfaces\AccountRepositoryInterface;
 use HiEvents\Repository\Interfaces\EventRepositoryInterface;
 use HiEvents\Repository\Interfaces\MessageRepositoryInterface;
@@ -25,14 +25,13 @@ class MessagingEligibilityService
         private readonly MessageRepositoryInterface $messageRepository,
         private readonly AccountMessagingTierRepositoryInterface $accountMessagingTierRepository,
         private readonly OrderRepositoryInterface $orderRepository,
+        private readonly AccountPaystackSettingRepositoryInterface $paystackSettingRepository,
     ) {
     }
 
     public function checkEligibility(int $accountId, int $eventId): ?MessagingEligibilityFailureDTO
     {
-        $account = $this->accountRepository
-            ->loadRelation(AccountStripePlatformDomainObject::class)
-            ->findById($accountId);
+        $account = $this->accountRepository->findById($accountId);
 
         $tier = $this->getAccountMessagingTier($account->getAccountMessagingTierId());
 
@@ -43,7 +42,7 @@ class MessagingEligibilityService
 
         $failures = [];
 
-        if (!$account->isStripeSetupComplete()) {
+        if (!$this->isPaystackConnected($accountId)) {
             $failures[] = MessagingEligibilityFailureEnum::STRIPE_NOT_CONNECTED;
         }
 
@@ -96,6 +95,16 @@ class MessagingEligibilityService
             tierName: $tier->getName(),
             violations: $violations,
         );
+    }
+
+    private function isPaystackConnected(int $accountId): bool
+    {
+        $setting = $this->paystackSettingRepository->findFirstWhere([
+            'account_id' => $accountId,
+            'is_active' => true,
+        ]);
+
+        return $setting !== null && !empty($setting->getPublicKey());
     }
 
     private function getAccountMessagingTier(?int $tierId): AccountMessagingTierDomainObject

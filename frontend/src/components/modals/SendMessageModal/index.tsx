@@ -35,7 +35,6 @@ import {useSendEventMessage} from "../../../mutations/useSendEventMessage.ts";
 import {ProductSelector} from "../../common/ProductSelector";
 import {useEffect, useMemo, useState} from "react";
 import {useGetAccount} from "../../../queries/useGetAccount.ts";
-import {StripeConnectButton} from "../../common/StripeConnectButton";
 import {getConfig} from "../../../utilites/config";
 import {utcToTz} from "../../../utilites/dates.ts";
 import dayjs from "dayjs";
@@ -237,12 +236,8 @@ export const SendMessageModal = (props: EventMessageModalProps) => {
 
                 {accountRequiresManualVerification && (
                     <Alert className={classes.verificationAlert} variant={'light'} icon={<IconAlertCircle size="1rem"/>}
-                           title={t`Connect Stripe to enable messaging`}>
-                        {t`Due to the high risk of spam, you must connect a Stripe account before you can send messages to attendees.
-                         This is to ensure that all event organizers are verified and accountable.`}
-                        <div className={classes.stripeConnectButton}>
-                            <StripeConnectButton/>
-                        </div>
+                           title={t`Account verification required`}>
+                        {t`Due to the high risk of spam, your account must be verified before you can send messages to attendees. Please contact support to verify your account.`}
                     </Alert>
                 )}
 

@@ -132,7 +132,7 @@ const Attribution = () => {
                                                 <Table.Th>{t`Accounts`}</Table.Th>
                                                 <Table.Th>{t`Events`}</Table.Th>
                                                 <Table.Th>{t`Live Events`}</Table.Th>
-                                                <Table.Th>{t`Stripe Connected`}</Table.Th>
+                                                <Table.Th>{t`Paystack Connected`}</Table.Th>
                                                 <Table.Th>{t`Verified`}</Table.Th>
                                                 <Table.Th>{t`Revenue`}</Table.Th>
                                                 <Table.Th>{t`Orders`}</Table.Th>
@@ -156,7 +156,7 @@ const Attribution = () => {
                                                         <Text size="sm">{stat.live_events.toLocaleString()}</Text>
                                                     </Table.Td>
                                                     <Table.Td>
-                                                        <Text size="sm">{stat.stripe_connected.toLocaleString()}</Text>
+                                                        <Text size="sm">{stat.paystack_connected.toLocaleString()}</Text>
                                                     </Table.Td>
                                                     <Table.Td>
                                                         <Text size="sm">{stat.verified_accounts.toLocaleString()}</Text>

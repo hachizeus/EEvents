@@ -4,10 +4,10 @@
   display: flex;
   flex-direction: column;
   grid-area: sidebar;
-  background: linear-gradient(180deg, var(--mantine-color-primary-9), var(--mantine-color-secondary-9));
+  background: linear-gradient(180deg, var(--mantine-color-primary-9) 0%, var(--mantine-color-primary-8) 100%);
   color: var(--hi-color-white);
   position: relative;
-  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
   height: 100vh;
 
   &.closed {
@@ -132,10 +132,13 @@
       }
 
       &.linkActive {
-        background: rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.18);
         color: white;
         font-weight: 600;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 
         .linkIcon {
           color: rgba(255, 255, 255, 1);

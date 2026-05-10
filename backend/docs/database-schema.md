@@ -2,7 +2,7 @@
 
 ## Overview
 
-Hi.Events uses PostgreSQL with a multi-tenant architecture built around accounts. The database schema consists of approximately 57 migration files with core schema defined in `database/migrations/schema.sql`.
+E.Events uses PostgreSQL with a multi-tenant architecture built around accounts. The database schema consists of approximately 57 migration files with core schema defined in `database/migrations/schema.sql`.
 
 ## Core Entity Hierarchy
 
@@ -69,7 +69,9 @@ Top-level tenant entity.
 - `currency_code` - Default currency
 - `timezone` - Default timezone
 - `stripe_account_id` - Stripe Connect ID
+- `paystack_account_id` - Paystack Connect ID
 - `stripe_connect_setup_complete` - Onboarding status
+- `paystack_connect_setup_complete` - Onboarding status
 - `account_verified_at` - Verification timestamp
 
 **Model**: `app/Models/Account.php`

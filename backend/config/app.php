@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
-    'name' => env('APP_NAME', 'Hi.Events'),
+    'name' => env('APP_NAME', 'E Events'),
 
     'reset_password_token_expiry_in_min' => 15,
     'frontend_url' => env('APP_FRONTEND_URL', 'http://localhost'),
@@ -14,12 +14,11 @@ return [
     'default_timezone' => 'America/Vancouver',
     'default_currency_code' => 'USD',
     'saas_mode_enabled' => env('APP_SAAS_MODE_ENABLED', false),
-    'saas_stripe_application_fee_percent' => env('APP_SAAS_STRIPE_APPLICATION_FEE_PERCENT', 1.5),
-    'saas_stripe_application_fee_fixed' => env('APP_SAAS_STRIPE_APPLICATION_FEE_FIXED', 0),
+    'saas_application_fee_percent' => env('APP_SAAS_APPLICATION_FEE_PERCENT', 1.5),
+    'saas_application_fee_fixed' => env('APP_SAAS_APPLICATION_FEE_FIXED', 0),
     'saas_default_pass_platform_fee_to_buyer' => env('APP_SAAS_DEFAULT_PASS_PLATFORM_FEE_TO_BUYER', false),
     'disable_registration' => env('APP_DISABLE_REGISTRATION', false),
     'api_rate_limit_per_minute' => env('APP_API_RATE_LIMIT_PER_MINUTE', 180),
-    'stripe_connect_account_type' => env('APP_STRIPE_CONNECT_ACCOUNT_TYPE', 'express'),
     'platform_support_email' => env('APP_PLATFORM_SUPPORT_EMAIL', 'support@example.com'),
     'enforce_email_confirmation_during_registration' => env('APP_ENFORCE_EMAIL_CONFIRMATION_DURING_REGISTRATION', false),
     'allowed_internal_webhook_hosts' => env('APP_ALLOWED_INTERNAL_WEBHOOK_HOSTS', ''),
@@ -47,8 +46,7 @@ return [
         'reset_password' => '/auth/reset-password/%s',
         'confirm_email_change' => '/manage/profile/confirm-email-change/%s',
         'accept_invitation' => '/auth/accept-invitation/%s',
-        'stripe_connect_return_url' => '/account/payment',
-        'stripe_connect_refresh_url' => '/account/payment',
+        'payment_return_url' => '/account/payment',
         'event_homepage' => '/event/%d/%s',
         'attendee_product' => '/product/%d/%s',
         'order_summary' => '/checkout/%d/%s/summary',

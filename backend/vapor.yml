@@ -3,7 +3,7 @@ name: HiEvents
 environments:
   production:
     gateway-version: 2.0
-    domain: api.hi.events
+    domain: api.e.events
     memory: 2048
     cli-memory: 512
     storage: hievents-assets-prod
@@ -25,7 +25,7 @@ environments:
       - 'php artisan migrate --force'
   staging:
     gateway-version: 2.0
-    domain: staging-api.hi.events
+    domain: staging-api.e.events
     memory: 1024
     cli-memory: 512
     runtime: docker

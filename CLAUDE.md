@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Hi.Events is an open-source event management and ticketing platform with a Laravel backend and React frontend, using Domain-Driven Design (DDD).
+E.Events is an open-source event management and ticketing platform with a Laravel backend and React frontend, using Domain-Driven Design (DDD).
 
 ## Key Commands
 

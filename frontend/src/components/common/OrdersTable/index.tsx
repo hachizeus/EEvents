@@ -133,7 +133,7 @@ export const OrdersTable = ({orders, event}: OrdersTableProps) => {
     const ActionMenu = ({order}: { order: Order }) => {
         const isRefundable = !order.is_free_order
             && order.status !== 'AWAITING_OFFLINE_PAYMENT'
-            && order.payment_provider === 'STRIPE'
+            && order.payment_provider === 'PAYSTACK'
             && order.refund_status !== 'REFUNDED';
 
         return (
@@ -378,10 +378,10 @@ export const OrdersTable = ({orders, event}: OrdersTableProps) => {
                     const order = info.row.original;
                     return (
                         <div className={classes.paymentStatus}>
-                            {order.payment_provider === 'STRIPE' ? (
+                            {order.payment_provider === 'PAYSTACK' ? (
                                 <>
                                     <IconCreditCard size={16}/>
-                                    <Text>{t`Stripe`}</Text>
+                                    <Text>{t`Paystack`}</Text>
                                 </>
                             ) : order.payment_provider === 'OFFLINE' ? (
                                 <>

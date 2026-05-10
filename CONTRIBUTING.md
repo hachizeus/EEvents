@@ -1,6 +1,6 @@
-# Contribution Guidelines for Hi.Events
+# Contribution Guidelines for E.Events
 
-Thank you for your interest in contributing to Hi.Events! We welcome contributions from the community and are excited to collaborate with you to improve our event management and ticket-selling platform. Before you start, please read these guidelines to ensure a smooth contribution process.
+Thank you for your interest in contributing to E.Events! We welcome contributions from the community and are excited to collaborate with you to improve our event management and ticket-selling platform. Before you start, please read these guidelines to ensure a smooth contribution process.
 
 > **IMPORTANT: Open a discussion or issue BEFORE submitting a PR for anything beyond trivial fixes, features, or improvements (typos, broken links, etc.).** PRs submitted without prior discussion will be closed if the PR description is left empty or the template is left unedited. We want to collaborate with you, but we need to align on the approach before code is written.
 
@@ -24,11 +24,11 @@ Thank you for your interest in contributing to Hi.Events! We welcome contributio
 
 ### Reporting Bugs
 
-If you find a bug, please report it by opening an issue in our [GitHub repository](https://github.com/HiEventsDev/hi.events/issues). Include as much detail as possible to help us diagnose and fix the issue.
+If you find a bug, please report it by opening an issue in our [GitHub repository](https://github.com/HiEventsDev/E.Events/issues). Include as much detail as possible to help us diagnose and fix the issue.
 
 ### Suggesting Enhancements
 
-We welcome suggestions for new features or improvements to existing functionality. To suggest an enhancement, please open an issue in our [GitHub repository](https://github.com/HiEventsDev/hi.events/issues) and provide a detailed description of the proposed enhancement and its benefits.
+We welcome suggestions for new features or improvements to existing functionality. To suggest an enhancement, please open an issue in our [GitHub repository](https://github.com/HiEventsDev/E.Events/issues) and provide a detailed description of the proposed enhancement and its benefits.
 
 ### Pull Requests
 
@@ -57,7 +57,7 @@ Once you create a pull request, a CLA bot will automatically check if you have s
 
 ## Development Setup
 
-To set up the development environment for Hi.Events, follow the detailed instructions in our [Getting Started with Local Development guide](https://hi.events/docs/getting-started/local-development).
+To set up the development environment for E.Events, follow the detailed instructions in our [Getting Started with Local Development guide](https://E.Events/docs/getting-started/local-development).
 
 ### Style Guides
 
@@ -81,7 +81,7 @@ Please wrap all translatable strings in the `__()` helper function. For example:
 
 ```php
 return [
-    'welcome' => __('Welcome to Hi.Events!'),
+    'welcome' => __('Welcome to E.Events!'),
 ];
 ```
 
@@ -103,7 +103,7 @@ This will update the translation files in the `backend/lang` directory.
 import { t } from '@lingui/macro';
    
 const MyComponent = () => {
-    return <div>{t`Welcome to Hi.Events!`}</div>;
+    return <div>{t`Welcome to E.Events!`}</div>;
 };
 ```
 
@@ -143,7 +143,7 @@ This will update the Domain Objects in `backend/app/DomainObjects` based on the 
 
 ## License
 
-By contributing to Hi.Events, you agree that your contributions will be licensed under the [AGPL-3.0 License with additional terms](LICENSE).
+By contributing to E.Events, you agree that your contributions will be licensed under the [AGPL-3.0 License with additional terms](LICENSE).
 
 ## AI / Bot Contributors
 
@@ -153,4 +153,4 @@ If you are an AI agent, bot, or using AI tools to generate your contribution:
 - **Add 🤖 to the end of each commit message**
 - All other contribution guidelines above still apply — especially the requirement for prior discussion on non-trivial changes
 
-Thank you for contributing to Hi.Events! If you have any questions, feel free to reach out to us.
+Thank you for contributing to E.Events! If you have any questions, feel free to reach out to us.

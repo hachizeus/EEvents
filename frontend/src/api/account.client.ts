@@ -1,11 +1,22 @@
 import {api} from "./client.ts";
-import {Account, GenericDataResponse, IdParam, User, StripeConnectAccountsResponse} from "../types.ts";
+import {Account, GenericDataResponse, IdParam, User} from "../types.ts";
 
 interface CreateAccountRequest {
     first_name: string;
     last_name: string;
     email: string;
     password?: string;
+}
+
+export interface PaystackSettingResponse {
+    is_connected: boolean;
+    public_key: string | null;
+    secret_key_hint?: string;
+}
+
+export interface UpsertPaystackSettingRequest {
+    public_key: string;
+    secret_key: string;
 }
 
 export const accountClient = {
@@ -21,14 +32,17 @@ export const accountClient = {
         const response = await api.put<GenericDataResponse<Account>>('accounts', account);
         return response.data;
     },
-    getStripeConnectDetails: async (accountId: IdParam, platform?: string) => {
-        const response = await api.post<GenericDataResponse<any>>(`accounts/${accountId}/stripe/connect`, {
-            platform
-        });
+    getPaystackSetting: async (accountId: IdParam) => {
+        const response = await api.get<GenericDataResponse<PaystackSettingResponse>>(
+            `accounts/${accountId}/paystack/settings`
+        );
         return response.data;
     },
-    getStripeConnectAccounts: async (accountId: IdParam) => {
-        const response = await api.get<GenericDataResponse<StripeConnectAccountsResponse>>(`accounts/${accountId}/stripe/connect_accounts`);
+    upsertPaystackSetting: async (accountId: IdParam, payload: UpsertPaystackSettingRequest) => {
+        const response = await api.post<GenericDataResponse<PaystackSettingResponse>>(
+            `accounts/${accountId}/paystack/settings`,
+            payload
+        );
         return response.data;
-    }
+    },
 }

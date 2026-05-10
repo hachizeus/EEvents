@@ -5,9 +5,19 @@
     border: 1px solid var(--mantine-color-gray-2);
     border-radius: var(--mantine-radius-md);
     overflow: hidden;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.05),
+      0 4px 12px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.03);
 
     [data-mantine-color-scheme="dark"] & {
         border-color: var(--mantine-color-dark-4);
+        box-shadow:
+          0 1px 3px rgba(0, 0, 0, 0.2),
+          0 4px 12px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.05),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2);
     }
 }
 

@@ -1,20 +1,20 @@
 @use "mixins";
 
 :root {
-  --hi-text: var(--mantine-color-primary-9);
-  --hi-primary: var(--mantine-color-primary-9);
+  --hi-text: #0d1117;
+  --hi-primary: var(--mantine-color-primary-8);
   --hi-secondary:  var(--mantine-color-secondary-1);
   --hi-secondary-text: var(--mantine-color-primary-8);
-  --hi-color-gray: #f7f6f8;
-  --hi-color-gray-2: #e2e2e2;
-  --hi-color-gray-dark: #838383;
+  --hi-color-gray: #f4f5f7;
+  --hi-color-gray-2: #e5e7eb;
+  --hi-color-gray-dark: #6b7280;
   --hi-color-money-green: #00b894;
   --hi-color-blue: var(--mantine-color-primary-4);
-  --hi-link-color: var(--hi-primary);
+  --hi-link-color: var(--mantine-color-primary-7);
   --hi-pink: var(--mantine-color-primary-5);
   --hi-primary-alt: var(--mantine-color-primary-6);
   --hi-gradient: linear-gradient(135deg, var(--hi-primary), var(--hi-primary-alt));
-  --hi-scrollbar-thumb: #e1e1e1;
+  --hi-scrollbar-thumb: #d1d5db;
 
   --hi-color-white: #ffffff;
   --hi-color-black: #000000;
@@ -25,11 +25,11 @@
   --hi-spacing-lg: 20px;
   --hi-spacing-xl: 25px;
 
-  --hi-radius-xs: 3px;
-  --hi-radius-sm: 5px;
-  --hi-radius-md: 7px;
-  --hi-radius-lg: 10px;
-  --hi-radius-xl: 15px;
+  --hi-radius-xs: 4px;
+  --hi-radius-sm: 8px;
+  --hi-radius-md: 10px;
+  --hi-radius-lg: 14px;
+  --hi-radius-xl: 18px;
 }
 
 * {
@@ -41,15 +41,16 @@ html {
 }
 
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--hi-text);
   background-color: var(--checkout-background, var(--hi-color-gray)) !important;
   height: auto;
-  letter-spacing: 0.2px;
+  letter-spacing: -0.01px;
 }
 
 h1, h2, h3 {
-  letter-spacing: 0.3px;
+  font-family: 'Sora', sans-serif;
+  letter-spacing: -0.03em;
 }
 
 fieldset {

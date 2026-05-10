@@ -9,12 +9,12 @@ import classes from './VatSettings.module.scss';
 
 interface VatSettingsProps {
     account: Account;
-    stripeCountry?: string;
+    accountCountry?: string;
 }
 
-export const VatSettings = ({account, stripeCountry}: VatSettingsProps) => {
+export const VatSettings = ({account, accountCountry}: VatSettingsProps) => {
     const vatSettingQuery = useGetAccountVatSetting(account.id);
-    const vatInfo = getVatInfo(stripeCountry);
+    const vatInfo = getVatInfo(accountCountry);
 
     if (!vatInfo.isEU) {
         return null;

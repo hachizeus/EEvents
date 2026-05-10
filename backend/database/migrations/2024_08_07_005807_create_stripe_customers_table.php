@@ -24,3 +24,5 @@ return new class extends Migration {
         Schema::dropIfExists('stripe_customers');
     }
 };
+
+// This migration is deprecated as Paystack is now the primary payment provider.

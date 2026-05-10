@@ -9,6 +9,7 @@ import {useGetEvent} from "../../../../queries/useGetEvent.ts";
 import {useGetEventImages} from "../../../../queries/useGetEventImages.ts";
 import {Tooltip} from "../../../common/Tooltip";
 import {useGetAccount} from "../../../../queries/useGetAccount.ts";
+import {useGetAccountPaystackSetting} from "../../../../queries/useGetAccountPaystackSetting.ts";
 import {useUpdateEventStatus} from "../../../../mutations/useUpdateEventStatus.ts";
 import {showError, showSuccess} from "../../../../utilites/notifications.tsx";
 import {getProductsFromEvent} from "../../../../utilites/helpers.ts";
@@ -50,6 +51,10 @@ const GettingStarted = () => {
     const hasImages = eventImages && eventImages.length > 0;
     const accountQuery = useGetAccount();
     const account = accountQuery.data;
+    const paystackQuery = useGetAccountPaystackSetting(account?.id, {
+        enabled: !!account?.id,
+    });
+    const isPaystackConnected = paystackQuery.data?.is_connected === true;
     const statusToggleMutation = useUpdateEventStatus();
 
     const handleStatusToggle = () => {
@@ -102,7 +107,7 @@ const GettingStarted = () => {
                                     value={[
                                         hasProducts,
                                         event?.description,
-                                        account?.stripe_connect_setup_complete,
+                                        isPaystackConnected,
                                         hasImages,
                                         event?.status === 'LIVE',
                                         account?.is_account_email_confirmed
@@ -146,19 +151,22 @@ const GettingStarted = () => {
                         </Button>
                     </Card>
 
-                    <Card className={account?.stripe_connect_setup_complete ? classes.completedCard : ''}>
-                        {account?.stripe_connect_setup_complete && <CompletedBadge/>}
+                    <Card className={isPaystackConnected ? classes.completedCard : ''}>
+                        {isPaystackConnected && <CompletedBadge/>}
                         <h2>
-                            {t`💳 Connect with Stripe`}
+                            {t`💳 Connect with Paystack`}
                         </h2>
                         <p>
-                            {t`Connect your Stripe account to start receiving payments.`}
+                            {isPaystackConnected
+                                ? t`Paystack is connected and ready to process payments.`
+                                : t`Connect your Paystack account to start accepting payments.`
+                            }
                         </p>
-                        {!account?.stripe_connect_setup_complete && (
+                        {!isPaystackConnected && (
                             <Button variant={'light'} component={NavLink} to={'/account/payment'}>
-                                {t`Connect with Stripe`}
-                            </Button>)
-                        }
+                                {t`Connect Paystack`}
+                            </Button>
+                        )}
                     </Card>
 
                     <Card className={hasImages ? classes.completedCard : ''}>

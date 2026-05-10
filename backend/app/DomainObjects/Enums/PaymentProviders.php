@@ -6,6 +6,6 @@ enum PaymentProviders: string
 {
     use BaseEnum;
 
-    case STRIPE = 'STRIPE';
+    case PAYSTACK = 'PAYSTACK';
     case OFFLINE = 'OFFLINE';
 }

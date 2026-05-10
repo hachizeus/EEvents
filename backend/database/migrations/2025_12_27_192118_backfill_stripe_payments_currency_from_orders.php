@@ -21,3 +21,5 @@ return new class extends Migration
         // Cannot reverse - we don't know which records had null currency before
     }
 };
+
+// This migration is deprecated as Paystack is now the primary payment provider.

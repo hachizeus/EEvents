@@ -17,7 +17,6 @@ import {
 import {Card} from '../Card';
 import {HeadingWithDescription} from '../Card/CardHeading';
 import {useGetAccount} from '../../../queries/useGetAccount';
-import {StripeConnectButton} from '../StripeConnectButton';
 
 interface EmailTemplateSettingsBaseProps {
     // Context 
@@ -346,13 +345,10 @@ export const EmailTemplateSettingsBase = ({
             )}
 
             {accountRequiresManualVerification && (
-                <Alert icon={<IconAlertCircle size={16}/>} variant="light" mb="lg" color="orange" title={t`Connect Stripe to enable email template editing`}>
+                <Alert icon={<IconAlertCircle size={16}/>} variant="light" mb="lg" color="orange" title={t`Account verification required`}>
                     <Text size="sm">
-                        {t`Due to the high risk of spam, you must connect a Stripe account before you can modify email templates. This is to ensure that all event organizers are verified and accountable.`}
+                        {t`Due to the high risk of spam, your account must be verified before you can modify email templates. Please contact support to verify your account.`}
                     </Text>
-                    <div style={{marginTop: '0.75rem'}}>
-                        <StripeConnectButton/>
-                    </div>
                 </Alert>
             )}
 

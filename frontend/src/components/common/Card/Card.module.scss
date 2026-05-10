@@ -9,16 +9,43 @@
   }
 
   &.lightGray {
-    // Use checkout variables if available, fallback to default colors
     background-color: var(--checkout-accent-soft, var(--hi-color-gray));
     border: 1px solid var(--checkout-border, var(--hi-color-gray-2));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.8),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.04);
   }
 
   &.default {
-    // Use checkout variables if available, fallback to default colors
     background-color: var(--checkout-surface, #FFFFFF);
     border: 1px solid var(--checkout-border, #E5E7EB);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-    transition: box-shadow 0.15s ease;
+    box-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.06),
+      0 4px 12px rgba(0, 0, 0, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.03),
+      inset 1px 0 0 rgba(255, 255, 255, 0.6),
+      inset -1px 0 0 rgba(255, 255, 255, 0.6);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.07),
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.04),
+        inset 1px 0 0 rgba(255, 255, 255, 0.6),
+        inset -1px 0 0 rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &.lightGradient {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fc 100%);
+    border: 1px solid #E5E7EB;
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.2s ease;
   }
 }

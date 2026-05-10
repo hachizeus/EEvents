@@ -15,9 +15,10 @@ export type SupportedLocales =
     | "tr"
     | "hu"
     | "pl"
-    | "se";
+    | "se"
+    | "sw";
 
-export const availableLocales = ["en", "de", "fr", "it", "nl", "pt", "es", "zh-cn", "zh-hk", "pt-br", "vi", "tr", "hu", "pl", "se"];
+export const availableLocales = ["en", "de", "fr", "it", "nl", "pt", "es", "zh-cn", "zh-hk", "pt-br", "vi", "tr", "hu", "pl", "se", "sw"];
 
 export const localeToFlagEmojiMap: Record<SupportedLocales, string> = {
     en: '🇬🇧',
@@ -35,6 +36,7 @@ export const localeToFlagEmojiMap: Record<SupportedLocales, string> = {
     hu: '🇭🇺',
     pl: '🇵🇱',
     se: '🇸🇪',
+    sw: '🇰🇪',
 };
 
 export const localeToNameMap: Record<SupportedLocales, string> = {
@@ -53,6 +55,7 @@ export const localeToNameMap: Record<SupportedLocales, string> = {
     hu: `Hungarian`,
     pl: `Polish`,
     se: `Swedish`,
+    sw: `Swahili`,
 };
 
 export const getLocaleName = (locale: SupportedLocales) => {
@@ -84,8 +87,15 @@ export async function dynamicActivateLocale(locale: string) {
         i18n.load(locale, module.messages);
         i18n.activate(locale);
     } catch (error) {
-        console.error("Error loading locale:", error);
-        // i18n.activate("en");
+        // Fallback: try loading the pre-compiled .js catalog directly
+        try {
+            const module = (await import(`./locales/${locale}.js`));
+            const messages = module.messages ?? module.default?.messages ?? module;
+            i18n.load(locale, messages);
+            i18n.activate(locale);
+        } catch (fallbackError) {
+            console.error("Error loading locale:", locale, fallbackError);
+        }
     }
 }
 

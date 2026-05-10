@@ -1,16 +1,16 @@
 /* eslint-disable lingui/no-unlocalized-strings */
 (function (scriptElement) {
-    const isScriptLoaded = () => !!window.hiEventWidgetLoaded;
+    const isScriptLoaded = () => !!window.eEventsWidgetLoaded;
 
     const loadWidget = () => {
-        window.hiEventWidgetLoaded = true;
+        window.eEventsWidgetLoaded = true;
 
         let scriptOrigin;
         try {
             const scriptURL = scriptElement.src;
             scriptOrigin = new URL(scriptURL).origin;
         } catch (e) {
-            console.error('HiEvent widget error: Invalid script URL');
+            console.error('E Events widget error: Invalid script URL');
             return;
         }
 
@@ -18,7 +18,7 @@
         widgets.forEach((widget, index) => {
             const eventId = widget.getAttribute('data-hievents-id');
             if (!eventId) {
-                console.error('HiEvent widget error: data-hievents-id is required');
+                console.error('E Events widget error: data-hievents-id is required');
                 return;
             }
 
@@ -43,7 +43,7 @@
             iframe.style.border = 'none';
             iframe.style.width = '100%';
 
-            const iframeId = `hievents-iframe-${index}`;
+            const iframeId = `eevents-iframe-${index}`;
             iframe.id = iframeId;
 
             let src = `${scriptOrigin}/widget/${encodeURIComponent(eventId)}?iframeId=${iframeId}&`;

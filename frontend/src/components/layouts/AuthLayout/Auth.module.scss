@@ -1,11 +1,11 @@
 @use "../../../styles/mixins.scss";
 
-// Premium Auth Layout - Sophisticated design for events industry
 .authLayout {
   min-height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
+  background: #0a0a0a;
 }
 
 .splitLayout {
@@ -15,19 +15,198 @@
   min-height: 100vh;
 }
 
-// Left Panel - Form area with subtle background
+// ─── Left Panel: dark brand panel ───────────────────────────────────────────
 .leftPanel {
+  width: 42%;
+  max-width: 520px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #0d1117;
+
+  @include mixins.respond-below(lg) {
+    width: 38%;
+  }
+
+  @include mixins.respond-below(md) {
+    display: none;
+  }
+}
+
+// Animated gradient blob
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    var(--mantine-color-primary-7) 0%,
+    transparent 65%
+  );
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.leftPanel::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  right: -60px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    var(--mantine-color-secondary-6) 0%,
+    transparent 65%
+  );
+  opacity: 0.25;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  z-index: 1;
+
+  @include mixins.respond-below(lg) {
+    padding: 2.5rem 2rem;
+  }
+}
+
+.brandSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.brandLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+
+  img {
+    height: 36px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+}
+
+.brandTagline {
+  font-family: 'Sora', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin: 0;
+
+  span {
+    color: var(--mantine-color-primary-4);
+  }
+}
+
+.brandSubtext {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 320px;
+}
+
+// Feature grid
+.featureGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+}
+
+.featureIcon {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-primary-4);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.featureText {
+  flex: 1;
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 2px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.01em;
+    font-family: 'Inter', sans-serif;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.4;
+  }
+}
+
+// Unused but kept for compatibility
+.backgroundImage,
+.backgroundOverlay,
+.gridPattern,
+.glowEffect,
+.glowTop,
+.glowBottom,
+.content,
+.badge {
+  display: none;
+}
+
+// ─── Right Panel: clean white form area ─────────────────────────────────────
+.rightPanel {
   flex: 1;
   display: flex;
   flex-direction: column;
-  position: relative;
-  background: linear-gradient(135deg, #fafafa 0%, var(--hi-color-gray) 50%, #faf8fc 100%);
+  background: #f7f8fa;
   overflow-y: auto;
-  z-index: 2;
-
-  @include mixins.respond-below(md) {
-    width: 100%;
-  }
+  position: relative;
 }
 
 .container {
@@ -36,70 +215,64 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
   min-height: 100vh;
 
   @include mixins.respond-below(md) {
-    min-height: auto;
-    justify-content: flex-start;
-    padding: 3rem 1.5rem 2rem;
+    min-height: 100vh;
+    justify-content: center;
+    padding: 1.25rem 1.5rem;
   }
 
   @include mixins.respond-below(sm) {
-    padding: 2rem 1rem 1.5rem;
+    padding: 1rem;
+    justify-content: flex-start;
   }
 }
 
 .logo {
-  margin-bottom: 1.5rem;
-
-  @include mixins.respond-below(md) {
-    margin-bottom: 1.25rem;
-  }
-
-  @include mixins.respond-below(sm) {
-    margin-bottom: 1rem;
-  }
+  margin-bottom: 1.25rem;
 
   img {
-    height: 110px;
+    height: 36px;
     width: auto;
 
-    @include mixins.respond-below(md) {
-      height: 100px;
-    }
-
     @include mixins.respond-below(sm) {
-      height: 90px;
+      height: 30px;
     }
+  }
+
+  // Only show on mobile (left panel is hidden on mobile)
+  @include mixins.respond-above(md) {
+    display: none;
   }
 }
 
 .wrapper {
   width: 100%;
-  max-width: 480px;
+  max-width: 400px;
 
   @include mixins.respond-below(sm) {
     max-width: 100%;
   }
 
   a {
-    color: var(--mantine-color-secondary-5);
+    color: var(--mantine-color-primary-7);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
 
     &:hover {
-      color: var(--mantine-color-secondary-7);
+      color: var(--mantine-color-primary-9);
       text-decoration: underline;
     }
   }
 
   footer {
-    font-size: 0.875rem;
-    margin-top: 2rem;
+    font-size: 0.8125rem;
+    margin-top: 1rem;
     text-align: center;
-    color: var(--hi-color-gray-dark);
+    color: #9ca3af;
     line-height: 1.6;
 
     a {
@@ -109,223 +282,6 @@
 
   .languageSwitcher {
     max-width: 100px;
-    margin: 1.5rem auto 0;
-  }
-}
-
-// Right Panel - Premium visual with background image
-.rightPanel {
-  width: 55%;
-  max-width: 700px;
-  position: relative;
-  overflow: hidden;
-
-  @include mixins.respond-below(lg) {
-    width: 45%;
-  }
-
-  @include mixins.respond-below(md) {
-    display: none;
-  }
-}
-
-.backgroundImage {
-  position: absolute;
-  inset: 0;
-  background-image: url("/images/backgrounds/nightlife-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(20%);
-}
-
-.backgroundOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    var(--mantine-color-primary-9) 0%,
-    var(--mantine-color-primary-8) 30%,
-    var(--mantine-color-primary-6) 60%,
-    var(--mantine-color-secondary-5) 100%
-  );
-  opacity: 0.92;
-}
-
-// Grid pattern overlay
-.gridPattern {
-  position: absolute;
-  inset: 0;
-  opacity: 0.04;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
-
-// Subtle glow effects
-.glowEffect {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.glowTop {
-  top: -100px;
-  right: -50px;
-  width: 300px;
-  height: 300px;
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.glowBottom {
-  bottom: -100px;
-  left: -50px;
-  width: 350px;
-  height: 350px;
-  background: var(--mantine-color-secondary-3);
-  opacity: 0.2;
-}
-
-.overlay {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem;
-  z-index: 1;
-
-  @include mixins.respond-below(lg) {
-    padding: 2rem;
-  }
-}
-
-.content {
-  max-width: 400px;
-  width: 100%;
-
-  @include mixins.respond-below(lg) {
-    max-width: 340px;
-  }
-}
-
-// Badge at top
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.5rem 1rem;
-  border-radius: 9999px;
-  color: white;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  backdrop-filter: blur(8px);
-
-  @include mixins.respond-below(lg) {
-    margin-bottom: 1.5rem;
-    font-size: 0.75rem;
-    padding: 0.375rem 0.875rem;
-  }
-
-  svg {
-    width: 14px;
-    height: 14px;
-    opacity: 0.9;
-  }
-}
-
-// Feature grid
-.featureGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-
-  @include mixins.respond-below(lg) {
-    gap: 0.5rem;
-  }
-}
-
-.feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  cursor: default;
-
-  @include mixins.respond-below(lg) {
-    padding: 0.875rem 1rem;
-    gap: 0.75rem;
-  }
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateX(4px);
-  }
-}
-
-.featureIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  min-width: 36px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.12);
-  color: white;
-
-  @include mixins.respond-below(lg) {
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-  }
-
-  svg {
-    width: 18px;
-    height: 18px;
-
-    @include mixins.respond-below(lg) {
-      width: 16px;
-      height: 16px;
-    }
-  }
-}
-
-.featureText {
-  flex: 1;
-  min-width: 0;
-
-  h3 {
-    margin: 0 0 0.25rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: white;
-    letter-spacing: -0.01em;
-
-    @include mixins.respond-below(lg) {
-      font-size: 0.875rem;
-    }
-  }
-
-  p {
-    margin: 0;
-    font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-
-    @include mixins.respond-below(lg) {
-      font-size: 0.75rem;
-    }
+    margin: 0.75rem auto 0;
   }
 }

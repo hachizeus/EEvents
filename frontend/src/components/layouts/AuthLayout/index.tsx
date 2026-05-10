@@ -17,7 +17,6 @@ import {
 } from '@tabler/icons-react';
 import {useCallback, useMemo, useRef} from "react";
 import {getConfig} from "../../../utilites/config.ts";
-import {isHiEvents} from "../../../utilites/helpers.ts";
 import {showInfo} from "../../../utilites/notifications.tsx";
 
 const allFeatures = [
@@ -34,7 +33,7 @@ const allFeatures = [
     {
         icon: IconCreditCard,
         title: t`Instant Payouts`,
-        description: t`Get paid immediately via Stripe Connect`
+        description: t`Get paid immediately via Paystack`
     },
     {
         icon: IconChartBar,
@@ -110,6 +109,10 @@ const AuthLayout = () => {
     const me = useGetMe();
     const clickCountRef = useRef(0);
     const clickTimerRef = useRef<ReturnType<typeof setTimeout>>();
+    const selectedFeatures = useMemo(() => {
+        const shuffled = [...allFeatures].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, 4);
+    }, []);
 
     const handleLogoClick = useCallback(() => {
         clickCountRef.current += 1;
@@ -118,7 +121,7 @@ const AuthLayout = () => {
 
         if (clickCountRef.current >= 5) {
             clickCountRef.current = 0;
-            showInfo(`HiEvents v${__APP_VERSION__}`);
+            showInfo(`E Events v${__APP_VERSION__}`);
         }
     }, []);
 
@@ -129,38 +132,62 @@ const AuthLayout = () => {
     return (
         <div className={classes.authLayout}>
             <div className={classes.splitLayout}>
+                {/* Left: Dark brand panel */}
                 <div className={classes.leftPanel}>
+                    <div className={classes.overlay}>
+                        <div className={classes.brandSection}>
+                            <div className={classes.brandLogo}>
+                                <img
+                                    src={getConfig("VITE_APP_LOGO_DARK", "/logos/e-events-stacked-light.svg")}
+                                    alt={getConfig("VITE_APP_NAME", "E.Events") as string}
+                                />
+                            </div>
+                            <h2 className={classes.brandTagline}>
+                                Sell tickets.<br/>
+                                <span>Grow your events.</span>
+                            </h2>
+                            <p className={classes.brandSubtext}>
+                                {t`The all-in-one platform for event creators — from small meetups to large conferences.`}
+                            </p>
+                        </div>
+
+                        <div className={classes.featureGrid}>
+                            {selectedFeatures.map((feature, index) => {
+                                const Icon = feature.icon;
+                                return (
+                                    <div key={index} className={classes.feature}>
+                                        <div className={classes.featureIcon}>
+                                            <Icon size={16} />
+                                        </div>
+                                        <div className={classes.featureText}>
+                                            <h3>{feature.title}</h3>
+                                            <p>{feature.description}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Right: Form area */}
+                <div className={classes.rightPanel}>
                     <main className={classes.container}>
                         <div className={classes.logo} onClick={handleLogoClick} style={{cursor: 'pointer'}}>
                             <img
-                                src={getConfig("VITE_APP_LOGO_DARK", "/logos/hi-events-stacked-light.svg")}
-                                alt={t`${getConfig("VITE_APP_NAME", "Hi.Events")} logo`}
+                                src={getConfig("VITE_APP_LOGO_DARK", "/logos/e-events-stacked-light.svg")}
+                                alt={t`${getConfig("VITE_APP_NAME", "E.Events")} logo`}
                             />
                         </div>
                         <div className={classes.wrapper}>
                             <Outlet />
-                            {/*
-                             * (c) Hi.Events Ltd 2025
-                             *
-                             * PLEASE NOTE:
-                             *
-                             * Hi.Events is licensed under the GNU Affero General Public License (AGPL) version 3.
-                             *
-                             * You can find the full license text at: https://github.com/HiEventsDev/hi.events/blob/main/LICENCE
-                             *
-                             * In accordance with Section 7(b) of the AGPL, we ask that you retain the "Powered by Hi.Events" notice.
-                             *
-                             * If you wish to remove this notice, a commercial license is available at: https://hi.events/licensing
-                             */}
-                            {!isHiEvents() && <PoweredByFooter />}
+                            <PoweredByFooter />
                             <div className={classes.languageSwitcher}>
                                 <LanguageSwitcher />
                             </div>
                         </div>
                     </main>
                 </div>
-
-                <FeaturePanel />
             </div>
         </div>
     );

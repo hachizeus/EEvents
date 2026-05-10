@@ -2,15 +2,15 @@
 
 ## Reporting a Vulnerability
 
-At Hi.Events, we take the security of our software seriously. If you discover a security vulnerability, we would appreciate your help in disclosing it to us in a responsible manner. We ask that you do not publicly disclose the vulnerability until we have had a chance to address it.
+At E Events, we take the security of our software seriously. If you discover a security vulnerability, we would appreciate your help in disclosing it to us in a responsible manner. We ask that you do not publicly disclose the vulnerability until we have had a chance to address it.
 
 ### Urgent Issues
 
-For urgent security issues, please email us directly at [security@hi.events](mailto:security@hi.events). This will ensure that your report is promptly received and reviewed by our security team.
+For urgent security issues, please email us directly at [security@elitjohnsdigital.com](mailto:security@elitjohnsdigital.com). This will ensure that your report is promptly received and reviewed by our security team.
 
 ### Non-Urgent Issues
 
-For non-urgent security issues, please create an issue in our GitHub repository using the following link: [https://github.com/HiEventsDev/hi.events/issues](https://github.com/HiEventsDev/hi.events/issues). Please ensure that the issue is labeled appropriately to indicate that it is a security concern.
+For non-urgent security issues, please create an issue in our GitHub repository using the following link: [https://github.com/EEventsDev/e.events/issues](https://github.com/EEventsDev/e.events/issues). Please ensure that the issue is labeled appropriately to indicate that it is a security concern.
 
 ## Security Update Policy
 
@@ -36,11 +36,11 @@ We believe in responsible disclosure and are committed to working with the secur
 
 ## Thank You
 
-Thank you for helping us keep Hi.Events secure!
+Thank you for helping us keep E Events secure!
 
-For any questions or clarifications, feel free to reach out to us at [security@hi.events](mailto:security@hi.events).
+For any questions or clarifications, feel free to reach out to us at [security@e.events](mailto:security@e.events).
 
-##  Hi.Events Public Key
+##  E Events Public Key
 
 If you need to send us encrypted information, you can use our public key below:
 
@@ -101,4 +101,4 @@ URSFSI5iNr0JSvCYNmzsDB6zSSlR/UvgRFM1SRUoG3sygmV32Onh0EzU
 
 ---
 
-Hi.Events Team
+E Events Team

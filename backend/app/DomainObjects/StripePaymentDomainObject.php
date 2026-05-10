@@ -19,13 +19,8 @@ class StripePaymentDomainObject extends Generated\StripePaymentDomainObjectAbstr
         return $this;
     }
 
-    /**
-     * Get the Stripe platform enum for this payment
-     */
     public function getStripePlatformEnum(): ?StripePlatform
     {
-        return $this->getStripePlatform() 
-            ? StripePlatform::fromString($this->getStripePlatform())
-            : null;
+        return StripePlatform::fromString($this->getStripePlatform());
     }
 }

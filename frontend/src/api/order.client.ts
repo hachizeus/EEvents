@@ -5,7 +5,6 @@ import {
     IdParam,
     Order,
     QueryFilters,
-    StripePaymentIntent
 } from "../types.ts";
 import {api} from "./client.ts";
 import {queryParamsHelper} from "../utilites/queryParamsHelper.ts";
@@ -140,17 +139,18 @@ export const orderClientPublic = {
         return response.data;
     },
 
-    findOrderStripePaymentIntent: async (eventId: number, orderShortId: string) => {
-        return await publicApi.get<StripePaymentIntent>(`events/${eventId}/order/${orderShortId}/stripe/payment_intent`);
+    initializePaystackTransaction: async (eventId: number, orderShortId: string) => {
+        const response = await publicApi.post<{
+            reference: string,
+            access_code: string,
+            authorization_url: string,
+            public_key: string,
+        }>(`events/${eventId}/order/${orderShortId}/paystack/initialize`);
+        return response.data;
     },
 
-    createStripePaymentIntent: async (eventId: number, orderShortId: string) => {
-        const response = await publicApi.post<{
-            client_secret: string,
-            account_id?: string,
-            public_key: string,
-            stripe_platform?: string,
-        }>(`events/${eventId}/order/${orderShortId}/stripe/payment_intent`);
+    verifyPaystackTransaction: async (eventId: number, orderShortId: string) => {
+        const response = await publicApi.get<{ status: string }>(`events/${eventId}/order/${orderShortId}/paystack/verify`);
         return response.data;
     },
 

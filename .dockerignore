@@ -14,3 +14,10 @@ fly.toml
 
 frontend/.env*
 backend/.env*
+
+# Exclude node_modules - Docker will install them fresh
+frontend/node_modules
+node_modules
+
+# Exclude git history
+.git

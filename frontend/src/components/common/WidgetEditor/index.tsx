@@ -69,7 +69,7 @@ export const WidgetEditor = () => {
         setReactComponentCode(`
 import React, { useEffect } from 'react';
 
-const HiEventsWidget = ({
+const EEventsWidget = ({
   eventId,
   primaryColor = "${form.values.primary_color}",
   primaryTextColor = "${form.values.primary_text_color}",
@@ -107,18 +107,18 @@ const HiEventsWidget = ({
   );
 };
 
-export default HiEventsWidget;
+export default EEventsWidget;
         `);
 
         setReactUsageCode(`
 import React from 'react';
-import HiEventsWidget from './HiEventsWidget';
+import EEventsWidget from './EEventsWidget';
 
 const App = () => {
   return (
     <div>
       <h1>My Website</h1>
-      <HiEventsWidget 
+      <EEventsWidget 
         eventId="${eventId}"
         primaryColor="${form.values.primary_color}"
         primaryTextColor="${form.values.primary_text_color}"

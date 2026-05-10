@@ -62,23 +62,20 @@ class PlatformFeesReport
 
         $data = collect($results)->map(function ($row) {
             $currencyCode = strtoupper($row->currency ?? 'USD');
-            $divisor = Currency::isZeroDecimalCurrency($currencyCode) ? 1 : 100;
-            $gross = $row->application_fee_gross ?? 0;
-            $net = $row->application_fee_net ?? $gross;
 
             return (object) [
-                'event_name' => $row->event_name,
-                'event_id' => $row->event_id,
-                'payment_date' => $row->payment_date,
-                'order_reference' => $row->order_reference,
-                'order_id' => $row->order_id,
-                'amount_paid' => Currency::round(($row->amount_received ?? 0) / $divisor),
-                'fee_amount' => Currency::round($net / $divisor),
-                'vat_rate' => $row->application_fee_vat_rate,
-                'vat_amount' => Currency::round(($row->application_fee_vat ?? 0) / $divisor),
-                'total_fee' => Currency::round($gross / $divisor),
-                'currency' => $currencyCode,
-                'payment_intent_id' => $row->payment_intent_id,
+                'event_name'       => $row->event_name,
+                'event_id'         => $row->event_id,
+                'payment_date'     => $row->payment_date,
+                'order_reference'  => $row->order_reference,
+                'order_id'         => $row->order_id,
+                'amount_paid'      => Currency::round($row->amount_paid ?? 0),
+                'fee_amount'       => Currency::round($row->application_fee_amount ?? 0),
+                'vat_rate'         => null,
+                'vat_amount'       => 0,
+                'total_fee'        => Currency::round($row->application_fee_amount ?? 0),
+                'currency'         => $currencyCode,
+                'payment_intent_id' => $row->transaction_id,
             ];
         });
 
@@ -107,24 +104,23 @@ class PlatformFeesReport
         $endDateStr = $endDate->toDateString();
         $completedStatus = OrderStatus::COMPLETED->name;
         $refundedStatus = OrderRefundStatus::REFUNDED->name;
-        $currencyFilter = $this->buildCurrencyFilter('sp.currency', $currency);
+        $currencyFilter = $this->buildCurrencyFilter('oppf.currency', $currency);
         $eventFilter = $this->buildEventFilter($eventId);
 
         return <<<SQL
             SELECT COUNT(*) as count
-            FROM stripe_payments sp
-            INNER JOIN orders o ON sp.order_id = o.id
+            FROM order_payment_platform_fees oppf
+            INNER JOIN orders o ON oppf.order_id = o.id
             INNER JOIN events e ON o.event_id = e.id
             WHERE e.organizer_id = :organizer_id
                 AND e.deleted_at IS NULL
                 AND o.deleted_at IS NULL
-                AND sp.deleted_at IS NULL
+                AND oppf.deleted_at IS NULL
                 AND o.status = '$completedStatus'
                 AND (o.refund_status IS NULL OR o.refund_status != '$refundedStatus')
-                AND sp.amount_received IS NOT NULL
-                AND sp.application_fee_gross > 0
-                AND sp.created_at >= '$startDateStr 00:00:00'
-                AND sp.created_at <= '$endDateStr 23:59:59'
+                AND oppf.application_fee_amount > 0
+                AND oppf.created_at >= '$startDateStr 00:00:00'
+                AND oppf.created_at <= '$endDateStr 23:59:59'
                 $currencyFilter
                 $eventFilter
 SQL;
@@ -136,7 +132,7 @@ SQL;
         $endDateStr = $endDate->toDateString();
         $completedStatus = OrderStatus::COMPLETED->name;
         $refundedStatus = OrderRefundStatus::REFUNDED->name;
-        $currencyFilter = $this->buildCurrencyFilter('sp.currency', $currency);
+        $currencyFilter = $this->buildCurrencyFilter('oppf.currency', $currency);
         $eventFilter = $this->buildEventFilter($eventId);
         $offset = ($page - 1) * $perPage;
 
@@ -144,32 +140,28 @@ SQL;
             SELECT
                 e.title AS event_name,
                 e.id AS event_id,
-                sp.created_at AS payment_date,
+                oppf.created_at AS payment_date,
                 o.short_id AS order_reference,
                 o.id AS order_id,
-                sp.amount_received,
-                sp.application_fee_net,
-                sp.application_fee_vat_rate,
-                sp.application_fee_vat,
-                sp.application_fee_gross,
-                sp.currency,
-                sp.payment_intent_id
-            FROM stripe_payments sp
-            INNER JOIN orders o ON sp.order_id = o.id
+                o.total_gross AS amount_paid,
+                oppf.application_fee_amount,
+                oppf.currency,
+                oppf.transaction_id
+            FROM order_payment_platform_fees oppf
+            INNER JOIN orders o ON oppf.order_id = o.id
             INNER JOIN events e ON o.event_id = e.id
             WHERE e.organizer_id = :organizer_id
                 AND e.deleted_at IS NULL
                 AND o.deleted_at IS NULL
-                AND sp.deleted_at IS NULL
+                AND oppf.deleted_at IS NULL
                 AND o.status = '$completedStatus'
                 AND (o.refund_status IS NULL OR o.refund_status != '$refundedStatus')
-                AND sp.amount_received IS NOT NULL
-                AND sp.application_fee_gross > 0
-                AND sp.created_at >= '$startDateStr 00:00:00'
-                AND sp.created_at <= '$endDateStr 23:59:59'
+                AND oppf.application_fee_amount > 0
+                AND oppf.created_at >= '$startDateStr 00:00:00'
+                AND oppf.created_at <= '$endDateStr 23:59:59'
                 $currencyFilter
                 $eventFilter
-            ORDER BY sp.created_at DESC
+            ORDER BY oppf.created_at DESC
             LIMIT $perPage OFFSET $offset
 SQL;
     }

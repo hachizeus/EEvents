@@ -15,9 +15,9 @@ databases:
     production: true
     version: "12"
 domains:
-  - domain: demo.hi.events
+  - domain: demo.e-events.com
     type: PRIMARY
-  - domain: app.hi.events
+  - domain: app.e-events.com
     type: ALIAS
 envs:
   - key: APP_KEY
@@ -27,9 +27,12 @@ envs:
   - key: APP_SAAS_MODE_ENABLED
     scope: RUN_AND_BUILD_TIME
     value: "true"
-  - key: APP_SAAS_STRIPE_APPLICATION_FEE_PERCENT
+  - key: APP_DEBUG
     scope: RUN_AND_BUILD_TIME
-    value: "1.5"
+    value: "false"
+  - key: APP_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: production
   - key: APP_FRONTEND_URL
     scope: RUN_AND_BUILD_TIME
     value: ${APP_URL}
@@ -63,11 +66,15 @@ envs:
   - key: AWS_PRIVATE_BUCKET
     scope: RUN_AND_BUILD_TIME
     value: hievents-private
-  - key: STRIPE_PUBLIC_KEY
+  - key: PAYSTACK_SECRET_KEY
     scope: RUN_AND_BUILD_TIME
     type: SECRET
     value: EV[1:XXX:XXX]
-  - key: STRIPE_SECRET_KEY
+  - key: PAYSTACK_PUBLIC_KEY
+    scope: RUN_AND_BUILD_TIME
+    type: SECRET
+    value: EV[1:XXX:XXX]
+  - key: PAYSTACK_WEBHOOK_SECRET
     scope: RUN_AND_BUILD_TIME
     type: SECRET
     value: EV[1:XXX:XXX]
@@ -119,22 +126,20 @@ envs:
   - key: DATABASE_URL
     scope: RUN_AND_BUILD_TIME
     value: ${hi-events-postgres.DATABASE_URL}
-  - key: STRIPE_WEBHOOK_SECRET
+  - key: MAIL_USERNAME
     scope: RUN_AND_BUILD_TIME
     type: SECRET
     value: EV[1:XXX:XXX]
-  - key: MAIL_USERNAME
-    scope: RUN_AND_BUILD_TIME
-    value: 758230001@smtp-brevo.com
   - key: MAIL_PASSWORD
     scope: RUN_AND_BUILD_TIME
-    value: XXX
+    type: SECRET
+    value: EV[1:XXX:XXX]
   - key: MAIL_FROM_ADDRESS
     scope: RUN_AND_BUILD_TIME
-    value: hello@hi.events
+    value: hello@e.events
   - key: MAIL_FROM_NAME
     scope: RUN_AND_BUILD_TIME
-    value: Hi.Events
+    value: E Events
 features:
   - buildpack-stack=ubuntu-22
 ingress:
@@ -154,7 +159,7 @@ jobs:
     github:
       branch: main
       deploy_on_push: true
-      repo: HiEventsDev/Hi.Events
+      repo: EEventsDev/E.Events
     instance_count: 2
     instance_size_slug: professional-xs
     kind: PRE_DEPLOY
@@ -181,7 +186,7 @@ services:
     github:
       branch: main
       deploy_on_push: true
-      repo: HiEventsDev/Hi.Events
+      repo: EEventsDev/E.Events
     http_port: 8080
     instance_count: 1
     instance_size_slug: professional-xs
@@ -194,9 +199,10 @@ services:
   - build_command: yarn build
     environment_slug: node-js
     envs:
-      - key: VITE_STRIPE_PUBLISHABLE_KEY
+      - key: VITE_PAYSTACK_PUBLIC_KEY
         scope: RUN_AND_BUILD_TIME
-        value: pk_test_XXX
+        type: SECRET
+        value: EV[1:XXX:XXX]
       - key: VITE_API_URL_SERVER
         scope: RUN_AND_BUILD_TIME
         value: ${APP_URL}/api
@@ -209,7 +215,7 @@ services:
     github:
       branch: main
       deploy_on_push: true
-      repo: HiEventsDev/Hi.Events
+      repo: EEventsDev/E.Events
     http_port: 5678
     instance_count: 1
     instance_size_slug: professional-xs
@@ -221,7 +227,7 @@ workers:
     github:
       branch: main
       deploy_on_push: true
-      repo: HiEventsDev/Hi.Events
+      repo: EEventsDev/E.Events
     instance_count: 1
     instance_size_slug: professional-xs
     log_destinations:

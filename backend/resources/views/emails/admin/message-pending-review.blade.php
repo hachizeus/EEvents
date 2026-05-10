@@ -22,7 +22,7 @@
 @foreach($failures as $failure)
 @php
     $failureLabels = [
-        'stripe_not_connected' => __('Stripe payment account not connected'),
+        'stripe_not_connected' => __('Paystack payment account not connected'),
         'no_paid_orders' => __('No completed paid orders on this account'),
         'event_too_new' => __('Event was created less than 24 hours ago'),
     ];

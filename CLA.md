@@ -1,6 +1,6 @@
-# Hi.Events Contributor License Agreement
+# E Events Contributor License Agreement
 
-Thank you for your interest in contributing to Hi.Events!
+Thank you for your interest in contributing to E Events!
 
 Like many open source projects, we ask you to please sign this Contributor License Agreement (CLA) to confirm that you have the rights to your contributions and grant us the necessary permissions to use them. This helps us manage the project effectively and offer both open-source and commercial licenses.
 
@@ -16,8 +16,8 @@ You confirm that:
 2. Your contributions do not infringe any third-party copyrights, patents, trademarks, or other rights.
 3. You will notify Hi.Event Ltd. of any facts or circumstances of which you become aware that would make your representations in this Agreement inaccurate in any respect.
 
-For more details on how to contribute, please read our [Contribution Guidelines](https://github.com/HiEventsDev/hi.events/blob/develop/CONTRIBUTING.md).
+For more details on how to contribute, please read our [Contribution Guidelines](https://github.com/EEventsDev/e.events/blob/develop/CONTRIBUTING.md).
 
-Before contributing to Hi.Events, you must accept and agree to the terms of this Agreement.
+Before contributing to E Events, you must accept and agree to the terms of this Agreement.
 
 Thank you for your contributions and support!

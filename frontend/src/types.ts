@@ -19,16 +19,11 @@ export type ConfigKeys =
     | 'VITE_TOS_URL'
     | 'VITE_PRIVACY_URL'
     | 'VITE_PLATFORM_SUPPORT_EMAIL'
-    | 'VITE_STRIPE_PUBLISHABLE_KEY'
+    | 'VITE_PAYSTACK_PUBLIC_KEY'
     | 'VITE_I_HAVE_PURCHASED_A_LICENCE'
     | 'VITE_DEFAULT_IMAGE_URL'
     | 'VITE_COOKIE_CONSENT_ENABLED'
     | 'VITE_COOKIE_CONSENT_TEXT';
-
-export enum StripePlatform {
-    Canada = 'ca',
-    Ireland = 'ie',
-}
 
 export type IdParam = string | undefined | number;
 
@@ -116,14 +111,10 @@ export interface Account {
     timezone?: string;
     currency_code?: string;
     password?: string;
-    stripe_connect_setup_complete?: boolean;
-    stripe_account_id?: string;
     is_account_email_confirmed?: boolean;
     is_saas_mode_enabled?: boolean;
     configuration?: AccountConfiguration;
     requires_manual_verification?: boolean;
-    stripe_platform: string;
-    stripe_hi_events_primary_platform?: string;
 }
 
 export interface AccountConfiguration {
@@ -135,33 +126,6 @@ export interface AccountConfiguration {
         currency: string;
     },
     is_system_default: boolean;
-}
-
-export interface StripeConnectDetails {
-    account: Account;
-    stripe_account_id: string;
-    is_connect_setup_complete: boolean;
-    connect_url: string | null;
-}
-
-export interface StripeConnectAccount {
-    stripe_account_id: string;
-    connect_url: string | null;
-    is_setup_complete: boolean;
-    platform: string | null;
-    account_type: string | null;
-    is_primary: boolean;
-    country?: string;
-}
-
-export interface StripeConnectAccountsResponse {
-    account: {
-        id: IdParam;
-        stripe_platform: string | null;
-    };
-    stripe_connect_accounts: StripeConnectAccount[];
-    primary_stripe_account_id: string | null;
-    has_completed_setup: boolean;
 }
 
 export interface LoginData {
@@ -184,7 +148,7 @@ export interface Image {
 
 export type ImageType = 'EVENT_COVER' | 'EDITOR_IMAGE' | 'ORGANIZER_LOGO' | 'ORGANIZER_COVER' | 'ORGANIZER_IMAGE' | 'TICKET_LOGO';
 
-export type PaymentProvider = 'STRIPE' | 'OFFLINE';
+export type PaymentProvider = 'PAYSTACK' | 'OFFLINE';
 
 export type AttendeeDetailsCollectionMethod = 'PER_TICKET' | 'PER_ORDER';
 
@@ -684,10 +648,23 @@ export interface OrderItem {
     quantity: number;
 }
 
-export interface StripePaymentIntent {
+export interface PaystackTransactionData {
+    reference: string;
+    access_code: string;
+    authorization_url: string;
+    public_key: string;
+}
+
+export interface PaystackTransactionStatus {
     status: string;
-    paymentIntentId: string;
-    amount: number;
+}
+
+export interface PaystackAccountsResponse {
+    account: {
+        id: IdParam;
+    };
+    is_configured: boolean;
+    public_key: string | null;
 }
 
 export interface Question {

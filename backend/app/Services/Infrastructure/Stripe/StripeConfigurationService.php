@@ -4,49 +4,57 @@ namespace HiEvents\Services\Infrastructure\Stripe;
 
 use HiEvents\DomainObjects\Enums\StripePlatform;
 
+/**
+ * @deprecated Stripe is no longer the primary payment provider. Use PaystackConfigurationService instead.
+ * This class is kept for backward compatibility with existing Stripe payments/refunds.
+ */
 class StripeConfigurationService
 {
     public function getSecretKey(?StripePlatform $platform = null): ?string
     {
-        return match ($platform) {
-            StripePlatform::CANADA => config('services.stripe.ca_secret_key', config('services.stripe.secret_key')),
-            StripePlatform::IRELAND => config('services.stripe.ie_secret_key', config('services.stripe.secret_key')),
-            default => config('services.stripe.secret_key'),
-        };
+        if ($platform === StripePlatform::CANADA) {
+            return config('services.stripe_ca.secret_key');
+        }
+        if ($platform === StripePlatform::IRELAND) {
+            return config('services.stripe_ie.secret_key');
+        }
+        return config('services.stripe.secret_key');
     }
 
     public function getPublicKey(?StripePlatform $platform = null): ?string
     {
-        return match ($platform) {
-            StripePlatform::CANADA => config('services.stripe.ca_public_key', config('services.stripe.public_key')),
-            StripePlatform::IRELAND => config('services.stripe.ie_public_key', config('services.stripe.public_key')),
-            default => config('services.stripe.public_key'),
-        };
+        if ($platform === StripePlatform::CANADA) {
+            return config('services.stripe_ca.public_key');
+        }
+        if ($platform === StripePlatform::IRELAND) {
+            return config('services.stripe_ie.public_key');
+        }
+        return config('services.stripe.public_key');
     }
 
-    public function getPrimaryPlatform(): ?StripePlatform
+    public function getWebhookSecret(?StripePlatform $platform = null): ?string
     {
-        $platformString = config('services.stripe.primary_platform');
-        return StripePlatform::fromString($platformString);
+        if ($platform === StripePlatform::CANADA) {
+            return config('services.stripe_ca.webhook_secret');
+        }
+        if ($platform === StripePlatform::IRELAND) {
+            return config('services.stripe_ie.webhook_secret');
+        }
+        return config('services.stripe.webhook_secret');
     }
 
     public function getAllWebhookSecrets(): array
     {
-        $secrets =  array_filter([
+        return array_filter([
             'default' => config('services.stripe.webhook_secret'),
-            StripePlatform::CANADA->value => config('services.stripe.ca_webhook_secret'),
-            StripePlatform::IRELAND->value => config('services.stripe.ie_webhook_secret'),
+            'ca' => config('services.stripe_ca.webhook_secret'),
+            'ie' => config('services.stripe_ie.webhook_secret'),
         ]);
+    }
 
-        // order by primary platform first
-        $primary = $this->getPrimaryPlatform()?->value;
-
-        if ($primary && isset($secrets[$primary])) {
-            $primarySecret = [$primary => $secrets[$primary]];
-            unset($secrets[$primary]);
-            return $primarySecret + $secrets;
-        }
-
-        return $secrets;
+    public function getPrimaryPlatform(): ?StripePlatform
+    {
+        $primary = config('services.stripe.primary_platform');
+        return $primary ? StripePlatform::tryFrom($primary) : null;
     }
 }

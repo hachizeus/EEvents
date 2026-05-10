@@ -19,9 +19,7 @@ import {useUpdateEventStatus} from "../../../../mutations/useUpdateEventStatus.t
 import {confirmationDialog} from "../../../../utilites/confirmationDialog.tsx";
 import {showError, showSuccess} from "../../../../utilites/notifications.tsx";
 import {useEffect, useRef, useState} from 'react';
-import {EventLifecycleStatus, EventStatus, StripePlatform} from "../../../../types.ts";
-import {isHiEvents} from "../../../../utilites/helpers.ts";
-import {StripeConnectButton} from "../../../common/StripeConnectButton";
+import {EventLifecycleStatus, EventStatus} from "../../../../types.ts";
 import {trackEvent, AnalyticsEvents} from "../../../../utilites/analytics.ts";
 
 export const DashBoardSkeleton = () => {
@@ -55,10 +53,6 @@ export const EventDashboard = () => {
 
     const [isChecklistVisible, setIsChecklistVisible] = useState(true);
     const [isMounted, setIsMounted] = useState(false);
-
-    const showStripeUpgradeNotice = account?.stripe_platform === StripePlatform.Canada.valueOf()
-        && account?.stripe_connect_setup_complete
-        && isHiEvents();
 
     useEffect(() => {
         setIsMounted(true);
@@ -104,7 +98,6 @@ export const EventDashboard = () => {
         : '';
 
     const shouldShowChecklist = (isChecklistVisible && event && accountIsFetched && account?.is_saas_mode_enabled) && (
-        !account?.stripe_connect_setup_complete ||
         event?.status !== 'LIVE'
     );
 
@@ -125,30 +118,6 @@ export const EventDashboard = () => {
             </PageTitle>
 
             {!event && <DashBoardSkeleton/>}
-
-            {showStripeUpgradeNotice && (
-                <Card className={classes.stripeUpgradeCard}>
-                    <div className={classes.stripeUpgradeContent}>
-                        <div className={classes.stripeIcon}>
-                            <IconAlertCircle/>
-                        </div>
-                        <div className={classes.stripeTextContainer}>
-                            <div className={classes.stripeText}>
-                                <h3>{t`Important: Stripe reconnection required`}</h3>
-                                <p>{t`We've relocated our headquarters to Ireland. As a result, we need you to reconnect your Stripe account. This quick process takes just a few minutes. Your sales and existing data remain completely unaffected.`}</p>
-                                <p className={classes.stripeApology}>{t`Sorry for the inconvenience.`}</p>
-                            </div>
-                            <StripeConnectButton
-                                className={classes.stripeButton}
-                                buttonText={t`Reconnect Stripe →`}
-                                variant="filled"
-                                size="md"
-                                platform="ie"
-                            />
-                        </div>
-                    </div>
-                </Card>
-            )}
 
             {event && (<>
                 <StatBoxes/>
@@ -221,34 +190,19 @@ export const EventDashboard = () => {
                                             <div className={classes.checkboxContainer}>
                                                 <div
                                                     className={classes.checkbox}
-                                                    style={{backgroundColor: account?.stripe_connect_setup_complete ? 'var(--hi-primary)' : 'transparent'}}
+                                                    style={{backgroundColor: 'var(--hi-primary)'}}
                                                 >
-                                                    {account?.stripe_connect_setup_complete && (
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M13.3333 4L6.00001 11.3333L2.66667 8"
-                                                                  stroke="white" strokeWidth="2" strokeLinecap="round"
-                                                                  strokeLinejoin="round"/>
-                                                        </svg>
-                                                    )}
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13.3333 4L6.00001 11.3333L2.66667 8"
+                                                              stroke="white" strokeWidth="2" strokeLinecap="round"
+                                                              strokeLinejoin="round"/>
+                                                    </svg>
                                                 </div>
                                             </div>
-                                            {t`Connect payment processing`}
+                                            {t`Payment processing`}
                                         </h3>
-                                        <p>{t`Link your Stripe account to receive funds from ticket sales.`}</p>
-                                        {!account?.stripe_connect_setup_complete && (
-                                            <Button
-                                                onClick={() => {
-                                                    window.location.href = '/account/payment';
-                                                }}
-                                                variant="light"
-                                                size="sm"
-                                                radius="md"
-                                                fullWidth
-                                            >
-                                                {account?.stripe_account_id ? t`Complete Stripe Setup` : t`Connect to Stripe`}
-                                            </Button>
-                                        )}
+                                        <p>{t`Paystack is configured to receive funds from ticket sales.`}</p>
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useNavigate, useParams} from "react-router";
 import {useGetEventPublic} from "../../../../queries/useGetEventPublic.ts";
 import {CheckoutContent} from "../../../layouts/Checkout/CheckoutContent";
-import {StripePaymentMethod} from "./PaymentMethods/Stripe";
+import {PaystackPaymentMethod} from "./PaymentMethods/Paystack";
 import {OfflinePaymentMethod} from "./PaymentMethods/Offline";
 import {Event} from "../../../../types.ts";
 import {Button, Group, Text} from "@mantine/core";
@@ -27,23 +27,23 @@ const Payment = () => {
     const {data: order, isFetched: isOrderFetched} = useGetOrderPublic(eventId, orderShortId, ['event']);
     const isLoading = !isOrderFetched;
     const [isPaymentLoading, setIsPaymentLoading] = useState(false);
-    const [activePaymentMethod, setActivePaymentMethod] = useState<'STRIPE' | 'OFFLINE' | null>(null);
+    const [activePaymentMethod, setActivePaymentMethod] = useState<'PAYSTACK' | 'OFFLINE' | null>(null);
     const [submitHandler, setSubmitHandler] = useState<(() => Promise<void>) | null>(null);
     const transitionOrderToOfflinePaymentMutation = useTransitionOrderToOfflinePaymentPublic();
 
-    const isStripeEnabled = event?.settings?.payment_providers?.includes('STRIPE');
+    const isPaystackEnabled = event?.settings?.payment_providers?.includes('PAYSTACK');
     const isOfflineEnabled = event?.settings?.payment_providers?.includes('OFFLINE');
 
     React.useEffect(() => {
         // Automatically set the first available payment method
-        if (isStripeEnabled) {
-            setActivePaymentMethod('STRIPE');
+        if (isPaystackEnabled) {
+            setActivePaymentMethod('PAYSTACK');
         } else if (isOfflineEnabled) {
             setActivePaymentMethod('OFFLINE');
         } else {
             setActivePaymentMethod(null); // No methods available
         }
-    }, [isStripeEnabled, isOfflineEnabled]);
+    }, [isPaystackEnabled, isOfflineEnabled]);
 
     React.useEffect(() => {
         // Scroll to top when payment page loads
@@ -58,7 +58,7 @@ const Payment = () => {
     };
 
     const handleSubmit = async () => {
-        if (activePaymentMethod === 'STRIPE') {
+        if (activePaymentMethod === 'PAYSTACK') {
             handleParentSubmit();
         } else if (activePaymentMethod === 'OFFLINE') {
             setIsPaymentLoading(true);
@@ -80,7 +80,7 @@ const Payment = () => {
         }
     };
 
-    if (!isStripeEnabled && !isOfflineEnabled && isOrderFetched && isEventFetched) {
+    if (!isPaystackEnabled && !isOfflineEnabled && isOrderFetched && isEventFetched) {
         return (
             <CheckoutContent>
                 <Card>
@@ -96,9 +96,9 @@ const Payment = () => {
                 {(event && order) && (
                     <InlineOrderSummary event={event} order={order} defaultExpanded={false}/>
                 )}
-                {isStripeEnabled && (
-                    <div style={{display: activePaymentMethod === 'STRIPE' ? 'block' : 'none'}}>
-                        <StripePaymentMethod enabled={true} setSubmitHandler={setSubmitHandler}/>
+                {isPaystackEnabled && (
+                    <div style={{display: activePaymentMethod === 'PAYSTACK' ? 'block' : 'none'}}>
+                        <PaystackPaymentMethod enabled={true} setSubmitHandler={setSubmitHandler}/>
                     </div>
                 )}
 
@@ -108,7 +108,7 @@ const Payment = () => {
                     </div>
                 )}
 
-                {(isStripeEnabled && isOfflineEnabled) && (
+                {(isPaystackEnabled && isOfflineEnabled) && (
                     <div className={classes.paymentMethodSelector}>
                         <Text size="sm" c="dimmed" className={classes.paymentMethodLabel}>
                             {t`Payment method`}
@@ -116,8 +116,8 @@ const Payment = () => {
                         <div className={classes.paymentMethodTabs}>
                             <button
                                 type="button"
-                                className={`${classes.paymentMethodTab} ${activePaymentMethod === 'STRIPE' ? classes.active : ''}`}
-                                onClick={() => setActivePaymentMethod('STRIPE')}
+                                className={`${classes.paymentMethodTab} ${activePaymentMethod === 'PAYSTACK' ? classes.active : ''}`}
+                                onClick={() => setActivePaymentMethod('PAYSTACK')}
                             >
                                 <IconWallet size={18}/>
                                 <span>{t`Online`}</span>
@@ -152,11 +152,11 @@ const Payment = () => {
                             <Trans>
                                 By continuing, you agree to the{' '}
                                 <a
-                                    href={getConfig('VITE_TOS_URL', 'https://hi.events/terms-of-service') as string}
+                                    href={getConfig('VITE_TOS_URL', 'https://E.Events/terms-of-service') as string}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {getConfig('VITE_APP_NAME', 'Hi.Events')} Terms of Service
+                                    {getConfig('VITE_APP_NAME', 'E.Events')} Terms of Service
                                 </a>
                             </Trans>
                         </p>

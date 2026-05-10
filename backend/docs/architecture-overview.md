@@ -1,8 +1,8 @@
-# Hi.Events Backend Architecture Overview
+# E.Events Backend Architecture Overview
 
 ## Introduction
 
-Hi.Events is an open-source event management and ticketing platform built with Laravel. The backend implements a **Domain-Driven Design (DDD)** architecture with clear separation of concerns, enabling maintainable, testable, and scalable code.
+E.Events is an open-source event management and ticketing platform built with Laravel. The backend implements a **Domain-Driven Design (DDD)** architecture with clear separation of concerns, enabling maintainable, testable, and scalable code.
 
 ## High-Level Architecture
 
@@ -25,7 +25,7 @@ graph TB
 
     subgraph "Infrastructure Layer"
         J[Repositories] --> K[Eloquent Models]
-        L[External Services] --> M[Stripe/Email/etc]
+        L[External Services] --> M[Paystack/Email/etc]
         N[Event Listeners] --> O[Background Jobs]
     end
 
@@ -72,7 +72,7 @@ graph TB
 **Responsibility**: External concerns and technical implementations
 
 - **Repositories** (`app/Repository/`) - Data access abstraction
-- **External Services** (`app/Services/Infrastructure/`) - Stripe, email, etc.
+- **External Services** (`app/Services/Infrastructure/`) - Paystack, email, etc.
 - **Event Listeners** (`app/Listeners/`) - React to domain events
 - **Background Jobs** (`app/Jobs/`) - Asynchronous processing
 - **Database** - Eloquent models and migrations
@@ -204,7 +204,7 @@ OrderStatusChangedEvent::dispatch($order);
 
 ## Multi-Tenancy Architecture
 
-Hi.Events implements account-based multi-tenancy:
+E.Events implements account-based multi-tenancy:
 
 ```
 Account (Tenant)
@@ -228,7 +228,7 @@ Account (Tenant)
 - **Authentication**: JWT (Laravel Passport/Sanctum)
 - **Queue**: Laravel Queues (Redis/Database)
 - **Cache**: Redis
-- **Payment**: Stripe with Stripe Connect
+- **Payment**: Paystack with Stripe Connect
 - **Email**: Laravel Mail
 
 ## Best Practices

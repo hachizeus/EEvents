@@ -6,11 +6,13 @@ use HiEvents\Jobs\Order\Webhook\DispatchAttendeeWebhookJob;
 use HiEvents\Jobs\Order\Webhook\DispatchCheckInWebhookJob;
 use HiEvents\Jobs\Order\Webhook\DispatchOrderWebhookJob;
 use HiEvents\Jobs\Order\Webhook\DispatchProductWebhookJob;
+use HiEvents\Jobs\Order\Webhook\DispatchPaystackWebhookJob;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\AttendeeEvent;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\BaseDomainEvent;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\CheckinEvent;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\OrderEvent;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\ProductEvent;
+use HiEvents\Services\Infrastructure\DomainEvents\Events\PaystackEvent;
 use Illuminate\Config\Repository;
 
 class WebhookEventListener
@@ -47,6 +49,12 @@ class WebhookEventListener
             case CheckinEvent::class:
                 DispatchCheckInWebhookJob::dispatch(
                     attendeeCheckInId: $event->attendeeCheckinId,
+                    eventType: $event->type,
+                )->onQueue($queueName);
+                break;
+            case PaystackEvent::class:
+                DispatchPaystackWebhookJob::dispatch(
+                    transactionId: $event->transactionId,
                     eventType: $event->type,
                 )->onQueue($queueName);
                 break;

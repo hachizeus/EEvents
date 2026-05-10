@@ -2,8 +2,8 @@
 
 use HiEvents\Http\Actions\Accounts\CreateAccountAction;
 use HiEvents\Http\Actions\Accounts\GetAccountAction;
-use HiEvents\Http\Actions\Accounts\Stripe\CreateStripeConnectAccountAction;
-use HiEvents\Http\Actions\Accounts\Stripe\GetStripeConnectAccountsAction;
+use HiEvents\Http\Actions\Accounts\Paystack\GetAccountPaystackSettingAction;
+use HiEvents\Http\Actions\Accounts\Paystack\UpsertAccountPaystackSettingAction;
 use HiEvents\Http\Actions\Accounts\UpdateAccountAction;
 use HiEvents\Http\Actions\Accounts\Vat\GetAccountVatSettingAction;
 use HiEvents\Http\Actions\Accounts\Vat\UpsertAccountVatSettingAction;
@@ -46,7 +46,9 @@ use HiEvents\Http\Actions\CheckInLists\Public\GetCheckInListAttendeesPublicActio
 use HiEvents\Http\Actions\CheckInLists\Public\GetCheckInListPublicAction;
 use HiEvents\Http\Actions\CheckInLists\UpdateCheckInListAction;
 use HiEvents\Http\Actions\Common\GetColorThemesAction;
-use HiEvents\Http\Actions\Common\Webhooks\StripeIncomingWebhookAction;
+use HiEvents\Http\Actions\Common\Webhooks\PaystackIncomingWebhookAction;
+use HiEvents\Http\Actions\Orders\Payment\Paystack\InitializePaystackTransactionActionPublic;
+use HiEvents\Http\Actions\Orders\Payment\Paystack\VerifyPaystackTransactionActionPublic;
 use HiEvents\Http\Actions\Events\CreateEventAction;
 use HiEvents\Http\Actions\Events\DuplicateEventAction;
 use HiEvents\Http\Actions\Events\GetEventAction;
@@ -92,8 +94,6 @@ use HiEvents\Http\Actions\Orders\GetOrdersAction;
 use HiEvents\Http\Actions\Orders\MarkOrderAsPaidAction;
 use HiEvents\Http\Actions\Orders\MessageOrderAction;
 use HiEvents\Http\Actions\Orders\Payment\RefundOrderAction;
-use HiEvents\Http\Actions\Orders\Payment\Stripe\CreatePaymentIntentActionPublic;
-use HiEvents\Http\Actions\Orders\Payment\Stripe\GetPaymentIntentActionPublic;
 use HiEvents\Http\Actions\Orders\Public\AbandonOrderActionPublic;
 use HiEvents\Http\Actions\Orders\Public\CompleteOrderActionPublic;
 use HiEvents\Http\Actions\Orders\Public\CreateOrderActionPublic;
@@ -265,8 +265,9 @@ $router->middleware(['auth:api'])->group(
         // Accounts
         $router->get('/accounts/{account_id?}', GetAccountAction::class);
         $router->put('/accounts/{account_id?}', UpdateAccountAction::class);
-        $router->get('/accounts/{account_id}/stripe/connect_accounts', GetStripeConnectAccountsAction::class);
-        $router->post('/accounts/{account_id}/stripe/connect', CreateStripeConnectAccountAction::class);
+        // Paystack settings
+        $router->get('/accounts/{account_id}/paystack/settings', GetAccountPaystackSettingAction::class);
+        $router->post('/accounts/{account_id}/paystack/settings', UpsertAccountPaystackSettingAction::class);
 
         // VAT Settings
         $router->get('/accounts/{account_id}/vat-settings', GetAccountVatSettingAction::class);
@@ -523,15 +524,15 @@ $router->prefix('/public')->group(
         // Promo codes
         $router->get('/events/{event_id}/promo-codes/{promo_code}', GetPromoCodePublic::class);
 
-        // Stripe payment gateway
-        $router->post('/events/{event_id}/order/{order_short_id}/stripe/payment_intent', CreatePaymentIntentActionPublic::class);
-        $router->get('/events/{event_id}/order/{order_short_id}/stripe/payment_intent', GetPaymentIntentActionPublic::class);
+        // Paystack payment gateway
+        $router->post('/events/{event_id}/order/{order_short_id}/paystack/initialize', InitializePaystackTransactionActionPublic::class);
+        $router->get('/events/{event_id}/order/{order_short_id}/paystack/verify', VerifyPaystackTransactionActionPublic::class);
 
         // Questions
         $router->get('/events/{event_id}/questions', GetQuestionsPublicAction::class);
 
         // Webhooks
-        $router->post('/webhooks/stripe', StripeIncomingWebhookAction::class);
+        $router->post('/webhooks/paystack', PaystackIncomingWebhookAction::class);
 
         // Check-In
         $router->get('/check-in-lists/{check_in_list_short_id}', GetCheckInListPublicAction::class);

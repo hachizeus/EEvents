@@ -7,7 +7,7 @@ import {LoginData, LoginResponse} from "../../../../types.ts";
 import {useForm} from "@mantine/form";
 import {redirectToPreviousUrl} from "../../../../api/client.ts";
 import classes from "./Login.module.scss";
-import {t, Trans} from "@lingui/macro";
+import {t} from "@lingui/macro";
 import {useEffect, useState} from "react";
 import {ChooseAccountModal} from "../../../modals/ChooseAccountModal";
 import {useSendTicketLookupEmail} from "../../../../mutations/useSendTicketLookupEmail.ts";
@@ -76,40 +76,43 @@ const Login = () => {
 
     return (
         <>
-            <header className={classes.header}>
-                <h2>{t`Welcome back`}</h2>
-                <p>
-                    <Trans>
-                        Don't have an account?{' '}
-                        <NavLink to={`/auth/register${location.search}`}>
-                            Sign up
-                        </NavLink>
-                    </Trans>
-                </p>
-            </header>
+            <div className={classes.topBar}>
+                <span>New here?</span>
+                <NavLink to={`/auth/register${location.search}`}>
+                    Create an account
+                </NavLink>
+            </div>
+
+            <div className={classes.heading}>
+                <h2>{t`Sign in to your account`}</h2>
+                <p>{t`Enter your credentials to continue`}</p>
+            </div>
+
             <div className={classes.loginCard}>
                 <form onSubmit={form.onSubmit((values) => loginUser(values))}>
                     <TextInput {...form.getInputProps('email')}
-                               label={t`Email`}
-                               placeholder="hello@example.com"
+                               label={t`Email address`}
+                               placeholder="you@example.com"
                                required
                     />
                     <PasswordInput {...form.getInputProps('password')}
                                    label={t`Password`}
-                                   placeholder={t`Your password`}
+                                   placeholder={t`Enter your password`}
                                    required
                                    mt="md"
                     />
-                    <Button color="secondary.5" type="submit" fullWidth loading={isPending} disabled={isPending} mt="lg">
-                        {isPending ? t`Logging in` : t`Log in`}
-                    </Button>
-                    <p>
+                    <div className={classes.forgotLink}>
                         <NavLink to={`/auth/forgot-password`}>
                             {t`Forgot password?`}
                         </NavLink>
-                    </p>
+                    </div>
+                    <Button color="primary" type="submit" fullWidth loading={isPending} disabled={isPending} mt="md">
+                        {isPending ? t`Signing in...` : t`Sign in`}
+                    </Button>
                 </form>
             </div>
+
+            <div className={classes.divider}>or</div>
 
             <div className={classes.ticketLookup}>
                 <UnstyledButton
@@ -117,10 +120,10 @@ const Login = () => {
                     onClick={() => setTicketLookupOpen(!ticketLookupOpen)}
                     data-expanded={ticketLookupOpen}
                 >
-                    <IconTicket size={18} />
+                    <IconTicket size={16} />
                     <span>{t`Just looking for your tickets?`}</span>
                     <IconChevronDown
-                        size={16}
+                        size={15}
                         className={classes.chevron}
                         data-expanded={ticketLookupOpen}
                     />
@@ -147,17 +150,17 @@ const Login = () => {
                                     <TextInput
                                         {...ticketLookupForm.getInputProps('email')}
                                         type="email"
-                                        placeholder={t`Enter your email`}
+                                        placeholder={t`Enter your email address`}
                                         required
                                         className={classes.ticketEmailInput}
                                     />
                                     <Button
                                         type="submit"
-                                        color="secondary.5"
+                                        color="primary"
                                         loading={ticketLookupMutation.isPending}
                                         disabled={ticketLookupMutation.isPending}
                                     >
-                                        {t`Send`}
+                                        {t`Send link`}
                                     </Button>
                                 </div>
                             </form>

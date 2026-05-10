@@ -1,8 +1,8 @@
 {
-    "name": "hieventsdev/hi.events",
+    "name": "elitjohnsdigital/eevents",
     "type": "project",
-    "description": "hi.events - Ticket selling and event management.",
-    "keywords": ["ticketing", "events"],
+    "description": "E Events - Ticket selling and event management. Powered by Elitjohns Digital.",
+    "keywords": ["ticketing", "events", "eevents"],
     "license": "AGPL-3.0",
     "version": "1.8.0-beta",
     "require": {

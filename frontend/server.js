@@ -37,6 +37,12 @@ async function main() {
 
     app.use('/.well-known', express.static(path.join(__dirname, 'public/.well-known')));
 
+    // Serve static files before SSR to prevent them hitting the router
+    app.use('/favicon.svg', express.static(path.join(__dirname, 'public/favicon.svg')));
+    app.use('/favicon.ico', express.static(path.join(__dirname, 'public/favicon.ico')));
+    app.use('/manifest-icons', express.static(path.join(__dirname, 'public/manifest-icons')));
+    app.use('/logos', express.static(path.join(__dirname, 'public/logos')));
+
     let vite;
 
     if (!isProduction) {
@@ -104,7 +110,7 @@ Sitemap: ${frontendUrl}/sitemap.xml
                 .map((value) => value.toString() || "")
                 .join(" ");
 
-            const envVariablesHtml = `<script>window.hievents = ${getViteEnvironmentVariables()};</script>`;
+            const envVariablesHtml = `<script>window.eevents = ${getViteEnvironmentVariables()}; window.hievents = window.eevents;</script>`;
 
             const headSnippets = [];
             if (process.env.VITE_FATHOM_SITE_ID) {

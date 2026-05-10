@@ -1,23 +1,23 @@
 <div align="center">
 
-<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="Hi.Events - 开源活动售票平台" width="100%">
+<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="E.Events - 开源活动售票平台" width="100%">
 
-# Hi.Events
+# E.Events
 
 ### 开源活动售票与管理平台
 
 在线销售会议、夜生活活动、音乐会、俱乐部之夜、工作坊和音乐节的门票。
 自托管或云端。您的活动，您的品牌，您的数据。
 
-[试用云端版 →](https://app.hi.events/auth/register?utm_source=gh-readme) · [在线演示](https://app.hi.events/event/2/hievents-conference-2030?utm_source=gh-readme) · [开发文档](https://hi.events/docs?utm_source=gh-readme) · [官方网站](https://hi.events?utm_source=gh-readme)
+[试用云端版 →](https://app.E.Events/auth/register?utm_source=gh-readme) · [在线演示](https://app.E.Events/event/2/hievents-conference-2030?utm_source=gh-readme) · [开发文档](https://E.Events/docs?utm_source=gh-readme) · [官方网站](https://E.Events?utm_source=gh-readme)
 
-[![许可证: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/Hi.Events/blob/develop/LICENCE)
-[![GitHub 版本](https://img.shields.io/github/v/release/HiEventsDev/hi.events?include_prereleases)](https://github.com/HiEventsDev/hi.events/releases)
-[![运行单元测试](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml)
-[![Docker 拉取量](https://img.shields.io/docker/pulls/daveearley/hi.events-all-in-one)](https://hub.docker.com/r/daveearley/hi.events-all-in-one)
+[![许可证: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/E.Events/blob/develop/LICENCE)
+[![GitHub 版本](https://img.shields.io/github/v/release/HiEventsDev/E.Events?include_prereleases)](https://github.com/HiEventsDev/E.Events/releases)
+[![运行单元测试](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml)
+[![Docker 拉取量](https://img.shields.io/docker/pulls/daveearley/E.Events-all-in-one)](https://hub.docker.com/r/daveearley/E.Events-all-in-one)
 
 <a href="https://trendshift.io/repositories/10563" target="_blank">
-  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2Fhi.events | Trendshift" width="250" height="55"/>
+  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2FE.Events | Trendshift" width="250" height="55"/>
 </a>
 
 <p>
@@ -28,15 +28,15 @@
 
 <br>
 
-## 为什么选择 Hi.Events？
+## 为什么选择 E.Events？
 
-大多数售票平台会收取每张票的手续费，并将您的数据锁定在他们的生态系统中。**Hi.Events 是 Eventbrite、Tickettailor、Dice.fm 和其他售票平台的现代化开源替代方案**，专为希望完全控制品牌、结账流程、数据和基础设施的主办方打造。
+大多数售票平台会收取每张票的手续费，并将您的数据锁定在他们的生态系统中。**E.Events 是 Eventbrite、Tickettailor、Dice.fm 和其他售票平台的现代化开源替代方案**，专为希望完全控制品牌、结账流程、数据和基础设施的主办方打造。
 
 专为夜生活推广方、音乐节主办方、场馆、社区团体和会议主办方设计。
 
 <br>
 
-<img alt="Hi.Events 仪表盘" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
+<img alt="E.Events 仪表盘" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
 
 <br>
 
@@ -109,7 +109,7 @@
 
 ## 功能对比
 
-| 功能特性                | Hi.Events | Eventbrite | Tickettailor | Dice    |
+| 功能特性                | E.Events | Eventbrite | Tickettailor | Dice    |
 |:-----------------------|:----------|:-----------|:-------------|:--------|
 | 自托管选项              | ✅         | ❌          | ❌            | ❌       |
 | 开源                   | ✅         | ❌          | ❌            | ❌       |
@@ -125,16 +125,16 @@
 
 ### 一键部署
 
-[![部署到 DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/hi.events-digitalocean)
-[![部署到 Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/hi.events-render.com)
+[![部署到 DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/E.Events-digitalocean)
+[![部署到 Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/E.Events-render.com)
 [![部署到 Railway](https://railway.app/button.svg)](https://railway.app/template/8CGKmu?referralCode=KvSr11)
 [![部署到 Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/8DIRY6)
 
 ### Docker
 
 ```bash
-git clone git@github.com:HiEventsDev/hi.events.git
-cd hi.events/docker/all-in-one
+git clone git@github.com:HiEventsDev/E.Events.git
+cd E.Events/docker/all-in-one
 
 # 生成密钥（Linux/macOS）
 echo "APP_KEY=base64:$(openssl rand -base64 32)" >> .env
@@ -148,15 +148,15 @@ docker compose up -d
 
 打开 `http://localhost:8123` 并创建您的账户。
 
-📖 [完整安装指南](https://hi.events/docs/getting-started?utm_source=gh-readme)
+📖 [完整安装指南](https://E.Events/docs/getting-started?utm_source=gh-readme)
 
 <br>
 
-## Hi.Events 云端版
+## E.Events 云端版
 
-不想自托管？**[Hi.Events 云端版](https://app.hi.events/auth/register?utm_source=gh-readme)** 是完全托管的选项，无需设置，自动更新，基础设施由我们管理。
+不想自托管？**[E.Events 云端版](https://app.E.Events/auth/register?utm_source=gh-readme)** 是完全托管的选项，无需设置，自动更新，基础设施由我们管理。
 
-[立即开始 →](https://app.hi.events/auth/register?utm_source=gh-readme)
+[立即开始 →](https://app.E.Events/auth/register?utm_source=gh-readme)
 
 <br>
 
@@ -164,10 +164,10 @@ docker compose up -d
 
 | 资源               | 链接                                                                                          |
 |:------------------|:----------------------------------------------------------------------------------------------|
-| 快速入门           | [hi.events/docs/getting-started](https://hi.events/docs/getting-started?utm_source=gh-readme) |
-| 配置说明           | [hi.events/docs/configuration](https://hi.events/docs/configuration?utm_source=gh-readme)     |
-| API 参考文档       | [hi.events/docs/api](https://hi.events/docs/api?utm_source=gh-readme)                         |
-| Webhooks          | [hi.events/docs/webhooks](https://hi.events/docs/webhooks?utm_source=gh-readme)               |
+| 快速入门           | [E.Events/docs/getting-started](https://E.Events/docs/getting-started?utm_source=gh-readme) |
+| 配置说明           | [E.Events/docs/configuration](https://E.Events/docs/configuration?utm_source=gh-readme)     |
+| API 参考文档       | [E.Events/docs/api](https://E.Events/docs/api?utm_source=gh-readme)                         |
+| Webhooks          | [E.Events/docs/webhooks](https://E.Events/docs/webhooks?utm_source=gh-readme)               |
 
 <br>
 
@@ -179,26 +179,26 @@ docker compose up -d
 
 ## 支持
 
-📖 [开发文档](https://hi.events/docs?utm_source=gh-readme) · 📧 [hello@hi.events](mailto:hello@hi.events) ·
-🐛 [GitHub Issues](https://github.com/HiEventsDev/hi.events/issues)
+📖 [开发文档](https://E.Events/docs?utm_source=gh-readme) · 📧 [hello@E.Events](mailto:hello@E.Events) ·
+🐛 [GitHub Issues](https://github.com/HiEventsDev/E.Events/issues)
 
 <br>
 
 ## 更新日志
 
-在[发布页面](https://github.com/HiEventsDev/hi.events/releases)了解新功能和改进。
+在[发布页面](https://github.com/HiEventsDev/E.Events/releases)了解新功能和改进。
 
 <br>
 
 ## 许可证
 
-Hi.Events 采用 **AGPL-3.0 附加条款**许可。商业许可可用。[了解更多](https://hi.events/licensing)。
+E.Events 采用 **AGPL-3.0 附加条款**许可。商业许可可用。[了解更多](https://E.Events/licensing)。
 
 <br>
 
 <div align="center">
 
-**[官方网站](https://hi.events)** · **[开发文档](https://hi.events/docs)** · **[Twitter/X](https://x.com/HiEventsTickets)**
+**[官方网站](https://E.Events)** · **[开发文档](https://E.Events/docs)** · **[Twitter/X](https://x.com/HiEventsTickets)**
 
 用 ☘️ 在爱尔兰制作
 

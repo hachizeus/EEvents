@@ -31,7 +31,7 @@ const FeeBreakdown = ({ticketPrice, feePercentage, fixedFee, currency, passToBuy
     let platformFee: number;
     if (passToBuyer) {
         // Gross-up formula: P = (fixed + total * r) / (1 - r)
-        // When passing to buyer, we need to add enough so that after Stripe takes
+        // When passing to buyer, we need to add enough so that after the payment processor takes
         // its percentage from the new total, the platform still receives the full fee
         platformFee = percentageRate >= 1
             ? fixedFee + (ticketPrice * percentageRate)

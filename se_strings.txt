@@ -1,0 +1,6 @@
+﻿f8qS7T|||'There\'s nothing to show yet'
+Ul6IgC|||<0>Capacity assignments let you manage capacity across tickets or an entire event. Ideal for multi-day events, workshops, and more, where controlling attendance is crucial.</0><1>For instance, you can associate a capacity assignment with <2>Day One</2> and <3>All Days</3> ticket. Once the capacity is reached, both tickets will automatically stop being available for sale.</1>
+Exjbj7|||<0>Check-in lists help manage attendee entry for your event. You can associate multiple tickets with a check-in list and ensure only those with valid tickets can enter.</0>
+OXku3b|||<0>https://</0>din-webbplats.com
+qnSLLW|||<0>VΣnligen ange priset exklusive skatter och avgifter.</0><1>Skatter och avgifter kan lΣggas till nedan.</1>
+ZjMs6e|||<0>Antalet produkter tillgΣngliga f÷r denna produkt</0><1>Detta vΣrde kan σsidosΣttas om det finns <2>kapacitetsbegrΣnsningar</2> kopplade till denna produkt.</1>

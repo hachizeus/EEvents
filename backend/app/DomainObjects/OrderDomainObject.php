@@ -27,6 +27,8 @@ class OrderDomainObject extends Generated\OrderDomainObjectAbstract implements I
 
     public ?StripePaymentDomainObject $stripePayment = null;
 
+    public ?PaystackPaymentDomainObject $paystackPayment = null;
+
     /** @var Collection<QuestionAndAnswerViewDomainObject>|null */
     public ?Collection $questionAndAnswerViews = null;
 
@@ -223,6 +225,11 @@ class OrderDomainObject extends Generated\OrderDomainObjectAbstract implements I
         return $this->stripePayment;
     }
 
+    public function getPaystackPayment(): ?PaystackPaymentDomainObject
+    {
+        return $this->paystackPayment;
+    }
+
     public function isFreeOrder(): bool
     {
         return $this->getTotalGross() === 0.00;
@@ -285,7 +292,7 @@ class OrderDomainObject extends Generated\OrderDomainObjectAbstract implements I
     {
         return !$this->isFreeOrder()
             && $this->getStatus() !== OrderPaymentStatus::AWAITING_OFFLINE_PAYMENT->name
-            && $this->getPaymentProvider() === PaymentProviders::STRIPE->name
+            && in_array($this->getPaymentProvider(), [PaymentProviders::STRIPE->name, PaymentProviders::PAYSTACK->name], true)
             && $this->getRefundStatus() !== OrderRefundStatus::REFUNDED->name;
     }
 

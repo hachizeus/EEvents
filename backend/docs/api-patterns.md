@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Hi.Events backend HTTP layer uses a standardized pattern built around invokable action classes that extend `BaseAction`. This provides consistent response methods, authorization patterns, and request handling across the entire API.
+The E.Events backend HTTP layer uses a standardized pattern built around invokable action classes that extend `BaseAction`. This provides consistent response methods, authorization patterns, and request handling across the entire API.
 
 ```mermaid
 graph TB
@@ -810,7 +810,7 @@ try {
 
 ## Summary
 
-The Hi.Events HTTP layer provides:
+The E.Events HTTP layer provides:
 
 1. **Invokable Actions**: Single-purpose action classes extending `BaseAction`
 2. **Standardized Responses**: Consistent response methods for all endpoints

@@ -1,23 +1,23 @@
 <div align="center">
 
-<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="Hi.Events - Açık Kaynak Etkinlik Biletleme Platformu" width="100%">
+<img src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-banner.png?v=1" alt="E.Events - Açık Kaynak Etkinlik Biletleme Platformu" width="100%">
 
-# Hi.Events
+# E.Events
 
 ### Açık kaynak etkinlik biletleme ve yönetim platformu
 
 Konferanslar, gece hayatı etkinlikleri, konserler, kulüp geceleri, atölyeler ve festivaller için çevrimiçi bilet satın.
 Kendi sunucunuzda veya bulutta. Etkinlikleriniz, markanız, verileriniz.
 
-[Bulut Sürümünü Deneyin →](https://app.hi.events/auth/register?utm_source=gh-readme) · [Canlı Demo](https://app.hi.events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Dokümantasyon](https://hi.events/docs?utm_source=gh-readme) · [Web Sitesi](https://hi.events?utm_source=gh-readme)
+[Bulut Sürümünü Deneyin →](https://app.E.Events/auth/register?utm_source=gh-readme) · [Canlı Demo](https://app.E.Events/event/2/hievents-conference-2030?utm_source=gh-readme) · [Dokümantasyon](https://E.Events/docs?utm_source=gh-readme) · [Web Sitesi](https://E.Events?utm_source=gh-readme)
 
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/Hi.Events/blob/develop/LICENCE)
-[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/hi.events?include_prereleases)](https://github.com/HiEventsDev/hi.events/releases)
-[![Run Unit Tests](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/hi.events/actions/workflows/unit-tests.yml)
-[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/hi.events-all-in-one)](https://hub.docker.com/r/daveearley/hi.events-all-in-one)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://github.com/HiEventsDev/E.Events/blob/develop/LICENCE)
+[![GitHub Release](https://img.shields.io/github/v/release/HiEventsDev/E.Events?include_prereleases)](https://github.com/HiEventsDev/E.Events/releases)
+[![Run Unit Tests](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml/badge.svg?event=push)](https://github.com/HiEventsDev/E.Events/actions/workflows/unit-tests.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/daveearley/E.Events-all-in-one)](https://hub.docker.com/r/daveearley/E.Events-all-in-one)
 
 <a href="https://trendshift.io/repositories/10563" target="_blank">
-  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2Fhi.events | Trendshift" width="250" height="55"/>
+  <img src="https://trendshift.io/api/badge/repositories/10563" alt="HiEventsDev%2FE.Events | Trendshift" width="250" height="55"/>
 </a>
 
 <p>
@@ -28,15 +28,15 @@ Kendi sunucunuzda veya bulutta. Etkinlikleriniz, markanız, verileriniz.
 
 <br>
 
-## Neden Hi.Events?
+## Neden E.Events?
 
-Çoğu biletleme platformu bilet başına ücret alır ve verilerinizi kendi ekosistemlerine kilitler. **Hi.Events, markalaşma, ödeme, veri ve altyapı üzerinde tam kontrol isteyen organizatörler için Eventbrite, Tickettailor, Dice.fm ve diğer biletleme platformlarına modern, açık kaynak bir alternatiftir**.
+Çoğu biletleme platformu bilet başına ücret alır ve verilerinizi kendi ekosistemlerine kilitler. **E.Events, markalaşma, ödeme, veri ve altyapı üzerinde tam kontrol isteyen organizatörler için Eventbrite, Tickettailor, Dice.fm ve diğer biletleme platformlarına modern, açık kaynak bir alternatiftir**.
 
 Gece hayatı organizatörleri, festival düzenleyicileri, mekanlar, topluluk grupları ve konferans ev sahipleri için geliştirilmiştir.
 
 <br>
 
-<img alt="Hi.Events Gösterge Paneli" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
+<img alt="E.Events Gösterge Paneli" src="https://hievents-public.s3.us-west-1.amazonaws.com/website/github-screenshot.png"/>
 
 <br>
 
@@ -110,7 +110,7 @@ Otomatik faturalama · Etkinlik arşivi · Çoklu dil desteği · Tam REST API
 
 ## Karşılaştırma
 
-| Özellik                                  | Hi.Events | Eventbrite | Tickettailor | Dice    |
+| Özellik                                  | E.Events | Eventbrite | Tickettailor | Dice    |
 |:-----------------------------------------|:----------|:-----------|:-------------|:--------|
 | Kendi sunucunuzda barındırma seçeneği   | ✅         | ❌          | ❌            | ❌       |
 | Açık kaynak                              | ✅         | ❌          | ❌            | ❌       |
@@ -126,16 +126,16 @@ Otomatik faturalama · Etkinlik arşivi · Çoklu dil desteği · Tam REST API
 
 ### Tek Tıkla Dağıtım
 
-[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/hi.events-digitalocean)
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/hi.events-render.com)
+[![Deploy on DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://github.com/HiEventsDev/E.Events-digitalocean)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://github.com/HiEventsDev/E.Events-render.com)
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/8CGKmu?referralCode=KvSr11)
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/8DIRY6)
 
 ### Docker
 
 ```bash
-git clone git@github.com:HiEventsDev/hi.events.git
-cd hi.events/docker/all-in-one
+git clone git@github.com:HiEventsDev/E.Events.git
+cd E.Events/docker/all-in-one
 
 # Anahtarları oluştur (Linux/macOS)
 echo "APP_KEY=base64:$(openssl rand -base64 32)" >> .env
@@ -149,15 +149,15 @@ docker compose up -d
 
 `http://localhost:8123` adresini açın ve hesabınızı oluşturun.
 
-📖 [Tam kurulum rehberi](https://hi.events/docs/getting-started?utm_source=gh-readme)
+📖 [Tam kurulum rehberi](https://E.Events/docs/getting-started?utm_source=gh-readme)
 
 <br>
 
-## Hi.Events Cloud
+## E.Events Cloud
 
-Kendi sunucunuzda barındırmayı tercih etmiyor musunuz? **[Hi.Events Cloud](https://app.hi.events/auth/register?utm_source=gh-readme)**, sıfır kurulum, otomatik güncellemeler ve yönetilen altyapı ile tam yönetilen bir seçenektir.
+Kendi sunucunuzda barındırmayı tercih etmiyor musunuz? **[E.Events Cloud](https://app.E.Events/auth/register?utm_source=gh-readme)**, sıfır kurulum, otomatik güncellemeler ve yönetilen altyapı ile tam yönetilen bir seçenektir.
 
-[Başlayın →](https://app.hi.events/auth/register?utm_source=gh-readme)
+[Başlayın →](https://app.E.Events/auth/register?utm_source=gh-readme)
 
 <br>
 
@@ -165,10 +165,10 @@ Kendi sunucunuzda barındırmayı tercih etmiyor musunuz? **[Hi.Events Cloud](ht
 
 | Kaynak          | Bağlantı                                                                                      |
 |:----------------|:----------------------------------------------------------------------------------------------|
-| Başlangıç       | [hi.events/docs/getting-started](https://hi.events/docs/getting-started?utm_source=gh-readme) |
-| Yapılandırma    | [hi.events/docs/configuration](https://hi.events/docs/configuration?utm_source=gh-readme)     |
-| API Referansı   | [hi.events/docs/api](https://hi.events/docs/api?utm_source=gh-readme)                         |
-| Webhook'lar     | [hi.events/docs/webhooks](https://hi.events/docs/webhooks?utm_source=gh-readme)               |
+| Başlangıç       | [E.Events/docs/getting-started](https://E.Events/docs/getting-started?utm_source=gh-readme) |
+| Yapılandırma    | [E.Events/docs/configuration](https://E.Events/docs/configuration?utm_source=gh-readme)     |
+| API Referansı   | [E.Events/docs/api](https://E.Events/docs/api?utm_source=gh-readme)                         |
+| Webhook'lar     | [E.Events/docs/webhooks](https://E.Events/docs/webhooks?utm_source=gh-readme)               |
 
 <br>
 
@@ -180,26 +180,26 @@ Katkılarınızı bekliyoruz. Ayrıntılar için [katkıda bulunma rehberine](CO
 
 ## Destek
 
-📖 [Dokümantasyon](https://hi.events/docs?utm_source=gh-readme) · 📧 [hello@hi.events](mailto:hello@hi.events) ·
-🐛 [GitHub Issues](https://github.com/HiEventsDev/hi.events/issues)
+📖 [Dokümantasyon](https://E.Events/docs?utm_source=gh-readme) · 📧 [hello@E.Events](mailto:hello@E.Events) ·
+🐛 [GitHub Issues](https://github.com/HiEventsDev/E.Events/issues)
 
 <br>
 
 ## Değişiklik Günlüğü
 
-Yeni özellikler ve iyileştirmelerden haberdar olmak için [sürümler sayfasını](https://github.com/HiEventsDev/hi.events/releases) ziyaret edin.
+Yeni özellikler ve iyileştirmelerden haberdar olmak için [sürümler sayfasını](https://github.com/HiEventsDev/E.Events/releases) ziyaret edin.
 
 <br>
 
 ## Lisans
 
-Hi.Events, **ek koşullar içeren AGPL-3.0** lisansına sahiptir. Ticari lisanslama mevcuttur. [Daha fazla bilgi edinin](https://hi.events/licensing).
+E.Events, **ek koşullar içeren AGPL-3.0** lisansına sahiptir. Ticari lisanslama mevcuttur. [Daha fazla bilgi edinin](https://E.Events/licensing).
 
 <br>
 
 <div align="center">
 
-**[Web Sitesi](https://hi.events)** · **[Dokümantasyon](https://hi.events/docs)** · *
+**[Web Sitesi](https://E.Events)** · **[Dokümantasyon](https://E.Events/docs)** · *
 *[Twitter/X](https://x.com/HiEventsTickets)**
 
 İrlanda'da ☘️ ile yapıldı

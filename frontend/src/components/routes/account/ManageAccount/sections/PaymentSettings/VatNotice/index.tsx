@@ -8,11 +8,11 @@ const EU_COUNTRIES = [
 ];
 
 interface VatNoticeProps {
-    stripeCountry?: string;
+    accountCountry?: string;
 }
 
-export const getVatInfo = (stripeCountry?: string) => {
-    if (!stripeCountry || !EU_COUNTRIES.includes(stripeCountry.toUpperCase())) {
+export const getVatInfo = (accountCountry?: string) => {
+    if (!accountCountry || !EU_COUNTRIES.includes(accountCountry.toUpperCase())) {
         return {
             isEU: false,
             isIreland: false,
@@ -20,7 +20,7 @@ export const getVatInfo = (stripeCountry?: string) => {
         };
     }
 
-    const isIreland = stripeCountry.toUpperCase() === 'IE';
+    const isIreland = accountCountry.toUpperCase() === 'IE';
 
     return {
         isEU: true,
@@ -29,8 +29,8 @@ export const getVatInfo = (stripeCountry?: string) => {
     };
 };
 
-export const VatNotice = ({stripeCountry}: VatNoticeProps) => {
-    const vatInfo = getVatInfo(stripeCountry);
+export const VatNotice = ({accountCountry}: VatNoticeProps) => {
+    const vatInfo = getVatInfo(accountCountry);
 
     if (!vatInfo.isEU) {
         return null;

@@ -9,5 +9,5 @@ services:
     environment:
       VITE_STRIPE_PUBLISHABLE_KEY: ""
       VITE_API_URL_SERVER: "http://localhost/api"
-      VITE_API_URL_CLIENT: "https://app.hi.events/api"
-      VITE_FRONTEND_URL: "https://app.hi.events"
+      VITE_API_URL_CLIENT: "https://app.e.events/api"
+      VITE_FRONTEND_URL: "https://app.e.events"
