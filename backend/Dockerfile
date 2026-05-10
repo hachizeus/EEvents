@@ -31,4 +31,9 @@ RUN mkdir -p /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/Defin
     && chmod -R 775 /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
     && chown -R www-data:www-data /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer
 
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 EXPOSE 8080
+
+CMD ["/start.sh"]
