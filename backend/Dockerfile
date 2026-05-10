@@ -31,8 +31,8 @@ RUN mkdir -p /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/Defin
     && chmod -R 775 /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
     && chown -R www-data:www-data /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+# start.sh is already copied via COPY . . above — move it to root and make executable
+RUN cp /var/www/html/start.sh /start.sh && chmod +x /start.sh
 
 EXPOSE 8080
 
