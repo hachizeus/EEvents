@@ -1,19 +1,16 @@
 #!/bin/sh
 
 echo "==> Checking environment..."
-
-# Validate required variables
 if [ -z "$APP_KEY" ]; then
-    echo "ERROR: APP_KEY is not set. Please set it in Railway environment variables."
-    echo "Generate one with: php -r \"echo 'base64:'.base64_encode(random_bytes(32)).PHP_EOL;\""
+    echo "ERROR: APP_KEY is not set."
     exit 1
 fi
 
 echo "==> Running database migrations..."
-php artisan migrate --force || echo "WARNING: Migrations failed - check DATABASE_URL is set correctly"
+php /var/www/html/artisan migrate --force || echo "WARNING: Migrations failed"
 
 echo "==> Optimizing application..."
-php artisan optimize || echo "WARNING: Optimize failed"
+php /var/www/html/artisan optimize || echo "WARNING: Optimize failed"
 
-echo "==> Starting server..."
-exec /init
+echo "==> Starting PHP-FPM and Nginx via supervisord..."
+exec /usr/bin/supervisord -c /etc/supervisord.conf

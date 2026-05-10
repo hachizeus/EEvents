@@ -1,21 +1,64 @@
-FROM serversideup/php:8.4-fpm-nginx-alpine
+FROM php:8.2-fpm-alpine
 
-ENV PHP_OPCACHE_ENABLE=1
-
-USER root
-
-# Configure PHP-FPM pool
-RUN echo "" >> /usr/local/etc/php-fpm.d/docker-php-serversideup-pool.conf && \
-    echo "user = www-data" >> /usr/local/etc/php-fpm.d/docker-php-serversideup-pool.conf && \
-    echo "group = www-data" >> /usr/local/etc/php-fpm.d/docker-php-serversideup-pool.conf
+# Install system dependencies
+RUN apk add --no-cache \
+    nginx \
+    supervisor \
+    icu-dev \
+    imagemagick-dev \
+    imagemagick \
+    libpng-dev \
+    libjpeg-turbo-dev \
+    freetype-dev \
+    zip \
+    unzip \
+    git \
+    curl \
+    oniguruma-dev \
+    libxml2-dev \
+    postgresql-dev
 
 # Install PHP extensions
-RUN install-php-extensions intl imagick
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install \
+        pdo \
+        pdo_pgsql \
+        pgsql \
+        mbstring \
+        exif \
+        pcntl \
+        bcmath \
+        gd \
+        intl \
+        opcache \
+        xml \
+        zip
 
-# Copy backend source from the backend/ subdirectory
+# Install imagick via PECL
+RUN pecl install imagick && docker-php-ext-enable imagick
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Configure PHP
+RUN echo "opcache.enable=1" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.memory_consumption=128" >> /usr/local/etc/php/conf.d/opcache.ini \
+    && echo "opcache.max_accelerated_files=10000" >> /usr/local/etc/php/conf.d/opcache.ini
+
+# Configure Nginx
+RUN mkdir -p /run/nginx /var/log/nginx /var/lib/nginx/tmp
+COPY docker/nginx.conf /etc/nginx/nginx.conf
+
+# Configure Supervisor
+COPY docker/supervisord.conf /etc/supervisord.conf
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy backend application
 COPY --chown=www-data:www-data backend/ .
 
-# Create required Laravel directories and set permissions
+# Create required Laravel directories
 RUN mkdir -p storage/app/public \
         storage/framework/cache/data \
         storage/framework/sessions \
@@ -25,24 +68,21 @@ RUN mkdir -p storage/app/public \
         bootstrap/cache \
     && chmod -R 755 storage \
     && chmod -R 775 bootstrap/cache \
-    && mkdir -p /var/lib/nginx/tmp \
-    && chown -R www-data:www-data /var/lib/nginx \
-    && chmod -R 755 /var/lib/nginx
+    && chown -R www-data:www-data storage bootstrap/cache
 
 # Install Composer dependencies
 RUN composer install \
-    --ignore-platform-reqs \
     --no-interaction \
     --no-dev \
     --optimize-autoloader \
     --prefer-dist
 
-# Set up HTMLPurifier cache directory
-RUN mkdir -p /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
-    && chmod -R 775 /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
-    && chown -R www-data:www-data /var/www/html/vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer
+# Set up HTMLPurifier cache
+RUN mkdir -p vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
+    && chmod -R 775 vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer \
+    && chown -R www-data:www-data vendor/ezyang/htmlpurifier/library/HTMLPurifier/DefinitionCache/Serializer
 
-# Copy startup script and make executable
+# Copy and set startup script
 COPY backend/start.sh /start.sh
 RUN chmod +x /start.sh
 
