@@ -42,8 +42,8 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         opcache \
         xml \
         zip \
-    && pecl install imagick \
-    && docker-php-ext-enable imagick \
+    && pecl install imagick redis \
+    && docker-php-ext-enable imagick redis \
     # Clean up build dependencies to reduce image size
     && apk del autoconf g++ make pkgconfig musl-dev
 
