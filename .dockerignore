@@ -34,8 +34,11 @@ backend/storage/framework/views/*
 backend/.phpunit.cache
 backend/coverage
 
-# Docker files themselves
-docker/
+# Docker files not needed in build context
+docker/development/
+docker/all-in-one/
+docker/backend/
+docker/frontend/
 Dockerfile.all-in-one
 fly.toml
 
