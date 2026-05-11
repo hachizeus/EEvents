@@ -87,7 +87,7 @@ class SendTicketLookupEmailHandler
 
         $this->mailer
             ->to($email)
-            ->queue(new TicketLookupEmail(
+            ->send(new TicketLookupEmail(
                 email: $email,
                 token: $token,
                 orderCount: $orderCount,

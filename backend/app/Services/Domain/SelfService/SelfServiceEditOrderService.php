@@ -142,7 +142,7 @@ class SelfServiceEditOrderService
     ): void {
         $changedFields = $this->formatChangedFields($oldValues, $newValues);
 
-        Mail::to($oldEmail)->queue(new OrderDetailsChangedMail(
+        Mail::to($oldEmail)->send(new OrderDetailsChangedMail(
             event: $event,
             organizer: $event->getOrganizer(),
             eventSettings: $event->getEventSettings(),

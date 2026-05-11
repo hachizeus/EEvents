@@ -148,7 +148,7 @@ class SelfServiceEditAttendeeService
 
         $changedFields = $this->formatChangedFields($oldValues, $newValues);
 
-        Mail::to($oldEmail)->queue(new AttendeeDetailsChangedMail(
+        Mail::to($oldEmail)->send(new AttendeeDetailsChangedMail(
             ticketTitle: $attendee->getProduct()?->getTitle() ?? __('Ticket'),
             event: $event,
             organizer: $event->getOrganizer(),
