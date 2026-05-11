@@ -32,7 +32,7 @@ export const PaymentReturn = () => {
             const timeout = setTimeout(() => {
                 setShouldPoll(false);
                 setAttemptManualConfirmation(true);
-            }, 10000); //todo - this should be a env variable
+            }, 20000); // 20 seconds — gives webhook time to fire first
 
             return () => {
                 clearTimeout(timeout);
