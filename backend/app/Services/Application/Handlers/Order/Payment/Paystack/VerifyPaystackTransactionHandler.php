@@ -5,9 +5,11 @@ namespace HiEvents\Services\Application\Handlers\Order\Payment\Paystack;
 use HiEvents\DomainObjects\Enums\PaymentProviders;
 use HiEvents\DomainObjects\Generated\OrderDomainObjectAbstract;
 use HiEvents\DomainObjects\Generated\PaystackPaymentDomainObjectAbstract;
+use HiEvents\DomainObjects\OrderItemDomainObject;
+use HiEvents\DomainObjects\Status\AttendeeStatus;
 use HiEvents\DomainObjects\Status\OrderPaymentStatus;
 use HiEvents\DomainObjects\Status\OrderStatus;
-use HiEvents\DomainObjects\Status\AttendeeStatus;
+use HiEvents\Events\OrderStatusChangedEvent;
 use HiEvents\Repository\Interfaces\AccountRepositoryInterface;
 use HiEvents\Repository\Interfaces\AttendeeRepositoryInterface;
 use HiEvents\Repository\Interfaces\EventSettingsRepositoryInterface;
@@ -15,21 +17,21 @@ use HiEvents\Repository\Interfaces\OrderRepositoryInterface;
 use HiEvents\Repository\Interfaces\PaystackPaymentsRepositoryInterface;
 use HiEvents\Services\Domain\Payment\Paystack\PaystackTransactionService;
 use HiEvents\Services\Domain\Product\ProductQuantityUpdateService;
-use HiEvents\Events\OrderStatusChangedEvent;
-use HiEvents\DomainObjects\OrderItemDomainObject;
+use Illuminate\Database\DatabaseManager;
 use Psr\Log\LoggerInterface;
 
-readonly class VerifyPaystackTransactionHandler
+class VerifyPaystackTransactionHandler
 {
     public function __construct(
-        private OrderRepositoryInterface            $orderRepository,
-        private AccountRepositoryInterface          $accountRepository,
-        private AttendeeRepositoryInterface         $attendeeRepository,
-        private PaystackPaymentsRepositoryInterface $paystackPaymentsRepository,
-        private PaystackTransactionService          $paystackTransactionService,
-        private ProductQuantityUpdateService        $quantityUpdateService,
-        private EventSettingsRepositoryInterface    $eventSettingsRepository,
-        private LoggerInterface                     $logger,
+        private readonly OrderRepositoryInterface            $orderRepository,
+        private readonly AccountRepositoryInterface          $accountRepository,
+        private readonly AttendeeRepositoryInterface         $attendeeRepository,
+        private readonly PaystackPaymentsRepositoryInterface $paystackPaymentsRepository,
+        private readonly PaystackTransactionService          $paystackTransactionService,
+        private readonly ProductQuantityUpdateService        $quantityUpdateService,
+        private readonly EventSettingsRepositoryInterface    $eventSettingsRepository,
+        private readonly DatabaseManager                     $databaseManager,
+        private readonly LoggerInterface                     $logger,
     ) {
     }
 
@@ -41,6 +43,11 @@ readonly class VerifyPaystackTransactionHandler
             return ['status' => 'not_found'];
         }
 
+        // Already completed — return immediately
+        if ($order->getStatus() === OrderStatus::COMPLETED->name) {
+            return ['status' => 'succeeded'];
+        }
+
         $paystackPayment = $this->paystackPaymentsRepository->findFirstWhere([
             PaystackPaymentDomainObjectAbstract::ORDER_ID => $order->getId(),
         ]);
@@ -49,30 +56,31 @@ readonly class VerifyPaystackTransactionHandler
             return ['status' => 'not_found'];
         }
 
-        // Already succeeded — return immediately without hitting Paystack API
+        // Payment already recorded as success — complete the order
         if ($paystackPayment->getStatus() === 'success') {
             return ['status' => 'succeeded'];
         }
 
-        // Order already completed (e.g. webhook already processed it)
-        if ($order->getStatus() === OrderStatus::COMPLETED->name) {
-            return ['status' => 'succeeded'];
-        }
-
-        // Get the account ID to use the right API keys
+        // Get the account to use the right API keys
         $account = $this->accountRepository->findByEventId($eventId);
 
+        // Verify with Paystack API
         $transactionData = $this->paystackTransactionService->verifyTransaction(
             $paystackPayment->getReference(),
             $account?->getId()
         );
 
-        if (($transactionData['status'] ?? '') === 'success') {
+        if (($transactionData['status'] ?? '') !== 'success') {
+            return ['status' => $transactionData['status'] ?? 'pending'];
+        }
+
+        // Payment confirmed — complete the order in a transaction
+        $this->databaseManager->transaction(function () use ($paystackPayment, $order, $transactionData) {
             // Update paystack payment record
             $this->paystackPaymentsRepository->updateWhere(
                 attributes: [
                     PaystackPaymentDomainObjectAbstract::STATUS => 'success',
-                    PaystackPaymentDomainObjectAbstract::TRANSACTION_ID => (string) ($transactionData['id'] ?? ''),
+                    PaystackPaymentDomainObjectAbstract::TRANSACTION_ID => (string)($transactionData['id'] ?? ''),
                     PaystackPaymentDomainObjectAbstract::GATEWAY_RESPONSE => $transactionData['gateway_response'] ?? null,
                     PaystackPaymentDomainObjectAbstract::PAID_AT => $transactionData['paid_at'] ?? null,
                     PaystackPaymentDomainObjectAbstract::AMOUNT => $transactionData['amount'] ?? null,
@@ -82,7 +90,7 @@ readonly class VerifyPaystackTransactionHandler
             );
 
             // Reload order with items
-            $order = $this->orderRepository
+            $orderWithItems = $this->orderRepository
                 ->loadRelation(OrderItemDomainObject::class)
                 ->findById($order->getId());
 
@@ -93,7 +101,7 @@ readonly class VerifyPaystackTransactionHandler
                 OrderDomainObjectAbstract::PAYMENT_PROVIDER => PaymentProviders::PAYSTACK->value,
             ]);
 
-            // Update attendee statuses
+            // Activate attendees
             $this->attendeeRepository->updateWhere(
                 attributes: ['status' => AttendeeStatus::ACTIVE->name],
                 where: ['order_id' => $order->getId(), 'status' => AttendeeStatus::AWAITING_PAYMENT->name],
@@ -102,18 +110,19 @@ readonly class VerifyPaystackTransactionHandler
             // Update product quantities
             $this->quantityUpdateService->updateQuantitiesFromOrder($updatedOrder);
 
-            // Fire order completed event (sends confirmation email etc.)
+            // Fire order completed event (sends confirmation email)
             $eventSettings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $order->getEventId()]);
-            event(new OrderStatusChangedEvent($updatedOrder, createInvoice: $eventSettings?->getEnableInvoicing() ?? false));
+            event(new OrderStatusChangedEvent(
+                $updatedOrder,
+                createInvoice: $eventSettings?->getEnableInvoicing() ?? false
+            ));
 
-            $this->logger->info('Paystack payment verified and order completed via manual verification', [
+            $this->logger->info('Paystack payment verified manually and order completed', [
                 'order_id' => $order->getId(),
                 'reference' => $paystackPayment->getReference(),
             ]);
+        });
 
-            return ['status' => 'succeeded'];
-        }
-
-        return ['status' => $transactionData['status'] ?? 'pending'];
+        return ['status' => 'succeeded'];
     }
 }

@@ -32,7 +32,7 @@ export const PaymentReturn = () => {
             const timeout = setTimeout(() => {
                 setShouldPoll(false);
                 setAttemptManualConfirmation(true);
-            }, 20000); // 20 seconds — gives webhook time to fire first
+            }, 5000); // 5 seconds — verify quickly via Paystack API
 
             return () => {
                 clearTimeout(timeout);
