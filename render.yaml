@@ -41,7 +41,7 @@ services:
       - key: SESSION_DRIVER
         value: redis
       - key: FILESYSTEM_PUBLIC_DISK
-        value: public
+        value: local
       - key: FILESYSTEM_PRIVATE_DISK
         value: local
       - key: JWT_SECRET

@@ -43,6 +43,8 @@ export const publicEventRouteLoader = async ({params, request}: LoaderFunctionAr
         }
 
         console.error(error);
-        throw error;
+        // Don't throw — return null event so the page renders with an error state
+        // instead of React Router's generic "something went wrong" screen
+        return {event: null, promoCodeValid: undefined, promoCode: null};
     }
 };

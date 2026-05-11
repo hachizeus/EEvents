@@ -67,6 +67,7 @@ export const publicOrganizerRouteLoader = async ({params, request}: LoaderFuncti
         if (error?.response?.status === 404) {
             return {organizer: null, eventsData: null, isPastEvents};
         }
-        throw error;
+        console.error(error);
+        return {organizer: null, eventsData: null, isPastEvents};
     }
 }
