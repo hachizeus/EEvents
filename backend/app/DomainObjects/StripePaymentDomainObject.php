@@ -2,9 +2,7 @@
 
 namespace HiEvents\DomainObjects;
 
-use HiEvents\DomainObjects\Enums\StripePlatform;
-
-class StripePaymentDomainObject extends Generated\StripePaymentDomainObjectAbstract
+class PaystackPaymentDomainObject extends Generated\PaystackPaymentDomainObjectAbstract
 {
     private ?OrderDomainObject $order = null;
 
@@ -17,10 +15,5 @@ class StripePaymentDomainObject extends Generated\StripePaymentDomainObjectAbstr
     {
         $this->order = $order;
         return $this;
-    }
-
-    public function getStripePlatformEnum(): ?StripePlatform
-    {
-        return StripePlatform::fromString($this->getStripePlatform());
     }
 }

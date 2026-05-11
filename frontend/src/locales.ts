@@ -87,14 +87,18 @@ export async function dynamicActivateLocale(locale: string) {
         i18n.load(locale, module.messages);
         i18n.activate(locale);
     } catch (error) {
-        // Fallback: try loading the pre-compiled .js catalog directly
+        console.warn(`Failed to load .po file for locale: ${locale}. Attempting to load .js file.`);
         try {
             const module = (await import(`./locales/${locale}.js`));
             const messages = module.messages ?? module.default?.messages ?? module;
             i18n.load(locale, messages);
             i18n.activate(locale);
         } catch (fallbackError) {
-            console.error("Error loading locale:", locale, fallbackError);
+            console.error(`Error loading locale: ${locale}. Falling back to default locale 'en'.`, fallbackError);
+            const defaultModule = (await import(`./locales/en.js`));
+            const defaultMessages = defaultModule.messages ?? defaultModule.default?.messages ?? defaultModule;
+            i18n.load("en", defaultMessages);
+            i18n.activate("en");
         }
     }
 }

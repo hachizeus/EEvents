@@ -2,10 +2,8 @@
 
 namespace HiEvents\Console\Commands;
 
-use HiEvents\Repository\Eloquent\PaystackPaymentsRepository;
-use HiEvents\Repository\Interfaces\OrderPaymentPlatformFeeRepositoryInterface;
+use HiEvents\Services\Domain\Payment\Paystack\PaystackPaymentPlatformFeeExtractionService;
 use HiEvents\Services\Infrastructure\Paystack\PaystackClientFactory;
-use Illuminate\Console\Command;
 
 class BackfillPlatformFeesCommand extends Command
 {
@@ -19,8 +17,10 @@ class BackfillPlatformFeesCommand extends Command
     public function __construct(
         private readonly PaystackPaymentsRepository $paystackPaymentsRepository,
         private readonly OrderPaymentPlatformFeeRepositoryInterface $orderPaymentPlatformFeeRepository,
+        private readonly PaystackPaymentPlatformFeeExtractionService $platformFeeExtractionService,
         private readonly PaystackClientFactory $paystackClientFactory,
-    ) {
+    )
+    {
         parent::__construct();
     }
 
@@ -29,16 +29,8 @@ class BackfillPlatformFeesCommand extends Command
         $this->info('Starting platform fees backfill...');
 
         $payoutId = $this->option('payout-id');
-        $limit = (int) $this->option('limit');
-        $dryRun = (bool) $this->option('dry-run');
+        $limit = (int)$this->option('limit');
 
-        if ($dryRun) {
-            $this->info('[DRY RUN] No changes will be made.');
-        }
-
-        $this->info("Processing up to {$limit} payments" . ($payoutId ? " for payout {$payoutId}" : '') . '...');
-        $this->info('Backfill complete.');
-
-        return Command::SUCCESS;
+        // Implementation for Paystack
     }
 }

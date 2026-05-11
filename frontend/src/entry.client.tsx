@@ -22,12 +22,16 @@ async function initClientApp() {
     // Resolve lazy-loaded routes before hydration
     const matches = matchRoutes(router, window.location)?.filter((m) => m.route.lazy);
     if (matches && matches.length > 0) {
-        await Promise.all(
-            matches.map(async (m) => {
-                const routeModule = await m.route.lazy?.();
-                Object.assign(m.route, {...routeModule, lazy: undefined});
-            })
-        );
+        try {
+            await Promise.all(
+                matches.map(async (m) => {
+                    const routeModule = await m.route.lazy?.();
+                    Object.assign(m.route, {...routeModule, lazy: undefined});
+                })
+            );
+        } catch (error) {
+            console.error("Error resolving lazy-loaded routes:", error);
+        }
     }
 
     const browserRouter = createBrowserRouter(router);

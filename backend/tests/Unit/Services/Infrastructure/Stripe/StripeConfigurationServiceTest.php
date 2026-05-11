@@ -1,44 +1,44 @@
 <?php
 
-namespace Tests\Unit\Services\Infrastructure\Stripe;
+namespace Tests\Unit\Services\Infrastructure\Paystack;
 
-use HiEvents\Services\Infrastructure\Stripe\StripeConfigurationService;
+use HiEvents\Services\Infrastructure\Paystack\PaystackConfigurationService;
 use Tests\TestCase;
 
-class StripeConfigurationServiceTest extends TestCase
+class PaystackConfigurationServiceTest extends TestCase
 {
-    private StripeConfigurationService $service;
+    private PaystackConfigurationService $service;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->service = new StripeConfigurationService();
+        $this->service = new PaystackConfigurationService();
     }
 
     public function test_get_secret_key_returns_default(): void
     {
-        config(['services.stripe.secret_key' => 'sk_test']);
-
+        config(['services.paystack.secret_key' => 'sk_test']);
+        
         $result = $this->service->getSecretKey();
-
+        
         $this->assertEquals('sk_test', $result);
     }
 
     public function test_get_public_key_returns_default(): void
     {
-        config(['services.stripe.public_key' => 'pk_test']);
-
+        config(['services.paystack.public_key' => 'pk_test']);
+        
         $result = $this->service->getPublicKey();
-
+        
         $this->assertEquals('pk_test', $result);
     }
 
     public function test_get_webhook_secret_returns_default(): void
     {
-        config(['services.stripe.webhook_secret' => 'wh_test']);
-
+        config(['services.paystack.webhook_secret' => 'wh_test']);
+        
         $result = $this->service->getWebhookSecret();
-
+        
         $this->assertEquals('wh_test', $result);
     }
 }
