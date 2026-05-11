@@ -1,4 +1,4 @@
-import React, {FC, PropsWithChildren, useCallback, useEffect} from "react";
+import React, {FC, PropsWithChildren, useCallback} from "react";
 import {MantineProvider} from "@mantine/core";
 import {Notifications} from "@mantine/notifications";
 import {i18n} from "@lingui/core";
@@ -38,7 +38,6 @@ export const App: FC<
         dehydratedState?: unknown;
     }>
 > = (props) => {
-    const [isLoadedOnBrowser, setIsLoadedOnBrowser] = React.useState(false);
     const showGlobalConsentBanner = getConfig('VITE_COOKIE_CONSENT_ENABLED') === 'true'
         && !isSsr() && isConsentPending();
 
@@ -48,29 +47,8 @@ export const App: FC<
         window.dispatchEvent(new CustomEvent('hi_consent_change', {detail: {granted}}));
     }, []);
 
-    useEffect(() => {
-        setIsLoadedOnBrowser(!isSsr());
-    }, []);
-
     return (
         <React.StrictMode>
-            <div
-                className="ssr-loader"
-                style={{
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    margin: 0,
-                    padding: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    position: "fixed",
-                    background: "#ffffff",
-                    zIndex: 1000,
-                    display: isLoadedOnBrowser ? "none" : "block",
-                }}
-            />
             <MantineProvider
                 theme={{
                     colors: {
