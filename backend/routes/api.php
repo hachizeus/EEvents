@@ -567,6 +567,10 @@ $router->prefix('/public')->group(
     }
 );
 
+// Paystack webhook — registered at /api/webhooks/paystack (no /public prefix)
+// This matches the URL configured in the Paystack dashboard
+$router->post('/webhooks/paystack', PaystackIncomingWebhookAction::class);
+
 }); // end /api prefix group
 
 include_once __DIR__ . '/mail.php';
