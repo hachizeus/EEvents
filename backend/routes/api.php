@@ -220,6 +220,9 @@ use Illuminate\Routing\Router;
 /** @var Router|Router $router */
 $router = app()->get('router');
 
+// All routes are prefixed with /api
+$router->prefix('/api')->group(function (Router $router): void {
+
 $router->prefix('/auth')->group(
     function (Router $router): void {
         // Auth
@@ -563,5 +566,7 @@ $router->prefix('/public')->group(
         $router->get('/sitemap-organizers-{page}.xml', GetSitemapOrganizersAction::class)->where('page', '[0-9]+');
     }
 );
+
+}); // end /api prefix group
 
 include_once __DIR__ . '/mail.php';

@@ -18,7 +18,7 @@ echo "==> Running database migrations..."
 php /var/www/html/artisan migrate --force || echo "WARNING: Migrations failed"
 
 echo "==> Verifying routes are registered..."
-php /var/www/html/artisan route:list --path=api/public/system-info 2>&1 | head -5
+php /var/www/html/artisan route:list --path=api/public 2>&1 | head -10
 
 echo "==> Starting services..."
 exec /usr/bin/supervisord -c /etc/supervisord.conf
