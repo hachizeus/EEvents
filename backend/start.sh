@@ -6,20 +6,19 @@ if [ -z "$APP_KEY" ]; then
     exit 1
 fi
 
-echo "==> Clearing config cache..."
-php /var/www/html/artisan config:clear 2>/dev/null || true
-
-echo "==> Clearing file-based caches..."
-rm -rf /var/www/html/bootstrap/cache/config.php 2>/dev/null || true
-rm -rf /var/www/html/bootstrap/cache/routes*.php 2>/dev/null || true
-rm -rf /var/www/html/storage/framework/cache/data/* 2>/dev/null || true
-rm -rf /var/www/html/storage/framework/views/* 2>/dev/null || true
+echo "==> Clearing ALL caches to ensure fresh start..."
+rm -f /var/www/html/bootstrap/cache/config.php
+rm -f /var/www/html/bootstrap/cache/routes-v7.php
+rm -f /var/www/html/bootstrap/cache/services.php
+rm -f /var/www/html/bootstrap/cache/packages.php
+rm -rf /var/www/html/storage/framework/cache/data/*
+rm -rf /var/www/html/storage/framework/views/*
 
 echo "==> Running database migrations..."
 php /var/www/html/artisan migrate --force || echo "WARNING: Migrations failed"
 
-echo "==> Caching config..."
-php /var/www/html/artisan config:cache 2>/dev/null || echo "WARNING: Config cache failed"
+echo "==> Verifying routes are registered..."
+php /var/www/html/artisan route:list --path=api/public/system-info 2>&1 | head -5
 
 echo "==> Starting services..."
 exec /usr/bin/supervisord -c /etc/supervisord.conf
