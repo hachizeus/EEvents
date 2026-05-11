@@ -11,22 +11,22 @@ use Throwable;
 
 class PaystackIncomingWebhookAction extends BaseAction
 {
+    public function __construct(
+        private readonly IncomingWebhookHandler $handler,
+    ) {
+    }
+
     public function __invoke(Request $request): Response
     {
         try {
             $signature = $request->header('x-paystack-signature', '');
             $payload = $request->getContent();
 
-            dispatch(static function (IncomingWebhookHandler $handler) use ($signature, $payload) {
-                $handler->handle($payload, $signature);
-            })->catch(function (Throwable $exception) use ($payload) {
-                logger()->error(__('Failed to handle incoming Paystack webhook'), [
-                    'exception' => $exception,
-                    'payload' => $payload,
-                ]);
-            });
+            $this->handler->handle($payload, $signature);
         } catch (Throwable $exception) {
-            logger()?->error($exception->getMessage(), $exception->getTrace());
+            logger()?->error('Paystack webhook error: ' . $exception->getMessage(), [
+                'trace' => $exception->getTraceAsString(),
+            ]);
             return $this->noContentResponse(ResponseCodes::HTTP_BAD_REQUEST);
         }
 
