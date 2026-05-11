@@ -17,6 +17,9 @@ rm -rf /var/www/html/storage/framework/views/*
 echo "==> Running database migrations..."
 php /var/www/html/artisan migrate --force || echo "WARNING: Migrations failed"
 
+echo "==> Creating storage symlink..."
+php /var/www/html/artisan storage:link --force 2>/dev/null || echo "WARNING: Storage link already exists or failed"
+
 echo "==> Verifying routes are registered..."
 php /var/www/html/artisan route:list --path=api/public/color-themes 2>&1 | head -5
 

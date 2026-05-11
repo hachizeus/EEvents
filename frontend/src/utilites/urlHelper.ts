@@ -1,8 +1,15 @@
 import {Event, IdParam, ImageType, Organizer, Image} from "../types.ts";
 import {getConfig} from "./config.ts";
 
+const getSessionIdentifier = (): string | null => {
+    if (typeof window === 'undefined') return null;
+    return new URL(window.location.href).searchParams.get('session_identifier');
+};
+
 export const eventCheckoutPath = (eventId: IdParam, orderShortId: IdParam, subPage = '') => {
-    return `/checkout/${eventId}/${orderShortId}/${subPage}`;
+    const base = `/checkout/${eventId}/${orderShortId}/${subPage}`;
+    const sessionId = getSessionIdentifier();
+    return sessionId ? `${base}?session_identifier=${sessionId}` : base;
 }
 
 export const eventPreviewPath = (eventId: IdParam) => {

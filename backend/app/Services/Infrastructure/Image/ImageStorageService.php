@@ -35,13 +35,19 @@ class ImageStorageService
 
         $disk = $this->config->get('filesystems.public');
 
-        $path = $this->filesystemManager->disk($disk)->putFileAs(
+        $filesystem = $this->filesystemManager->disk($disk);
+
+        // Only pass visibility option for cloud disks (S3 etc.) — local disk doesn't support it
+        $driver = $this->config->get("filesystems.disks.{$disk}.driver", 'local');
+        $options = in_array($driver, ['s3', 'gcs', 'r2'], true)
+            ? ['visibility' => 'public']
+            : [];
+
+        $path = $filesystem->putFileAs(
             path: strtolower($imageType),
             file: $image,
             name: $filename,
-            options: [
-                'visibility' => 'public',
-            ],
+            options: $options,
         );
 
         if ($path === false) {

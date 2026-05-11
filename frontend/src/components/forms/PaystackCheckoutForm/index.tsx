@@ -79,7 +79,9 @@ export default function PaystackCheckoutForm({setSubmitHandler}: PaystackCheckou
                 currency: order.currency?.toUpperCase(),
                 onSuccess: () => {
                     // Redirect to payment return page - webhook will handle order completion
-                    window.location.href = window.location.origin + `/checkout/${eventId}/${orderShortId}/payment_return`;
+                    const sessionId = new URL(window.location.href).searchParams.get('session_identifier');
+                    const returnPath = `/checkout/${eventId}/${orderShortId}/payment_return`;
+                    window.location.href = window.location.origin + returnPath + (sessionId ? `?session_identifier=${sessionId}` : '');
                     resolve();
                 },
                 onCancel: () => {
