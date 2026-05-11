@@ -1,6 +1,5 @@
 <?php
 
-use HiEvents\DomainObjects\Enums\StripeConnectAccountType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -13,9 +12,10 @@ return new class extends Migration {
             $table->string('stripe_connect_account_type')->nullable();
         });
 
+        // Backfill with raw string - StripeConnectAccountType enum was removed
         DB::table('accounts')
             ->whereNotNull('stripe_account_id')
-            ->update(['stripe_connect_account_type' => StripeConnectAccountType::EXPRESS->value]);
+            ->update(['stripe_connect_account_type' => 'express']);
     }
 
     public function down(): void

@@ -1,6 +1,5 @@
 <?php
 
-use HiEvents\DomainObjects\Enums\PaymentProviders;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
@@ -9,7 +8,7 @@ return new class extends Migration {
     {
         DB::table('event_settings')
             ->whereNull('payment_providers')
-            ->update(['payment_providers' => [PaymentProviders::STRIPE->name]]);
+            ->update(['payment_providers' => json_encode(['STRIPE'])]);
     }
 
     public function down(): void

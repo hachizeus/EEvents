@@ -1,6 +1,5 @@
 <?php
 
-use HiEvents\DomainObjects\Enums\PaymentProviders;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +12,11 @@ return new class extends Migration {
             $table->string('payment_provider')->nullable();
         });
 
+        // Backfill existing paid orders - use raw string since STRIPE enum was removed
         DB::table('orders')
             ->where('total_gross', '>', 0)
             ->whereNull('payment_provider')
-            ->update(['payment_provider' => PaymentProviders::STRIPE->name]);
+            ->update(['payment_provider' => 'STRIPE']);
     }
 
     public function down(): void
