@@ -39,4 +39,10 @@ return [
         'public_key' => env('PAYSTACK_PUBLIC_KEY'),
         'webhook_secret' => env('PAYSTACK_WEBHOOK_SECRET'),
     ],
+
+    'imagekit' => [
+        'public_key' => env('IMAGEKIT_PUBLIC_KEY'),
+        'private_key' => env('IMAGEKIT_PRIVATE_KEY'),
+        'url_endpoint' => env('IMAGEKIT_URL_ENDPOINT'),
+    ],
 ];

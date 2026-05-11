@@ -40,14 +40,19 @@ class Url
     */
     public static function getCdnUrl(string $path): string
     {
+        // If path is already a full URL (e.g. from ImageKit), return it directly
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            return $path;
+        }
+
         // Fetch the CDN URL from environment variables
         // Checking against the env variable instead of config() as config falls back to the default value
         // and we want to ensure that if the env variable is not set, we do not use a default value.
-        $envCDNUrl = env('APP_CDN_URL'); 
+        $envCDNUrl = env('APP_CDN_URL');
 
         if ($envCDNUrl) {
-            return  $envCDNUrl . '/' . $path;
-         }
+            return $envCDNUrl . '/' . $path;
+        }
 
         $disk = config('filesystems.public', 'public');
         return app('filesystem')->disk($disk)->url($path);

@@ -13,17 +13,31 @@ use Psr\Log\LoggerInterface;
 class ImageStorageService
 {
     public function __construct(
-        private readonly FilesystemManager $filesystemManager,
-        private readonly Repository        $config,
-        private readonly LoggerInterface   $logger,
-    )
-    {
+        private readonly FilesystemManager    $filesystemManager,
+        private readonly Repository           $config,
+        private readonly LoggerInterface      $logger,
+        private readonly ImageKitStorageService $imageKitStorageService,
+    ) {
     }
 
     /**
      * @throws CouldNotUploadImageException
      */
     public function store(UploadedFile $image, string $imageType): ImageStorageResponseDTO
+    {
+        // Use ImageKit if configured
+        if ($this->config->get('services.imagekit.private_key')) {
+            return $this->imageKitStorageService->store($image, $imageType);
+        }
+
+        // Fall back to local disk
+        return $this->storeLocally($image, $imageType);
+    }
+
+    /**
+     * @throws CouldNotUploadImageException
+     */
+    private function storeLocally(UploadedFile $image, string $imageType): ImageStorageResponseDTO
     {
         $filename = Str::slug(
                 title: str_ireplace(
@@ -51,16 +65,15 @@ class ImageStorageService
         );
 
         if ($path === false) {
-            $this->logger->error(__('Could not upload image to :disk. Check :disk is configured correctly', ['disk' => $disk,]), [
-                    'filename' => $filename,
-                    'original_filename' => $image->getClientOriginalName()
-                ]
-            );
+            $this->logger->error(__('Could not upload image to :disk. Check :disk is configured correctly', ['disk' => $disk]), [
+                'filename' => $filename,
+                'original_filename' => $image->getClientOriginalName(),
+            ]);
 
             throw new CouldNotUploadImageException(__('Could not upload image'));
         }
 
-        return new ImageStorageResponseDTO  (
+        return new ImageStorageResponseDTO(
             filename: $filename,
             disk: $disk,
             path: $path,
