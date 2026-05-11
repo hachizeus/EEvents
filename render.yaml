@@ -87,20 +87,11 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL_CLIENT
-        fromService:
-          type: web
-          name: eevents-backend
-          property: hostWithScheme
+        value: https://eevents-backend.onrender.com/api
       - key: VITE_API_URL_SERVER
-        fromService:
-          type: web
-          name: eevents-backend
-          property: hostWithScheme
+        value: https://eevents-backend.onrender.com/api
       - key: VITE_FRONTEND_URL
-        fromService:
-          type: web
-          name: eevents-frontend
-          property: hostWithScheme
+        value: https://eevents-frontend.onrender.com
       - key: VITE_PAYSTACK_PUBLIC_KEY
         sync: false
       - key: VITE_APP_NAME
