@@ -51,10 +51,8 @@ const GettingStarted = () => {
     const hasImages = eventImages && eventImages.length > 0;
     const accountQuery = useGetAccount();
     const account = accountQuery.data;
-    const paystackQuery = useGetAccountPaystackSetting(account?.id, {
-        enabled: !!account?.id,
-    });
-    const isPaystackConnected = paystackQuery.data?.is_connected === true;
+    // Payments are handled at the platform level — always connected
+    const isPaystackConnected = true;
     const statusToggleMutation = useUpdateEventStatus();
 
     const handleStatusToggle = () => {

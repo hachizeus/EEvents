@@ -35,11 +35,11 @@ services:
           name: eevents-redis
           property: connectionString
       - key: QUEUE_CONNECTION
-        value: redis
+        value: sync
       - key: CACHE_DRIVER
-        value: redis
+        value: file
       - key: SESSION_DRIVER
-        value: redis
+        value: file
       - key: FILESYSTEM_PUBLIC_DISK
         value: public
       - key: FILESYSTEM_PRIVATE_DISK
@@ -53,11 +53,21 @@ services:
       - key: LOG_LEVEL
         value: error
       - key: MAIL_MAILER
-        value: log
+        value: smtp
       - key: MAIL_FROM_ADDRESS
-        value: noreply@example.com
+        value: elitjohnsdigital@gmail.com
       - key: MAIL_FROM_NAME
         value: E Events
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_ENCRYPTION
+        value: tls
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
       - key: PAYSTACK_SECRET_KEY
         sync: false
       - key: PAYSTACK_PUBLIC_KEY
