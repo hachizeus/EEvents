@@ -21,6 +21,9 @@ const Root = () => {
     if (redirectPath) {
         return <Navigate to={redirectPath} replace={true} />;
     }
+
+    // Default redirect while loading — prevents blank white screen
+    return <Navigate to="/auth/login" replace={true} />;
 };
 
 export const router: RouteObject[] = [

@@ -6,12 +6,13 @@ import {queryClient} from "./utilites/queryClient";
 import {dynamicActivateLocale, getClientLocale, getSupportedLocale} from "./locales.ts";
 
 async function initApp() {
-    // Load locale before rendering to avoid showing raw message IDs
     const rawLocale = getClientLocale();
     const locale = getSupportedLocale(rawLocale);
     await dynamicActivateLocale(locale);
 
-    const browserRouter = createBrowserRouter(router);
+    const browserRouter = createBrowserRouter(router, {
+        // Start at current path — React Router handles navigation
+    });
 
     const container = document.getElementById("app") as HTMLElement;
 
