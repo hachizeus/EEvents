@@ -128,6 +128,13 @@ class PartialUpdateOrganizerSettingsRequest extends BaseRequest
             'tracking_pixels.*.pixel_id' => ['required', 'string', 'max:50', 'regex:/^[a-zA-Z0-9\-_]+$/'],
             'tracking_pixels.*.enabled' => ['required', 'boolean'],
             'tracking_consent_acknowledged' => ['sometimes', 'nullable', 'boolean'],
+
+            // Payout details
+            'payout_details' => ['sometimes', 'nullable', 'array'],
+            'payout_details.bank_name' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'payout_details.account_number' => ['sometimes', 'nullable', 'string', 'max:50'],
+            'payout_details.account_name' => ['sometimes', 'nullable', 'string', 'max:255'],
+            'payout_details.phone_number' => ['sometimes', 'nullable', 'string', 'max:30'],
         ];
     }
 }

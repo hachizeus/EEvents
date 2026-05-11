@@ -31,6 +31,7 @@ class OrganizerSettingsResource extends BaseResource
             'location_details' => $this->getLocationDetails(),
             'tracking_pixels' => $this->getTrackingPixels(),
             'tracking_consent_acknowledged' => $this->getTrackingConsentAcknowledged(),
+            'payout_details' => $this->getPayoutDetails(),
         ];
     }
 }

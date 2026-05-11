@@ -139,32 +139,37 @@ export const orderClientPublic = {
         return response.data;
     },
 
-    initializePaystackTransaction: async (eventId: number, orderShortId: string) => {
+    initializePaystackTransaction: async (eventId: number, orderShortId: string, sessionIdentifier?: string) => {
+        const query = sessionIdentifier ? `?session_identifier=${sessionIdentifier}` : '';
         const response = await publicApi.post<{
             reference: string,
             access_code: string,
             authorization_url: string,
             public_key: string,
-        }>(`events/${eventId}/order/${orderShortId}/paystack/initialize`);
+        }>(`events/${eventId}/order/${orderShortId}/paystack/initialize${query}`);
         return response.data;
     },
 
-    verifyPaystackTransaction: async (eventId: number, orderShortId: string) => {
-        const response = await publicApi.get<{ status: string }>(`events/${eventId}/order/${orderShortId}/paystack/verify`);
+    verifyPaystackTransaction: async (eventId: number, orderShortId: string, sessionIdentifier?: string) => {
+        const query = sessionIdentifier ? `?session_identifier=${sessionIdentifier}` : '';
+        const response = await publicApi.get<{ status: string }>(`events/${eventId}/order/${orderShortId}/paystack/verify${query}`);
         return response.data;
     },
 
     finaliseOrder: async (
         eventId: number,
         orderShortId: string,
-        payload: FinaliseOrderPayload
+        payload: FinaliseOrderPayload,
+        sessionIdentifier?: string
     ) => {
-        const response = await publicApi.put<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}`, payload);
+        const query = sessionIdentifier ? `?session_identifier=${sessionIdentifier}` : '';
+        const response = await publicApi.put<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}${query}`, payload);
         return response.data;
     },
 
-    transitionToOfflinePayment: async (eventId: IdParam, orderShortId: IdParam) => {
-        const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/await-offline-payment`);
+    transitionToOfflinePayment: async (eventId: IdParam, orderShortId: IdParam, sessionIdentifier?: string) => {
+        const query = sessionIdentifier ? `?session_identifier=${sessionIdentifier}` : '';
+        const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/await-offline-payment${query}`);
         return response.data;
     },
 
@@ -176,8 +181,9 @@ export const orderClientPublic = {
         return new Blob([response.data]);
     },
 
-    abandonOrder: async (eventId: IdParam, orderShortId: IdParam) => {
-        const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/abandon`);
+    abandonOrder: async (eventId: IdParam, orderShortId: IdParam, sessionIdentifier?: string) => {
+        const query = sessionIdentifier ? `?session_identifier=${sessionIdentifier}` : '';
+        const response = await publicApi.post<GenericDataResponse<Order>>(`events/${eventId}/order/${orderShortId}/abandon${query}`);
         return response.data;
     },
 }

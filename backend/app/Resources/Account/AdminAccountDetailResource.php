@@ -61,6 +61,15 @@ class AdminAccountDetailResource extends BaseResource
                     AccountMessagingTierDomainObject::hydrateFromModel($this->resource->messagingTier)
                 )
                 : null,
+            'organizers' => $this->resource->organizers
+                ? $this->resource->organizers->map(function ($organizer) {
+                    return [
+                        'id' => $organizer->id,
+                        'name' => $organizer->name,
+                        'payout_details' => $organizer->organizer_settings?->payout_details ?? null,
+                    ];
+                })
+                : [],
         ];
     }
 }

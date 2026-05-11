@@ -73,6 +73,9 @@ class PartialUpdateOrganizerSettingsDTO extends BaseDataObject
         // Tracking pixels
         public readonly array|Optional|null                           $trackingPixels,
         public readonly bool|Optional|null                            $trackingConsentAcknowledged,
+
+        // Payout details
+        public readonly array|Optional|null                           $payoutDetails,
     )
     {
     }

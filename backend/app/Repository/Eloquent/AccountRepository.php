@@ -75,7 +75,13 @@ class AccountRepository extends BaseRepository implements AccountRepositoryInter
                 'users' => function ($query) {
                     $query->select('users.id', 'users.first_name', 'users.last_name', 'users.email')
                         ->withPivot('role');
-                }
+                },
+                'organizers' => function ($query) {
+                    $query->select('organizers.id', 'organizers.name', 'organizers.account_id')
+                        ->with(['organizer_settings' => function ($q) {
+                            $q->select('id', 'organizer_id', 'payout_details');
+                        }]);
+                },
             ])
             ->findOrFail($accountId);
     }

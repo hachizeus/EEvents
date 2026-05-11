@@ -330,6 +330,79 @@ const AccountDetail = () => {
                             </Stack>
                         </Card>
                     )}
+
+                    {account.organizers && account.organizers.length > 0 && (
+                        <Card className={classes.accountCard}>
+                            <Stack gap="md">
+                                <Text size="lg" fw={600}>{t`Organizer Payout Details`}</Text>
+                                {account.organizers.map((organizer) => (
+                                    <div key={organizer.id}>
+                                        <Text size="sm" fw={600} mb="xs">{organizer.name}</Text>
+                                        {organizer.payout_details?.payout_method ? (
+                                            <div className={classes.infoGrid}>
+                                                <div className={classes.infoItem}>
+                                                    <Text size="xs" c="dimmed">{t`Payout Method`}</Text>
+                                                    <Badge variant="light">
+                                                        {organizer.payout_details.payout_method.replace(/_/g, ' ').toUpperCase()}
+                                                    </Badge>
+                                                </div>
+                                                {organizer.payout_details.bank_name && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Bank`}</Text>
+                                                        <Text size="sm">{organizer.payout_details.bank_name}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.account_number && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Account Number`}</Text>
+                                                        <Text size="sm" ff="monospace">{organizer.payout_details.account_number}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.account_name && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Account Name`}</Text>
+                                                        <Text size="sm">{organizer.payout_details.account_name}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.phone_number && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Phone / Till / Pochi`}</Text>
+                                                        <Text size="sm" ff="monospace">{organizer.payout_details.phone_number}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.till_number && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Till Number`}</Text>
+                                                        <Text size="sm" ff="monospace">{organizer.payout_details.till_number}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.paybill_number && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Paybill Number`}</Text>
+                                                        <Text size="sm" ff="monospace">{organizer.payout_details.paybill_number}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.account_reference && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Account Reference`}</Text>
+                                                        <Text size="sm">{organizer.payout_details.account_reference}</Text>
+                                                    </div>
+                                                )}
+                                                {organizer.payout_details.full_name && (
+                                                    <div className={classes.infoItem}>
+                                                        <Text size="xs" c="dimmed">{t`Name`}</Text>
+                                                        <Text size="sm">{organizer.payout_details.full_name}</Text>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        ) : (
+                                            <Text size="sm" c="dimmed">{t`No payout details provided yet`}</Text>
+                                        )}
+                                    </div>
+                                ))}
+                            </Stack>
+                        </Card>
+                    )}
                 </Stack>
             </Container>
 

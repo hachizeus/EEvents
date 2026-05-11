@@ -33,6 +33,7 @@ import countries from "../../../../../data/countries.json";
 import classes from "./CollectInformation.module.scss";
 import {trackEvent, AnalyticsEvents} from "../../../../utilites/analytics.ts";
 import {clearWaitlistJoinedForEvent} from "../../../../hooks/useWaitlistJoined.ts";
+import {getSessionIdentifierFromUrl} from "../../../../utilites/sessionIdentifier.ts";
 
 const LoadingSkeleton = () =>
     (
@@ -210,7 +211,12 @@ export const CollectInformation = () => {
     }, [form.values.order.first_name, form.values.order.last_name, form.values.order.email]);
 
     const mutation = useMutation({
-        mutationFn: (orderData: FinaliseOrderPayload) => orderClientPublic.finaliseOrder(Number(eventId), String(orderShortId), orderData),
+        mutationFn: (orderData: FinaliseOrderPayload) => orderClientPublic.finaliseOrder(
+            Number(eventId),
+            String(orderShortId),
+            orderData,
+            getSessionIdentifierFromUrl() ?? undefined,
+        ),
 
         onSuccess: (data) => {
             const nextPage = order?.is_payment_required ? 'payment' : 'summary';

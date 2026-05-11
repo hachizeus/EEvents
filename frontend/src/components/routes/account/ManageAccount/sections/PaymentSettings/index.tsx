@@ -273,7 +273,7 @@ const PaymentSettings = () => {
         <>
             <HeadingCard
                 heading={t`Payment Settings`}
-                subHeading={t`Connect your Paystack account to accept payments for your events`}
+                subHeading={t`Payment processing is handled by the platform. Your events are ready to accept payments.`}
             />
 
             <Card className={classes.tabContent}>
@@ -281,9 +281,20 @@ const PaymentSettings = () => {
                 {account && (
                     <Grid gutter="xl">
                         <Grid.Col span={{base: 12, md: 6}}>
-                            {accountQuery.isFetched && account.id && (
-                                <PaystackConnect accountId={Number(account.id)}/>
-                            )}
+                            <div>
+                                <Group gap="xs" mb="sm">
+                                    <ThemeIcon size="sm" variant="light" radius="xl" color="green">
+                                        <IconCheck size={14}/>
+                                    </ThemeIcon>
+                                    <Text size="sm" fw={500}>{t`Paystack is connected`}</Text>
+                                    <Badge color="green" variant="light" leftSection={<IconCheck size={12}/>}>
+                                        {t`Active`}
+                                    </Badge>
+                                </Group>
+                                <Text size="sm" c="dimmed">
+                                    {t`Payment processing is managed by the platform. All ticket sales are processed securely via Paystack.`}
+                                </Text>
+                            </div>
                         </Grid.Col>
                         <Grid.Col span={{base: 12, md: 6}}>
                             {account.configuration && (

@@ -1,6 +1,7 @@
 import {orderClientPublic} from "../api/order.client.ts";
 import {IdParam} from "../types.ts";
 import {useMutation} from "@tanstack/react-query";
+import {getSessionIdentifierFromUrl} from "../utilites/sessionIdentifier.ts";
 
 export const useAbandonOrderPublic = () => {
     return useMutation({
@@ -8,7 +9,8 @@ export const useAbandonOrderPublic = () => {
             eventId: IdParam,
             orderShortId: IdParam,
         }) => {
-            return orderClientPublic.abandonOrder(eventId, orderShortId);
+            const sessionIdentifier = getSessionIdentifierFromUrl();
+            return orderClientPublic.abandonOrder(eventId, orderShortId, sessionIdentifier ?? undefined);
         }
     });
 }

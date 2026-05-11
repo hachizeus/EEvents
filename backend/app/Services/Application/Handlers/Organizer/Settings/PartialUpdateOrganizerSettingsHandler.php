@@ -98,6 +98,7 @@ class PartialUpdateOrganizerSettingsHandler
 
             'tracking_pixels' => $dto->getProvided('trackingPixels', $organizerSettings->getTrackingPixels()),
             'tracking_consent_acknowledged' => $dto->getProvided('trackingConsentAcknowledged', $organizerSettings->getTrackingConsentAcknowledged()),
+            'payout_details' => $dto->getProvided('payoutDetails', $organizerSettings->getPayoutDetails()),
         ], [
             'organizer_id' => $dto->organizerId,
             'id' => $organizerSettings->getId(),

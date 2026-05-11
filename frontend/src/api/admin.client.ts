@@ -98,6 +98,21 @@ export interface AdminAccountDetail extends AdminAccount {
     configuration?: AccountConfiguration;
     vat_setting?: AccountVatSetting;
     messaging_tier?: AccountMessagingTier;
+    organizers?: Array<{
+        id: number;
+        name: string;
+        payout_details?: {
+            payout_method?: string;
+            bank_name?: string;
+            account_number?: string;
+            account_name?: string;
+            phone_number?: string;
+            till_number?: string;
+            paybill_number?: string;
+            account_reference?: string;
+            full_name?: string;
+        } | null;
+    }>;
 }
 
 

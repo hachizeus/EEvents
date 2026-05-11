@@ -402,6 +402,17 @@ export interface OrganizerSettings {
     allow_search_engine_indexing?: boolean;
     tracking_pixels?: TrackingPixelConfig[];
     tracking_consent_acknowledged?: boolean;
+    payout_details?: {
+        payout_method?: string;
+        bank_name?: string;
+        account_number?: string;
+        account_name?: string;
+        phone_number?: string;
+        till_number?: string;
+        paybill_number?: string;
+        account_reference?: string;
+        full_name?: string;
+    };
 }
 
 export interface TrackingPixelConfig {

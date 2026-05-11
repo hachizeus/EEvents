@@ -60,8 +60,10 @@ RUN sed -i 's|listen = /var/run/php/php-fpm.sock|listen = 127.0.0.1:9000|g' \
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Create required directories
-RUN mkdir -p /run/nginx /var/log/nginx /var/lib/nginx/tmp /run/supervisor
+# Create required directories and fix nginx tmp permissions
+RUN mkdir -p /run/nginx /var/log/nginx /var/lib/nginx/tmp /run/supervisor \
+    && chown -R www-data:www-data /var/lib/nginx/tmp \
+    && chmod -R 755 /var/lib/nginx/tmp
 
 # Copy Nginx and Supervisor configs
 COPY docker/nginx.conf /etc/nginx/nginx.conf
