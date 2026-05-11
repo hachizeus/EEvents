@@ -20,7 +20,6 @@ function getVersion(): string {
 }
 
 export default defineConfig({
-    // Use the CSR-specific HTML entry point
     root: ".",
     build: {
         outDir: "dist",
