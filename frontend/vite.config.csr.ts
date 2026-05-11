@@ -24,7 +24,7 @@ export default defineConfig({
     build: {
         outDir: "dist",
         rollupOptions: {
-            input: "index.csr.html",
+            input: "index.html",
         },
     },
     plugins: [
