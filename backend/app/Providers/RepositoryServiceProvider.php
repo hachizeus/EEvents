@@ -36,6 +36,10 @@ use HiEvents\Repository\Eloquent\OutgoingMessageRepository;
 use HiEvents\Repository\Eloquent\PasswordResetRepository;
 use HiEvents\Repository\Eloquent\PasswordResetTokenRepository;
 use HiEvents\Repository\Eloquent\PaystackPaymentsRepository;
+use HiEvents\Repository\Eloquent\AccountStripePlatformRepository;
+use HiEvents\Repository\Eloquent\StripeCustomerRepository;
+use HiEvents\Repository\Eloquent\StripePaymentsRepository;
+use HiEvents\Repository\Eloquent\StripePayoutsRepository;
 use HiEvents\Repository\Eloquent\ProductCategoryRepository;
 use HiEvents\Repository\Eloquent\ProductPriceRepository;
 use HiEvents\Repository\Eloquent\ProductRepository;
@@ -81,6 +85,10 @@ use HiEvents\Repository\Interfaces\OutgoingMessageRepositoryInterface;
 use HiEvents\Repository\Interfaces\PasswordResetRepositoryInterface;
 use HiEvents\Repository\Interfaces\PasswordResetTokenRepositoryInterface;
 use HiEvents\Repository\Interfaces\PaystackPaymentsRepositoryInterface;
+use HiEvents\Repository\Interfaces\AccountStripePlatformRepositoryInterface;
+use HiEvents\Repository\Interfaces\StripeCustomerRepositoryInterface;
+use HiEvents\Repository\Interfaces\StripePaymentsRepositoryInterface;
+use HiEvents\Repository\Interfaces\StripePayoutsRepositoryInterface;
 use HiEvents\Repository\Interfaces\ProductCategoryRepositoryInterface;
 use HiEvents\Repository\Interfaces\ProductPriceRepositoryInterface;
 use HiEvents\Repository\Interfaces\ProductRepositoryInterface;
@@ -144,6 +152,10 @@ class RepositoryServiceProvider extends ServiceProvider
         WaitlistEntryRepositoryInterface::class => WaitlistEntryRepository::class,
         PaystackPaymentsRepositoryInterface::class => PaystackPaymentsRepository::class,
         AccountPaystackSettingRepositoryInterface::class => AccountPaystackSettingRepository::class,
+        AccountStripePlatformRepositoryInterface::class => AccountStripePlatformRepository::class,
+        StripeCustomerRepositoryInterface::class => StripeCustomerRepository::class,
+        StripePaymentsRepositoryInterface::class => StripePaymentsRepository::class,
+        StripePayoutsRepositoryInterface::class => StripePayoutsRepository::class,
     ];
 
     public function register(): void

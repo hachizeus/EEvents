@@ -2,18 +2,10 @@
 
 namespace HiEvents\DomainObjects;
 
-class PaystackPaymentDomainObject extends Generated\PaystackPaymentDomainObjectAbstract
+/**
+ * @deprecated Stripe is no longer the primary payment provider.
+ * Kept for backward compatibility with existing Stripe payment records.
+ */
+class StripePaymentDomainObject extends Generated\StripePaymentDomainObjectAbstract
 {
-    private ?OrderDomainObject $order = null;
-
-    public function getOrder(): ?OrderDomainObject
-    {
-        return $this->order;
-    }
-
-    public function setOrder(?OrderDomainObject $order): self
-    {
-        $this->order = $order;
-        return $this;
-    }
 }
