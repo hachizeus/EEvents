@@ -21,11 +21,19 @@ export const authClient = {
 
     login: async (user: LoginData) => {
         const response = await api.post<LoginResponse>('auth/login', user);
+        // Store token from header for mobile browsers that block cross-site cookies
+        const token = response.headers['x-auth-token'];
+        if (token) {
+            localStorage.setItem('token', token);
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        }
         return response.data;
     },
 
     logout: async () => {
         const response = await api.post('auth/logout');
+        localStorage.removeItem('token');
+        delete api.defaults.headers.common['Authorization'];
         return response.data;
     },
 

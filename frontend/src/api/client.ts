@@ -35,6 +35,12 @@ export const api = axios.create({
     withCredentials: true,
 });
 
+// Restore token from localStorage on page load (for mobile browsers that block cross-site cookies)
+const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+if (storedToken) {
+    api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
+}
+
 api.interceptors.response.use(
     (response) => response,
     (error) => {
