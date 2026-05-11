@@ -7,3 +7,6 @@ export const getSessionIdentifierFromUrl = (): string | null => {
     if (typeof window === 'undefined') return null;
     return new URL(window.location.href).searchParams.get('session_identifier');
 };
+
+// Alias for backward compatibility
+export const getSessionIdentifier = getSessionIdentifierFromUrl;
