@@ -151,7 +151,14 @@ class IncomingWebhookHandler
             // Get event settings for invoice creation
             $eventSettings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $order->getEventId()]);
 
-            event(new OrderStatusChangedEvent($updatedOrder, createInvoice: $eventSettings?->getEnableInvoicing() ?? false));
+            try {
+                event(new OrderStatusChangedEvent($updatedOrder, createInvoice: $eventSettings?->getEnableInvoicing() ?? false));
+            } catch (Throwable $e) {
+                $this->logger->error('Failed to send order confirmation email after webhook', [
+                    'order_id' => $order->getId(),
+                    'error' => $e->getMessage(),
+                ]);
+            }
 
             $this->domainEventDispatcherService->dispatch(
                 new OrderEvent(

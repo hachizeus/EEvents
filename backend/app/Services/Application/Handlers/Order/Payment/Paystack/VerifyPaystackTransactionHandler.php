@@ -112,10 +112,17 @@ class VerifyPaystackTransactionHandler
 
             // Fire order completed event (sends confirmation email)
             $eventSettings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $order->getEventId()]);
-            event(new OrderStatusChangedEvent(
-                $updatedOrder,
-                createInvoice: $eventSettings?->getEnableInvoicing() ?? false
-            ));
+            try {
+                event(new OrderStatusChangedEvent(
+                    $updatedOrder,
+                    createInvoice: $eventSettings?->getEnableInvoicing() ?? false
+                ));
+            } catch (Throwable $e) {
+                $this->logger->error('Failed to send order confirmation email after verify', [
+                    'order_id' => $order->getId(),
+                    'error' => $e->getMessage(),
+                ]);
+            }
 
             $this->logger->info('Paystack payment verified manually and order completed', [
                 'order_id' => $order->getId(),
