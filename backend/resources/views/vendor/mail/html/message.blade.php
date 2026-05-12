@@ -7,7 +7,7 @@
                      style="max-width: 300px;">
             @else
                 <img src="{{ config('app.frontend_url') }}/logos/1.png" class="logo" alt="{{ config('app.name') }}"
-                     style="max-width: 300px;">
+                     style="max-width: 160px; height: 60px; object-fit: contain;">
             @endif
         </x-mail::header>
     </x-slot:header>

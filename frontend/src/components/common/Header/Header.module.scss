@@ -24,8 +24,10 @@
   text-decoration: none;
 
   img {
-    max-height: 32px;
+    height: 40px;
     width: auto;
+    max-width: 180px;
+    object-fit: contain;
   }
 }
 

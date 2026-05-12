@@ -102,6 +102,7 @@ export const App: FC<
                                         <title>{getConfig("VITE_APP_NAME", "E.Events")}</title>
                                         <link rel="icon"
                                               type="image/png"
+                                              sizes="768x768"
                                               href={getConfig("VITE_APP_FAVICON", "/logos/2.png")}
                                         />
                                     </Helmet>

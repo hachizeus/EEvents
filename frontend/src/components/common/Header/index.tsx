@@ -13,7 +13,7 @@ export const Header = ({rightContent, fullWidth = false}: HeaderProps) => {
         <header className={classes.header}>
             <Container size="md" className={classes.inner} fluid={fullWidth}>
                 <NavLink className={classes.logo} to={'/manage/events'}>
-                    <img src={getConfig("VITE_APP_LOGO_LIGHT", "/logos/1.png")} alt={`${getConfig("VITE_APP_NAME", "E Events")} logo`} className={classes.logo}/>
+                    <img src={getConfig("VITE_APP_LOGO_LIGHT", "/logos/1.png")} alt={`${getConfig("VITE_APP_NAME", "E Events")} logo`}/>
                 </NavLink>
 
                 <div className={classes.rightContent}>

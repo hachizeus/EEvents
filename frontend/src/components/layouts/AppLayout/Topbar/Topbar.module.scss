@@ -169,17 +169,24 @@
     font-size: 1.2em;
     display: flex;
     justify-content: center;
-    padding-inline: 5px;
+    align-items: center;
+    padding-inline: 8px;
 
     a {
       display: flex;
+      align-items: center;
     }
 
     img {
-      max-width: 120px;
+      height: 36px;
+      width: auto;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
 
       @include mixins.respond-below(sm) {
-        max-width: 100px;
+        height: 30px;
+        max-width: 130px;
       }
     }
 

@@ -140,7 +140,6 @@ const AuthLayout = () => {
                                 <img
                                     src={getConfig("VITE_APP_LOGO_DARK", "/logos/3.png")}
                                     alt={getConfig("VITE_APP_NAME", "E.Events") as string}
-                                    style={{maxWidth: '220px', height: 'auto'}}
                                 />
                             </div>
                             <h2 className={classes.brandTagline}>
@@ -178,7 +177,6 @@ const AuthLayout = () => {
                             <img
                                 src={getConfig("VITE_APP_LOGO_DARK", "/logos/3.png")}
                                 alt={t`${getConfig("VITE_APP_NAME", "E.Events")} logo`}
-                                style={{maxWidth: '160px', height: 'auto'}}
                             />
                         </div>
                         <div className={classes.wrapper}>
