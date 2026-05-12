@@ -47,7 +47,7 @@ export const GenericErrorPage: React.FC<GenericErrorPageProps> = ({
                     <Stack gap="xl" align="center">
 
                         <Image
-                            src={getConfig("VITE_APP_LOGO_DARK", "/logos/e-events-stacked-light.svg")}
+                            src={getConfig("VITE_APP_LOGO_DARK", "/logos/3.png")}
                             alt={getConfig("VITE_APP_NAME", "E.Events") + " Logo"}
                             w={rem(140)}
                             h="auto"

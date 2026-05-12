@@ -101,8 +101,8 @@ export const App: FC<
                                     <Helmet>
                                         <title>{getConfig("VITE_APP_NAME", "E.Events")}</title>
                                         <link rel="icon"
-                                              type="image/svg+xml"
-                                              href={getConfig("VITE_APP_FAVICON", "/favicon.svg")}
+                                              type="image/png"
+                                              href={getConfig("VITE_APP_FAVICON", "/logos/2.png")}
                                         />
                                     </Helmet>
                                     {props.children}

@@ -78,7 +78,7 @@ const Settings = () => {
                             label={t`Email`}
                             required
                             description={t`This will be used for notifications and communication with your users.`}
-                            placeholder={t`hello@awesome-events.com`}
+                            placeholder={t`hello@yourevent.co.ke`}
                         />
                     </InputGroup>
 
@@ -88,7 +88,7 @@ const Settings = () => {
                         editorType={'simple'}
                         description={t`A short description of your organizer that will be displayed to your users.`}
                         onChange={(value) => form.setFieldValue('description', value)}
-                        maxLength={1000}
+                        maxLength={1200}
                     />
 
                     <InputGroup>
@@ -101,7 +101,7 @@ const Settings = () => {
                             {...form.getInputProps('website')}
                             label={t`Website`}
                             type={'url'}
-                            placeholder={t`https://awesome-events.com`}
+                            placeholder={t`https://yourevent.co.ke`}
                         />
                     </InputGroup>
                     <InputGroup>

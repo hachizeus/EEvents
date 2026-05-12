@@ -72,43 +72,43 @@ export const AddressSettings = () => {
                     <TextInput
                         {...form.getInputProps('location_details.venue_name')}
                         label={t`Office or venue name`}
-                        placeholder={t`Office or venue name`}
+                        placeholder={t`e.g. Elitjohns Digital Office`}
                     />
                     <InputGroup>
                         <TextInput
                             {...form.getInputProps('location_details.address_line_1')}
                             label={t`Address Line 1`}
-                            placeholder={t`123 Main Street`}
+                            placeholder={t`e.g. Moi Avenue`}
                         />
                         <TextInput
                             {...form.getInputProps('location_details.address_line_2')}
                             label={t`Address Line 2`}
-                            placeholder={t`Suite 100`}
+                            placeholder={t`e.g. Building / Floor`}
                         />
                     </InputGroup>
                     <InputGroup>
                         <TextInput
                             {...form.getInputProps('location_details.city')}
                             label={t`City`}
-                            placeholder={t`San Francisco`}
+                            placeholder={t`e.g. Nairobi`}
                         />
                         <TextInput
                             {...form.getInputProps('location_details.state_or_region')}
-                            label={t`State or Region`}
-                            placeholder={t`California`}
+                            label={t`County`}
+                            placeholder={t`e.g. Nairobi County`}
                         />
                     </InputGroup>
                     <InputGroup>
                         <TextInput
                             {...form.getInputProps('location_details.zip_or_postal_code')}
-                            label={t`Zip or Postal Code`}
-                            placeholder={t`94103`}
+                            label={t`Postal Code`}
+                            placeholder={t`e.g. 00100`}
                         />
                         <Select searchable
                                 data={countries}
                                 {...form.getInputProps('location_details.country')}
                                 label={t`Country`}
-                                placeholder={t`United States`}
+                                placeholder={t`Kenya`}
                         />
                     </InputGroup>
 

@@ -110,6 +110,12 @@ services:
         value: "#16A249"
       - key: VITE_APP_SECONDARY_COLOR
         value: "#0D6B47"
+      - key: VITE_APP_FAVICON
+        value: /logos/2.png
+      - key: VITE_APP_LOGO_DARK
+        value: /logos/3.png
+      - key: VITE_APP_LOGO_LIGHT
+        value: /logos/1.png
 
 databases:
   - name: eevents-postgres

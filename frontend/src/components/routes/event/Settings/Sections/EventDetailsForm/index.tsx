@@ -49,6 +49,11 @@ export const EventDetailsForm = () => {
     }, [eventQuery.isFetched]);
 
     const handleSubmit = (values: Partial<Event>) => {
+        // Strip empty HTML from description before submitting
+        const description = values.description;
+        if (description && /^<p>\s*<\/p>$/.test(description.trim())) {
+            values.description = null as any;
+        }
         updateMutation.mutate({
             eventData: values,
             eventId: eventId,

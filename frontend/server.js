@@ -38,9 +38,6 @@ async function main() {
     app.use('/.well-known', express.static(path.join(__dirname, 'public/.well-known')));
 
     // Serve static files before SSR to prevent them hitting the router
-    app.use('/favicon.svg', express.static(path.join(__dirname, 'public/favicon.svg')));
-    app.use('/favicon.ico', express.static(path.join(__dirname, 'public/favicon.ico')));
-    app.use('/manifest-icons', express.static(path.join(__dirname, 'public/manifest-icons')));
     app.use('/logos', express.static(path.join(__dirname, 'public/logos')));
 
     let vite;

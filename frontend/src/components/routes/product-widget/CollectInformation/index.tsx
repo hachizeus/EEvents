@@ -542,8 +542,8 @@ export const CollectInformation = () => {
                                 />
                                 <TextInput
                                     withAsterisk
-                                    label={t`State or Region`}
-                                    placeholder={t`State or Region`}
+                                    label={t`County`}
+                                    placeholder={t`e.g. Nairobi County`}
                                     {...form.getInputProps("order.address.state_or_region")}
                                 />
                             </InputGroup>
@@ -552,7 +552,7 @@ export const CollectInformation = () => {
                                 {/* Postal Code and Country */}
                                 <TextInput
                                     label={t`ZIP / Postal Code`}
-                                    placeholder={t`ZIP or Postal Code`}
+                                    placeholder={t`Postal Code`}
                                     {...form.getInputProps("order.address.zip_or_postal_code")}
                                 />
                                 <NativeSelect

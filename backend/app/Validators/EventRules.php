@@ -35,7 +35,7 @@ trait EventRules
     {
         return [
             'title' => ['string', 'required', 'max:150', 'min:1'],
-            'description' => ['string', 'min:1', 'max:50000', 'nullable'],
+            'description' => ['string', 'max:50000', 'nullable'],
             'start_date' => [
                 'date',
                 'required',
