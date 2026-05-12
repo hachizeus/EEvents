@@ -101,6 +101,10 @@ class VerifyPaystackTransactionHandler
                 OrderDomainObjectAbstract::PAYMENT_PROVIDER => PaymentProviders::PAYSTACK->value,
             ]);
 
+            // Set updated status on the order with items so listeners have full data
+            $orderWithItems->setStatus(OrderStatus::COMPLETED->name);
+            $orderWithItems->setPaymentStatus(OrderPaymentStatus::PAYMENT_RECEIVED->name);
+
             // Activate attendees
             $this->attendeeRepository->updateWhere(
                 attributes: ['status' => AttendeeStatus::ACTIVE->name],
@@ -108,13 +112,13 @@ class VerifyPaystackTransactionHandler
             );
 
             // Update product quantities
-            $this->quantityUpdateService->updateQuantitiesFromOrder($updatedOrder);
+            $this->quantityUpdateService->updateQuantitiesFromOrder($orderWithItems);
 
-            // Fire order completed event (sends confirmation email)
+            // Fire order completed event with full order (items loaded) for email/invoice/stats
             $eventSettings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $order->getEventId()]);
             try {
                 event(new OrderStatusChangedEvent(
-                    $updatedOrder,
+                    $orderWithItems,
                     createInvoice: $eventSettings?->getEnableInvoicing() ?? false
                 ));
             } catch (Throwable $e) {

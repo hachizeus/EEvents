@@ -2,6 +2,9 @@
 
 namespace HiEvents\Providers;
 
+use HiEvents\Events\OrderStatusChangedEvent;
+use HiEvents\Listeners\Event\UpdateEventStatsListener;
+use HiEvents\Listeners\Order\SendOrderDetailsEmailListener;
 use HiEvents\Listeners\Webhook\WebhookEventListener;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\AttendeeEvent;
 use HiEvents\Services\Infrastructure\DomainEvents\Events\CheckinEvent;
@@ -13,9 +16,17 @@ use Illuminate\Support\Facades\Event;
 class EventServiceProvider extends ServiceProvider
 {
     /**
-     * Map of listeners to the events they should handle.
-     *
-     * @var array<class-string, array<class-string>>
+     * Explicitly registered event listeners (not relying on auto-discovery).
+     */
+    protected $listen = [
+        OrderStatusChangedEvent::class => [
+            UpdateEventStatsListener::class,
+            SendOrderDetailsEmailListener::class,
+        ],
+    ];
+
+    /**
+     * Map of listeners to the domain events they should handle.
      */
     private static array $domainEventMap = [
         WebhookEventListener::class => [
@@ -26,17 +37,12 @@ class EventServiceProvider extends ServiceProvider
         ],
     ];
 
-    /**
-     * Register any events for your application.
-     */
     public function boot(): void
     {
+        parent::boot();
         $this->registerDomainEventListeners();
     }
 
-    /**
-     * Dynamically register all domain event listeners.
-     */
     private function registerDomainEventListeners(): void
     {
         foreach (self::$domainEventMap as $listener => $events) {
@@ -46,11 +52,8 @@ class EventServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * Determine if events and listeners should be automatically discovered.
-     */
     public function shouldDiscoverEvents(): bool
     {
-        return true;
+        return false; // Use explicit registration only
     }
 }

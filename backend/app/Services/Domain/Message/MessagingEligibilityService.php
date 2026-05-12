@@ -43,7 +43,7 @@ class MessagingEligibilityService
         $failures = [];
 
         if (!$this->isPaystackConnected($accountId)) {
-            $failures[] = MessagingEligibilityFailureEnum::STRIPE_NOT_CONNECTED;
+            $failures[] = MessagingEligibilityFailureEnum::PAYMENT_NOT_CONNECTED;
         }
 
         if (!$this->hasPaidOrder($accountId)) {

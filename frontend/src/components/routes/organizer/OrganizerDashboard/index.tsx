@@ -74,17 +74,17 @@ export const OrganizerDashboard = () => {
     const {data: organizer} = useGetOrganizer(organizerId);
     const [showCreateEventModal, setShowCreateEventModal] = useState(false);
 
-    const [selectedCurrency, setSelectedCurrency] = useState<string>(
-        organizer?.currency || 'USD'
-    );
+    const [selectedCurrency, setSelectedCurrency] = useState<string | null>(null);
 
     useEffect(() => {
-        if (organizer?.currency && selectedCurrency !== organizer.currency) {
-            setSelectedCurrency(organizer.currency);
+        if (organizer?.currency) {
+            setSelectedCurrency(prev => prev ?? organizer.currency);
         }
     }, [organizer?.currency]);
 
-    const organizerStatsQuery = useGetOrganizerStats(organizerId, selectedCurrency);
+    const effectiveCurrency = selectedCurrency ?? organizer?.currency ?? 'KES';
+
+    const organizerStatsQuery = useGetOrganizerStats(organizerId, effectiveCurrency, !!organizer);
     const stats = organizerStatsQuery.data;
     const allOrganizersCurrencies = organizerStatsQuery?.data?.all_organizers_currencies;
     const currencies = currenciesMap
@@ -112,10 +112,10 @@ export const OrganizerDashboard = () => {
     }
 
     const organizerStatItems: OrganizerStatDisplayItem[] = [];
-    if (stats && selectedCurrency) {
+    if (stats && effectiveCurrency) {
         organizerStatItems.push(
             {
-                value: formatCurrency(stats.total_gross_sales, selectedCurrency),
+                value: formatCurrency(stats.total_gross_sales, effectiveCurrency),
                 description: t`Gross Sales`,
                 icon: <IconCash size={18}/>,
                 backgroundColor: '#7C63E6'
@@ -139,13 +139,13 @@ export const OrganizerDashboard = () => {
                 backgroundColor: '#E67D49'
             },
             {
-                value: formatCurrency(stats.total_tax, selectedCurrency),
+                value: formatCurrency(stats.total_tax, effectiveCurrency),
                 description: t`Total Tax`,
                 icon: <IconReceiptTax size={18}/>,
                 backgroundColor: '#49A6B7'
             },
             {
-                value: formatCurrency(stats.total_fees, selectedCurrency),
+                value: formatCurrency(stats.total_fees, effectiveCurrency),
                 description: t`Total Fees`,
                 icon: <IconReportMoney size={18}/>,
                 backgroundColor: '#63B3A1'
@@ -171,7 +171,7 @@ export const OrganizerDashboard = () => {
                             <UnstyledButton className={classes.currencySelector}
                                             disabled={organizerStatsQuery.isLoading}>
                             <span className={classes.currencyText}>
-                                {selectedCurrency}
+                                {effectiveCurrency}
                             </span>
                                 <IconChevronDown size={14} className={classes.currencyIcon}/>
                             </UnstyledButton>
@@ -183,7 +183,7 @@ export const OrganizerDashboard = () => {
                                         <Menu.Item
                                             key={currency.value}
                                             onClick={() => setSelectedCurrency(currency.value)}
-                                            className={selectedCurrency === currency.value ? classes.selectedCurrency : ''}
+                                            className={effectiveCurrency === currency.value ? classes.selectedCurrency : ''}
                                         >
                                     <span className={classes.currencyOption}>
                                         <span className={classes.currencyCode}>{currency.value}</span>
