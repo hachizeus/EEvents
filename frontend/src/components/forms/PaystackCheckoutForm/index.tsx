@@ -23,6 +23,7 @@ interface PaystackPopOptions {
     amount: number;
     ref: string;
     currency?: string;
+    callback_url?: string;
     onSuccess: (transaction: { reference: string }) => void;
     onCancel: () => void;
 }
@@ -70,18 +71,21 @@ export default function PaystackCheckoutForm({setSubmitHandler}: PaystackCheckou
             return;
         }
 
-        return new Promise<void>((resolve, reject) => {
+        const sessionId = new URL(window.location.href).searchParams.get('session_identifier');
+        const returnPath = `/checkout/${eventId}/${orderShortId}/payment_return`;
+        const callbackUrl = window.location.origin + returnPath + (sessionId ? `?session_identifier=${sessionId}` : '');
+
+        return new Promise<void>((resolve) => {
             const handler = window.PaystackPop!.setup({
                 key: paystackData.public_key,
                 email: order.email,
                 amount: Math.round(order.total_gross * 100),
                 ref: paystackData.reference,
                 currency: order.currency?.toUpperCase(),
+                callback_url: callbackUrl,
                 onSuccess: () => {
-                    // Redirect to payment return page - webhook will handle order completion
-                    const sessionId = new URL(window.location.href).searchParams.get('session_identifier');
-                    const returnPath = `/checkout/${eventId}/${orderShortId}/payment_return`;
-                    window.location.href = window.location.origin + returnPath + (sessionId ? `?session_identifier=${sessionId}` : '');
+                    // Navigate to payment return page
+                    window.location.href = callbackUrl;
                     resolve();
                 },
                 onCancel: () => {
