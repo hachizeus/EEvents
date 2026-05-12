@@ -111,9 +111,10 @@ class IncomingWebhookHandler
                 return;
             }
 
+            // Load order WITH items (needed for quantity update and stats)
             $order = $this->orderRepository
                 ->loadRelation(OrderItemDomainObject::class)
-                ->findById($paystackPayment->getOrderId());
+                ->findFirst($paystackPayment->getOrderId());
 
             if (!$order) {
                 $this->logger->error('Order not found for Paystack payment', ['order_id' => $paystackPayment->getOrderId()]);
@@ -133,12 +134,16 @@ class IncomingWebhookHandler
                 where: [PaystackPaymentDomainObjectAbstract::REFERENCE => $reference]
             );
 
-            // Update order status
-            $updatedOrder = $this->orderRepository->updateFromArray($order->getId(), [
+            // Update order status in DB
+            $this->orderRepository->updateFromArray($order->getId(), [
                 OrderDomainObjectAbstract::PAYMENT_STATUS => OrderPaymentStatus::PAYMENT_RECEIVED->name,
                 OrderDomainObjectAbstract::STATUS => OrderStatus::COMPLETED->name,
                 OrderDomainObjectAbstract::PAYMENT_PROVIDER => PaymentProviders::PAYSTACK->value,
             ]);
+
+            // Set updated status on the order object (which has items loaded)
+            $order->setStatus(OrderStatus::COMPLETED->name);
+            $order->setPaymentStatus(OrderPaymentStatus::PAYMENT_RECEIVED->name);
 
             // Update attendee statuses
             $this->attendeeRepository->updateWhere(
@@ -146,14 +151,14 @@ class IncomingWebhookHandler
                 where: ['order_id' => $order->getId(), 'status' => AttendeeStatus::AWAITING_PAYMENT->name],
             );
 
-            // Update product quantities
-            $this->quantityUpdateService->updateQuantitiesFromOrder($updatedOrder);
+            // Update product quantities using order WITH items
+            $this->quantityUpdateService->updateQuantitiesFromOrder($order);
 
             // Get event settings for invoice creation
             $eventSettings = $this->eventSettingsRepository->findFirstWhere(['event_id' => $order->getEventId()]);
 
             try {
-                event(new OrderStatusChangedEvent($updatedOrder, createInvoice: $eventSettings?->getEnableInvoicing() ?? false));
+                event(new OrderStatusChangedEvent($order, createInvoice: $eventSettings?->getEnableInvoicing() ?? false));
             } catch (Throwable $e) {
                 $this->logger->error('Failed to send order confirmation email after webhook', [
                     'order_id' => $order->getId(),
