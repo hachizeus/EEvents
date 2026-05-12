@@ -86,9 +86,20 @@ export const GlobalMenu = () => {
         icon: IconLogout,
         onClick: async (event: any) => {
             event.preventDefault();
-            await authClient.logout();
+            try {
+                await authClient.logout();
+            } catch {
+                // ignore logout errors
+            }
+            // Clear localStorage token
             localStorage.removeItem("token");
-            window.location.href = "/auth/login";
+            // Clear session storage
+            sessionStorage.clear();
+            // Expire the token cookie manually (belt and suspenders)
+            document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=None;Secure';
+            document.cookie = 'token=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+            // Hard reload to clear all in-memory state including React Query cache
+            window.location.replace("/auth/login");
         },
     });
 

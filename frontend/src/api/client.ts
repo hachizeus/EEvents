@@ -40,7 +40,6 @@ const storedToken = typeof window !== 'undefined' ? localStorage.getItem('token'
 if (storedToken) {
     api.defaults.headers.common['Authorization'] = `Bearer ${storedToken}`;
 }
-
 api.interceptors.response.use(
     (response) => response,
     (error) => {
