@@ -42,9 +42,9 @@ export const PaymentReturn = () => {
     );
 
     useEffect(() => {
-        if (!paymentTransactionQuery.isFetched) {
-            return;
-        }
+        if (!attemptManualConfirmation) return;
+        if (paymentTransactionQuery.isLoading) return;
+
         if (paymentTransactionQuery.data?.status === 'succeeded') {
             if (!hasTrackedPurchase.current && order) {
                 hasTrackedPurchase.current = true;
@@ -52,13 +52,10 @@ export const PaymentReturn = () => {
                 trackEvent(AnalyticsEvents.PURCHASE_COMPLETED_PAID, { value: totalCents });
             }
             navigate(eventCheckoutPath(eventId, orderShortId, 'summary'));
-        } else {
-            // At this point we've tried multiple times to confirm the payment and failed.
-            // This could be due to a network error on our end, or a problem with the payment provider (Paystack).
-            // This should be a rare occurrence, but we should handle it gracefully.
+        } else if (paymentTransactionQuery.isError || paymentTransactionQuery.isFetched) {
             setCannotConfirmPayment(true);
         }
-    }, [paymentTransactionQuery.isFetched]);
+    }, [paymentTransactionQuery.isLoading, paymentTransactionQuery.data, paymentTransactionQuery.isError, paymentTransactionQuery.isFetched, attemptManualConfirmation]);
 
     useEffect(() => {
         if (isSsr() || !order) {

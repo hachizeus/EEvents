@@ -59,8 +59,11 @@ class IncomingWebhookHandler
         $computedSignature = hash_hmac('sha512', $payload, $webhookSecret);
 
         if (!hash_equals($computedSignature, $signature)) {
-            $this->logger->warning('Paystack webhook signature verification failed');
-            return;
+            $this->logger->warning('Paystack webhook signature verification failed', [
+                'computed' => substr($computedSignature, 0, 16) . '...',
+                'received' => substr($signature, 0, 16) . '...',
+            ]);
+            throw new \RuntimeException('Webhook signature verification failed');
         }
 
         $eventType = $event['event'] ?? '';
@@ -76,10 +79,8 @@ class IncomingWebhookHandler
 
     private function resolveWebhookSecret(?string $reference): string
     {
-        // Paystack sends all webhooks to a single URL configured in the dashboard.
-        // The webhook secret is the system-level secret set in the environment.
-        // Per-account keys are only used for initiating/verifying transactions.
-        return $this->paystackConfigurationService->getWebhookSecret() ?? '';
+        // Paystack signs webhooks using the account's SECRET KEY (not a separate webhook secret)
+        return $this->paystackConfigurationService->getSecretKey() ?? '';
     }
 
     /**
