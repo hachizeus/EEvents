@@ -68,7 +68,7 @@ msgstr "{0} criado com sucesso"
 msgid "{0} left"
 msgstr "{0} restante"
 
-#: src/components/layouts/AppLayout/Sidebar/index.tsx:81
+#: src/components/layouts/AppLayout/Sidebar/index.tsx:80
 #: src/components/layouts/AuthLayout/index.tsx:179
 msgid "{0} logo"
 msgstr "Logo {0}"
@@ -222,8 +222,8 @@ msgstr "1 semana antes do evento"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:123
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:81
-msgid "123 Main Street"
-msgstr "Rua Principal 123"
+#~ msgid "123 Main Street"
+#~ msgstr "Rua Principal 123"
 
 #: src/components/routes/event/TicketDesigner/TicketDesignerPrint.tsx:81
 #: src/components/routes/event/TicketDesigner/TicketPreview.tsx:89
@@ -236,8 +236,8 @@ msgstr "20"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:147
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:105
-msgid "94103"
-msgstr "94103"
+#~ msgid "94103"
+#~ msgstr "94103"
 
 #: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:207
 msgid "A cancellation notice has been sent to"
@@ -1424,8 +1424,8 @@ msgstr "Tipo de cálculo"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:140
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:98
-msgid "California"
-msgstr "Califórnia"
+#~ msgid "California"
+#~ msgstr "Califórnia"
 
 #: src/components/common/EmailTemplateEditor/CTAConfiguration.tsx:20
 msgid "Call-to-Action Button"
@@ -1545,7 +1545,7 @@ msgid "Categories reordered successfully."
 msgstr "Categorias reordenadas com sucesso."
 
 #: src/components/routes/event/products.tsx:98
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:82
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:87
 msgid "Category"
 msgstr "Categoria"
 
@@ -1772,7 +1772,7 @@ msgstr "Fechar"
 msgid "Close modal"
 msgstr "Fechar modal"
 
-#: src/components/layouts/AppLayout/Sidebar/index.tsx:98
+#: src/components/layouts/AppLayout/Sidebar/index.tsx:97
 msgid "Close sidebar"
 msgstr "Fechar barra lateral"
 
@@ -1925,8 +1925,8 @@ msgid "Compose"
 msgstr "Compor"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:117
-msgid "Conference Center"
-msgstr "Centro de conferências"
+#~ msgid "Conference Center"
+#~ msgstr "Centro de conferências"
 
 #: src/components/routes/admin/Accounts/AccountDetail/index.tsx:42
 msgid "Configuration assigned successfully"
@@ -2268,6 +2268,12 @@ msgstr "Copiar URL"
 msgid "Country"
 msgstr "País"
 
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:139
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:97
+#: src/components/routes/product-widget/CollectInformation/index.tsx:545
+msgid "County"
+msgstr ""
+
 #: src/components/routes/organizer/Settings/Sections/ImageAssetSettings/index.tsx:37
 msgid "Cover"
 msgstr "Cobrir"
@@ -2502,7 +2508,7 @@ msgstr "O rótulo CTA é obrigatório"
 #: src/components/forms/OrganizerForm/index.tsx:50
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:73
 #: src/components/routes/admin/Accounts/AccountDetail/index.tsx:149
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:115
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:120
 #: src/components/routes/organizer/Reports/EventsPerformanceReport/index.tsx:51
 #: src/components/routes/organizer/Reports/PlatformFeesReport/index.tsx:99
 #: src/components/routes/organizer/Reports/TaxSummaryReport/index.tsx:33
@@ -2798,7 +2804,7 @@ msgstr "Excluir webhook"
 #: src/components/forms/ProductForm/index.tsx:280
 #: src/components/forms/TaxAndFeeForm/index.tsx:81
 #: src/components/modals/DuplicateEventModal/index.tsx:115
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:93
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:98
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:86
 msgid "Description"
 msgstr "Descrição"
@@ -2978,12 +2984,49 @@ msgstr "Taxa E.Events"
 msgid "E.Events platform fees and VAT breakdown by transaction"
 msgstr "Taxas da plataforma E.Events e discriminação do IVA por transação"
 
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:147
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:105
+msgid "e.g. 00100"
+msgstr ""
+
 #: src/components/routes/event/Settings/Sections/WaitlistSettings/index.tsx:68
 msgid "e.g. 180 (3 hours)"
 msgstr "ex. 180 (3 horas)"
 
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:128
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:86
+msgid "e.g. Building / Floor"
+msgstr ""
+
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:75
+msgid "e.g. Elitjohns Digital Office"
+msgstr ""
+
 #: src/components/routes/organizer/Settings/Sections/PayoutDetails/index.tsx:120
 msgid "e.g. Equity Bank, KCB, Co-op Bank"
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:123
+msgid "e.g. Harambee Avenue"
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:117
+msgid "e.g. Kenyatta International Convention Centre"
+msgstr ""
+
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:81
+msgid "e.g. Moi Avenue"
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:135
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:93
+msgid "e.g. Nairobi"
+msgstr ""
+
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:140
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:98
+#: src/components/routes/product-widget/CollectInformation/index.tsx:546
+msgid "e.g. Nairobi County"
 msgstr ""
 
 #: src/components/routes/event/HomepageDesigner/index.tsx:275
@@ -3299,7 +3342,7 @@ msgstr "Ativado"
 
 #: src/components/common/AdminEventsTable/index.tsx:107
 #: src/components/modals/DuplicateEventModal/index.tsx:129
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:107
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:112
 msgid "End Date"
 msgstr "Data de término"
 
@@ -3447,7 +3490,7 @@ msgid "EU VAT-registered businesses: Reverse charge mechanism applies (0% - Arti
 msgstr "Empresas registadas para IVA na UE: Aplica-se o mecanismo de autoliquidação (0% - Artigo 196 da Diretiva IVA 2006/112/CE)"
 
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:74
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:116
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:121
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:117
 msgid "EUR"
 msgstr "EUR"
@@ -3534,7 +3577,7 @@ msgid "Event details"
 msgstr "Detalhes do evento"
 
 #: src/components/routes/event/Settings/index.tsx:40
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:68
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:73
 #: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:606
 msgid "Event Details"
 msgstr "Detalhes do evento"
@@ -4351,9 +4394,12 @@ msgid "Hello {0}, manage your platform from here."
 msgstr "Olá {0}, gerencie sua plataforma daqui."
 
 #: src/components/forms/OrganizerForm/index.tsx:36
-#: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:81
 msgid "hello@awesome-events.com"
 msgstr "olá@awesome-events.com"
+
+#: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:81
+msgid "hello@yourevent.co.ke"
+msgstr ""
 
 #: src/components/routes/my-tickets/index.tsx:238
 msgid "Here are all the tickets associated with your email address."
@@ -4517,8 +4563,8 @@ msgid "HTML character limit exceeded: {htmlLength}/{maxLength}"
 msgstr "Limite de caracteres HTML excedido: {htmlLength}/{maxLength}"
 
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:104
-msgid "https://awesome-events.com"
-msgstr "https://awesome-events.com"
+#~ msgid "https://awesome-events.com"
+#~ msgstr "https://awesome-events.com"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:160
 msgid "https://example-maps-service.com/..."
@@ -4527,6 +4573,10 @@ msgstr "https://example-maps-service.com/..."
 #: src/components/forms/WebhookForm/index.tsx:139
 msgid "https://webhook-domain.com/webhook"
 msgstr "https://webhook-domain.com/webhook"
+
+#: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:104
+msgid "https://yourevent.co.ke"
+msgstr ""
 
 #: src/components/common/LanguageSwitcher/index.tsx:14
 msgid "Hungarian"
@@ -4862,6 +4912,11 @@ msgstr "Apenas procurando seus ingressos?"
 #: src/components/routes/product-widget/CollectInformation/index.tsx:573
 msgid "Keep me updated on news and events from {0}"
 msgstr "Mantenha-me atualizado sobre notícias e eventos de {0}"
+
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:153
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:111
+msgid "Kenya"
+msgstr ""
 
 #: src/components/forms/ProductForm/index.tsx:85
 msgid "Label"
@@ -5377,7 +5432,7 @@ msgstr "Nam placerat elementum..."
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:63
 #: src/components/routes/admin/Accounts/AccountDetail/index.tsx:393
 #: src/components/routes/admin/Configurations/index.tsx:219
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:75
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:80
 #: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:231
 msgid "Name"
 msgstr "Nome"
@@ -5823,7 +5878,6 @@ msgid "Offers expire after {timeoutHours} hours."
 msgstr "As ofertas expiram após {timeoutHours} horas."
 
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:74
-#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:75
 msgid "Office or venue name"
 msgstr "Nome do escritório ou local"
 
@@ -6879,6 +6933,12 @@ msgstr "Mensagem pós-check-out"
 msgid "Post Checkout Message"
 msgstr "Mensagem Pós-Checkout"
 
+#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:146
+#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:104
+#: src/components/routes/product-widget/CollectInformation/index.tsx:555
+msgid "Postal Code"
+msgstr ""
+
 #: src/components/common/PoweredByFooter/index.tsx:26
 msgid "Powered by"
 msgstr "Distribuído por"
@@ -7614,13 +7674,13 @@ msgstr "Local Exemplo"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:135
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:93
-msgid "San Francisco"
-msgstr "São Francisco"
+#~ msgid "San Francisco"
+#~ msgstr "São Francisco"
 
 #: src/components/common/PlatformFeesSettings/index.tsx:249
 #: src/components/common/QuestionAndAnswerList/index.tsx:142
 #: src/components/routes/event/Settings/Sections/EmailSettings/GeneralEmailSettings.tsx:81
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:129
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:134
 #: src/components/routes/event/Settings/Sections/HomepageAndCheckoutSettings/index.tsx:132
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:166
 #: src/components/routes/event/Settings/Sections/MiscSettings/index.tsx:102
@@ -7812,7 +7872,7 @@ msgid "Select {0}"
 msgstr "Selecionar {0}"
 
 #: src/components/modals/CreateEventModal/index.tsx:186
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:83
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:88
 msgid "Select a category"
 msgstr "Selecione uma categoria"
 
@@ -8336,7 +8396,7 @@ msgstr "Produto padrão com preço fixo"
 
 #: src/components/common/AdminEventsTable/index.tsx:96
 #: src/components/modals/DuplicateEventModal/index.tsx:124
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:102
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:107
 msgid "Start Date"
 msgstr "Data de início"
 
@@ -8370,10 +8430,6 @@ msgid "Starts with sk_test_ or sk_live_ — stored securely encrypted"
 msgstr ""
 
 #: src/components/common/CheckoutQuestion/index.tsx:165
-#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:139
-#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:97
-#: src/components/routes/product-widget/CollectInformation/index.tsx:545
-#: src/components/routes/product-widget/CollectInformation/index.tsx:546
 msgid "State or Region"
 msgstr "Estado ou Região"
 
@@ -8550,7 +8606,7 @@ msgstr "Lista de Registro atualizada com sucesso"
 msgid "Successfully Updated Email Settings"
 msgstr "Configurações de e-mail atualizadas com sucesso"
 
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:57
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:62
 msgid "Successfully Updated Event"
 msgstr "Evento atualizado com sucesso"
 
@@ -8630,8 +8686,8 @@ msgstr "Webhook atualizado com sucesso"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:128
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:86
-msgid "Suite 100"
-msgstr "Suíte 100"
+#~ msgid "Suite 100"
+#~ msgstr "Suíte 100"
 
 #: src/components/common/ProgressStepper/index.tsx:20
 #: src/components/common/ProgressStepper/index.tsx:24
@@ -8640,7 +8696,7 @@ msgstr "Resumo"
 
 #: src/components/modals/CreateEventModal/index.tsx:177
 #: src/components/modals/DuplicateEventModal/index.tsx:110
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:76
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:81
 msgid "Summer Music Festival {0}"
 msgstr "Festival de Música de Verão {0}"
 
@@ -9343,7 +9399,7 @@ msgstr "Vezes usado"
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:82
 #: src/components/routes/admin/Accounts/AccountDetail/index.tsx:140
 #: src/components/routes/auth/AcceptInvitation/index.tsx:119
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:124
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:129
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:125
 #: src/components/routes/product-widget/OrderSummaryAndProducts/index.tsx:327
 #: src/components/routes/profile/ManageProfile/index.tsx:187
@@ -9585,8 +9641,8 @@ msgstr "Referência única do pedido"
 
 #: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:153
 #: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:111
-msgid "United States"
-msgstr "Estados Unidos"
+#~ msgid "United States"
+#~ msgstr "Estados Unidos"
 
 #: src/components/common/MessageList/index.tsx:44
 #: src/components/common/MessageList/index.tsx:49
@@ -9651,7 +9707,7 @@ msgstr "Atualizar {0}"
 msgid "Update Affiliate"
 msgstr "Atualizar afiliado"
 
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:69
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:74
 msgid "Update event name, description and dates"
 msgstr "Atualizar nome, descrição e datas do evento"
 
@@ -9775,7 +9831,7 @@ msgid "Users can change their email in <0>Profile Settings</0>"
 msgstr "Os usuários podem alterar o e-mail em <0>Configurações do perfil</0>"
 
 #: src/components/routes/account/ManageAccount/sections/AccountSettings/index.tsx:83
-#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:125
+#: src/components/routes/event/Settings/Sections/EventDetailsForm/index.tsx:130
 #: src/components/routes/organizer/Settings/Sections/BasicSettings/index.tsx:126
 #: src/components/routes/profile/ManageProfile/index.tsx:188
 msgid "UTC"
@@ -10819,11 +10875,9 @@ msgid "ZIP / Postal Code"
 msgstr "CEP / Código Postal"
 
 #: src/components/common/CheckoutQuestion/index.tsx:170
-#: src/components/routes/event/Settings/Sections/LocationSettings/index.tsx:146
-#: src/components/routes/organizer/Settings/Sections/AddressSettings/index.tsx:104
 msgid "Zip or Postal Code"
 msgstr "CEP ou Código postal"
 
 #: src/components/routes/product-widget/CollectInformation/index.tsx:555
-msgid "ZIP or Postal Code"
-msgstr "CEP ou Código Postal"
+#~ msgid "ZIP or Postal Code"
+#~ msgstr "CEP ou Código Postal"
