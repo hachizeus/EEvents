@@ -159,19 +159,19 @@ msgstr "<0>Webhook'lar, kayıt sırasında CRM'inize veya posta listenize yeni b
 msgid "≈ {0} at current rate"
 msgstr "≈ {0} mevcut kurdan"
 
-#: src/components/routes/event/GettingStarted/index.tsx:144
+#: src/components/routes/event/GettingStarted/index.tsx:142
 msgid "⚡️ Set up your event"
 msgstr "⚡️ Etkinliğinizi kurun"
 
-#: src/components/routes/event/GettingStarted/index.tsx:129
+#: src/components/routes/event/GettingStarted/index.tsx:127
 msgid "🎟️ Add tickets"
 msgstr "🎟️ Bilet ekle"
 
-#: src/components/routes/event/GettingStarted/index.tsx:175
+#: src/components/routes/event/GettingStarted/index.tsx:173
 msgid "🎨 Customize your event page"
 msgstr "🎨 Etkinlik sayfanızı özelleştirin"
 
-#: src/components/routes/event/GettingStarted/index.tsx:157
+#: src/components/routes/event/GettingStarted/index.tsx:155
 msgid "💳 Connect with Paystack"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #~ msgid "💳 Connect with Stripe"
 #~ msgstr "💳 Stripe ile bağlanın"
 
-#: src/components/routes/event/GettingStarted/index.tsx:189
+#: src/components/routes/event/GettingStarted/index.tsx:187
 msgid "🚀 Set your event live"
 msgstr "🚀 Etkinliğinizi yayına alın"
 
@@ -510,7 +510,7 @@ msgstr "Ödeme sırasında ek bilgi toplamak için özel sorular ekleyin"
 msgid "Add description"
 msgstr "Açıklama ekle"
 
-#: src/components/routes/event/GettingStarted/index.tsx:147
+#: src/components/routes/event/GettingStarted/index.tsx:145
 msgid "Add event details and manage event settings."
 msgstr "Etkinlik detaylarını ekleyin ve etkinlik ayarlarını yönetin."
 
@@ -518,7 +518,7 @@ msgstr "Etkinlik detaylarını ekleyin ve etkinlik ayarlarını yönetin."
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Çevrimdışı ödemeler için talimatlar ekleyin (örn. banka havalesi detayları, çeklerin nereye gönderileceği, ödeme tarihleri)"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add More tickets"
 msgstr "Daha fazla bilet ekle"
 
@@ -551,7 +551,7 @@ msgstr "Vergi veya Ücret Ekle"
 msgid "Add this event to your calendar"
 msgstr "Bu etkinliği takviminize ekleyin"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add tickets"
 msgstr "Bilet ekle"
 
@@ -761,13 +761,17 @@ msgstr "Arama motorlarının bu etkinliği indekslemesine izin ver"
 #~ msgid "Almost there! Finish connecting your Stripe account to start accepting payments."
 #~ msgstr "Neredeyse tamam! Ödeme almaya başlamak için Stripe hesabınızı bağlamayı tamamlayın."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:90
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:87
 msgid "Almost there! We're just waiting for your payment to be processed. This should only take a few seconds."
 msgstr "Neredeyse bitti! Ödemenizin işlenmesini bekliyoruz. Bu sadece birkaç saniye sürmelidir."
 
 #: src/components/routes/auth/Register/index.tsx:75
 #~ msgid "Already have an account? <0>{0}</0>"
 #~ msgstr "Zaten hesabınız var mı? <0>{0}</0>"
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:174
+msgid "Already paid?"
+msgstr ""
 
 #: src/components/modals/RefundOrderModal/index.tsx:85
 msgid "Already Refunded"
@@ -1278,7 +1282,7 @@ msgstr "Harika Organizatör Ltd."
 msgid "Back to Accounts"
 msgstr "Hesaplara Dön"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:129
+#: src/components/forms/PaystackCheckoutForm/index.tsx:133
 #: src/components/routes/product-widget/CollectInformation/index.tsx:336
 #: src/components/routes/product-widget/CollectInformation/index.tsx:366
 #: src/components/routes/product-widget/CollectInformation/index.tsx:395
@@ -1330,7 +1334,7 @@ msgstr "Temel Bilgiler"
 msgid "Beautiful checkout experience on any device"
 msgstr "Her cihazda güzel bir ödeme deneyimi"
 
-#: src/components/routes/event/GettingStarted/index.tsx:102
+#: src/components/routes/event/GettingStarted/index.tsx:100
 msgid "Before your event can go live, there are a few things you need to do. Complete all the steps below to get started."
 msgstr "Etkinliğiniz yayına girmeden önce yapmanız gereken birkaç şey var. Başlamak için aşağıdaki tüm adımları tamamlayın."
 
@@ -1735,8 +1739,12 @@ msgstr "Şehir"
 msgid "Clear Search Text"
 msgstr "Arama Metnini Temizle"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:164
+#: src/components/forms/PaystackCheckoutForm/index.tsx:168
 msgid "Click \"Pay\" below to complete your payment securely via Paystack."
+msgstr ""
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:185
+msgid "Click here to check your payment status"
 msgstr ""
 
 #: src/components/common/PromoCodeTable/index.tsx:98
@@ -1892,7 +1900,7 @@ msgstr "Ekibe katılmak için profilinizi tamamlayın."
 
 #: src/components/common/OrdersTable/index.tsx:412
 #: src/components/modals/SendMessageModal/index.tsx:328
-#: src/components/routes/event/GettingStarted/index.tsx:80
+#: src/components/routes/event/GettingStarted/index.tsx:78
 #: src/components/routes/event/orders.tsx:23
 #: src/components/routes/my-tickets/index.tsx:34
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:350
@@ -2011,7 +2019,7 @@ msgstr "Onay gönderildi:"
 msgid "Confirming email address..."
 msgstr "E-posta adresi onaylanıyor..."
 
-#: src/components/routes/event/GettingStarted/index.tsx:98
+#: src/components/routes/event/GettingStarted/index.tsx:96
 msgid "Congratulations on creating an event!"
 msgstr "Bir etkinlik oluşturduğunuz için tebrikler!"
 
@@ -2032,7 +2040,7 @@ msgstr "Tebrikler! Etkinliğiniz artık herkese açık."
 #~ msgstr "Ödeme işlemeyi bağla"
 
 #: src/components/routes/account/ManageAccount/sections/PaymentSettings/index.tsx:201
-#: src/components/routes/event/GettingStarted/index.tsx:167
+#: src/components/routes/event/GettingStarted/index.tsx:165
 msgid "Connect Paystack"
 msgstr ""
 
@@ -2069,7 +2077,7 @@ msgstr ""
 msgid "Connect your Paystack account to start accepting payments for your events. You'll need your API keys from the Paystack dashboard."
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:162
+#: src/components/routes/event/GettingStarted/index.tsx:160
 msgid "Connect your Paystack account to start accepting payments."
 msgstr ""
 
@@ -2140,7 +2148,7 @@ msgstr "Devam Et"
 msgid "Continue Button Text"
 msgstr "Devam Butonu Metni"
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Continue set up"
 msgstr "Kuruluma devam et"
 
@@ -2424,7 +2432,7 @@ msgstr "Vergi veya Ücret Oluştur"
 msgid "Create Ticket or Product"
 msgstr "Bilet veya Ürün Oluştur"
 
-#: src/components/routes/event/GettingStarted/index.tsx:132
+#: src/components/routes/event/GettingStarted/index.tsx:130
 msgid "Create tickets for your event, set prices, and manage available quantity."
 msgstr "Etkinliğiniz için biletler oluşturun, fiyatları belirleyin ve mevcut miktarı yönetin."
 
@@ -2618,11 +2626,11 @@ msgstr "Devam düğmesinde gösterilen metni özelleştirin"
 msgid "Customize your email template using Liquid templating"
 msgstr "Liquid şablonu kullanarak e-posta şablonunuzu özelleştirin"
 
-#: src/components/routes/event/GettingStarted/index.tsx:182
+#: src/components/routes/event/GettingStarted/index.tsx:180
 msgid "Customize your event page"
 msgstr "Etkinlik sayfanızı özelleştirin"
 
-#: src/components/routes/event/GettingStarted/index.tsx:178
+#: src/components/routes/event/GettingStarted/index.tsx:176
 msgid "Customize your event page to match your brand and style."
 msgstr "Etkinlik sayfanızı markanız ve tarzınıza uyacak şekilde özelleştirin."
 
@@ -3602,7 +3610,7 @@ msgstr "Etkinlik ayarları"
 #: src/components/common/StatusToggle/index.tsx:63
 #: src/components/layouts/Event/index.tsx:170
 #: src/components/routes/event/EventDashboard/index.tsx:90
-#: src/components/routes/event/GettingStarted/index.tsx:73
+#: src/components/routes/event/GettingStarted/index.tsx:71
 msgid "Event status update failed. Please try again later"
 msgstr "Etkinlik durumu güncellenemedi. Lütfen daha sonra tekrar deneyin"
 
@@ -3610,7 +3618,7 @@ msgstr "Etkinlik durumu güncellenemedi. Lütfen daha sonra tekrar deneyin"
 #: src/components/common/StatusToggle/index.tsx:55
 #: src/components/layouts/Event/index.tsx:166
 #: src/components/routes/event/EventDashboard/index.tsx:87
-#: src/components/routes/event/GettingStarted/index.tsx:70
+#: src/components/routes/event/GettingStarted/index.tsx:68
 msgid "Event status updated"
 msgstr "Etkinlik durumu güncellendi"
 
@@ -5877,7 +5885,7 @@ msgstr "Bir etkinlik oluşturduğunuzda, burada göreceksiniz."
 msgid "Once you start collecting data, you'll see it here."
 msgstr "Veri toplamaya başladığınızda, burada göreceksiniz."
 
-#: src/components/routes/event/GettingStarted/index.tsx:192
+#: src/components/routes/event/GettingStarted/index.tsx:190
 msgid "Once you're ready, set your event live and start selling products."
 msgstr "Hazır olduğunuzda, etkinliğinizi yayına alın ve ürün satmaya başlayın."
 
@@ -6327,7 +6335,7 @@ msgstr "İç Boşluk"
 msgid "Page"
 msgstr "Sayfa"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:127
+#: src/components/forms/PaystackCheckoutForm/index.tsx:131
 msgid "Page no longer available"
 msgstr "Sayfa artık mevcut değil"
 
@@ -6458,7 +6466,7 @@ msgstr "Yük"
 
 #: src/components/common/OrdersTable/index.tsx:375
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/forms/PaystackCheckoutForm/index.tsx:152
+#: src/components/forms/PaystackCheckoutForm/index.tsx:156
 msgid "Payment"
 msgstr "Ödeme"
 
@@ -6523,15 +6531,15 @@ msgstr ""
 msgid "Payment provider"
 msgstr "Ödeme sağlayıcısı"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:69
+#: src/components/forms/PaystackCheckoutForm/index.tsx:70
 msgid "Payment provider failed to load. Please refresh and try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:64
+#: src/components/forms/PaystackCheckoutForm/index.tsx:65
 msgid "Payment provider is not ready. Please try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:115
+#: src/components/forms/PaystackCheckoutForm/index.tsx:119
 msgid "Payment received"
 msgstr "Ödeme alındı"
 
@@ -6555,7 +6563,7 @@ msgstr "Ödeme Durumu"
 msgid "Payment Terms"
 msgstr "Ödeme Koşulları"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:88
+#: src/components/forms/PaystackCheckoutForm/index.tsx:92
 msgid "Payment was cancelled. Please try again."
 msgstr ""
 
@@ -6604,7 +6612,7 @@ msgstr ""
 msgid "Paystack is connected"
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:161
+#: src/components/routes/event/GettingStarted/index.tsx:159
 msgid "Paystack is connected and ready to process payments."
 msgstr ""
 
@@ -6794,7 +6802,7 @@ msgstr "Lütfen Dikkat"
 msgid "Please provide an image."
 msgstr "Lütfen bir görsel sağlayın."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:142
+#: src/components/forms/PaystackCheckoutForm/index.tsx:146
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:46
 msgid "Please restart the checkout process."
 msgstr "Lütfen ödeme işlemini yeniden başlatın."
@@ -7498,7 +7506,7 @@ msgstr "Tümünü yeniden dene"
 msgid "Retry Job"
 msgstr "İşi yeniden dene"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:144
+#: src/components/forms/PaystackCheckoutForm/index.tsx:148
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:33
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:48
 msgid "Return to Event"
@@ -8088,7 +8096,7 @@ msgstr "Fatura numaralandırması için başlangıç numarasını ayarlayın. Fa
 msgid "Set up check-in lists for different entrances, sessions, or days."
 msgstr "Farklı girişler, oturumlar veya günler için giriş listeleri oluşturun."
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Set up your event"
 msgstr "Etkinliğinizi kurun"
 
@@ -8096,7 +8104,7 @@ msgstr "Etkinliğinizi kurun"
 msgid "Set up your organization"
 msgstr "Organizasyonunuzu kurun"
 
-#: src/components/routes/event/GettingStarted/index.tsx:196
+#: src/components/routes/event/GettingStarted/index.tsx:194
 msgid "Set your event live"
 msgstr "Etkinliğinizi yayına alın"
 
@@ -8265,7 +8273,7 @@ msgid "Sold Out"
 msgstr "Tükendi"
 
 #: src/components/common/ErrorDisplay/index.tsx:15
-#: src/components/forms/PaystackCheckoutForm/index.tsx:141
+#: src/components/forms/PaystackCheckoutForm/index.tsx:145
 #: src/components/routes/auth/AcceptInvitation/index.tsx:48
 #: src/components/routes/product-widget/CollectInformation/index.tsx:392
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:45
@@ -9072,7 +9080,7 @@ msgstr "Bu mesaj sadece sipariş başarılı bir şekilde tamamlandığında gö
 msgid "This name is visible to end users"
 msgstr "Bu isim son kullanıcılara görünür"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:116
+#: src/components/forms/PaystackCheckoutForm/index.tsx:120
 msgid "This order has already been paid."
 msgstr "Bu sipariş zaten ödenmiş."
 
@@ -9096,7 +9104,7 @@ msgstr "Bu sipariş işleniyor."
 msgid "This order is complete."
 msgstr "Bu sipariş tamamlandı."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:128
+#: src/components/forms/PaystackCheckoutForm/index.tsx:132
 msgid "This order page is no longer available."
 msgstr "Bu sipariş sayfası artık mevcut değil."
 
@@ -9977,7 +9985,7 @@ msgstr "Google Haritalar'da görüntüle"
 msgid "View Order"
 msgstr "Siparişi Görüntüle"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:117
+#: src/components/forms/PaystackCheckoutForm/index.tsx:121
 #: src/components/routes/product-widget/CollectInformation/index.tsx:356
 msgid "View Order Details"
 msgstr "Sipariş Detaylarını Görüntüle"
@@ -10059,7 +10067,7 @@ msgstr ""
 msgid "Warning: This is the system default configuration. Changes will affect all accounts that don't have a specific configuration assigned."
 msgstr "Uyarı: Bu sistem varsayılan yapılandırmasıdır. Değişiklikler, belirli bir yapılandırması atanmamış tüm hesapları etkileyecektir."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:89
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:86
 msgid "We could not process your payment. Please try again or contact support."
 msgstr "Ödemenizi işleyemedik. Lütfen tekrar deneyin veya destek ile iletişime geçin."
 
@@ -10116,7 +10124,7 @@ msgstr "400px x 400px boyutlarını ve maksimum 5MB dosya boyutunu öneriyoruz"
 msgid "We use cookies to help us understand how the site is used and to improve your experience."
 msgstr "Sitenin nasıl kullanıldığını anlamamıza ve deneyiminizi iyileştirmemize yardımcı olması için çerezler kullanıyoruz."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:100
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:97
 msgid "We were unable to confirm your payment. Please try again or contact support."
 msgstr "Ödemenizi onaylayamadık. Lütfen tekrar deneyin veya destek ile iletişime geçin."
 
@@ -10136,7 +10144,7 @@ msgstr "Biletlerinizi bu e-postaya göndereceğiz"
 msgid "We'll validate your VAT number in the background. If there are any issues, we'll let you know."
 msgstr "KDV numaranızı arka planda doğrulayacağız. Herhangi bir sorun olursa sizi bilgilendireceğiz."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:91
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:88
 msgid "We're processing your order. Please wait..."
 msgstr "Siparişinizi işliyoruz. Lütfen bekleyin..."
 
@@ -10761,7 +10769,7 @@ msgstr "Ödemeniz banka düzeyinde şifreleme ile korunmaktadır"
 #~ msgid "Your payment was not successful, please try again."
 #~ msgstr "Ödemeniz başarısız oldu, lütfen tekrar deneyin."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:155
+#: src/components/forms/PaystackCheckoutForm/index.tsx:159
 msgid "Your payment was unsuccessful. Please try again."
 msgstr "Ödemeniz başarısız oldu. Lütfen tekrar deneyin."
 

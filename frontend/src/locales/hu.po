@@ -159,19 +159,19 @@ msgstr "<0>A webhookok azonnal értesítik a külső szolgáltatásokat, amikor 
 msgid "≈ {0} at current rate"
 msgstr "≈ {0} az aktuális árfolyamon"
 
-#: src/components/routes/event/GettingStarted/index.tsx:144
+#: src/components/routes/event/GettingStarted/index.tsx:142
 msgid "⚡️ Set up your event"
 msgstr "⚡️ Esemény beállítása"
 
-#: src/components/routes/event/GettingStarted/index.tsx:129
+#: src/components/routes/event/GettingStarted/index.tsx:127
 msgid "🎟️ Add tickets"
 msgstr "🎟️ Jegyek hozzáadása"
 
-#: src/components/routes/event/GettingStarted/index.tsx:175
+#: src/components/routes/event/GettingStarted/index.tsx:173
 msgid "🎨 Customize your event page"
 msgstr "🎨 Eseményoldal testreszabása"
 
-#: src/components/routes/event/GettingStarted/index.tsx:157
+#: src/components/routes/event/GettingStarted/index.tsx:155
 msgid "💳 Connect with Paystack"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #~ msgid "💳 Connect with Stripe"
 #~ msgstr "💳 Kapcsolódás a Stripe-hoz"
 
-#: src/components/routes/event/GettingStarted/index.tsx:189
+#: src/components/routes/event/GettingStarted/index.tsx:187
 msgid "🚀 Set your event live"
 msgstr "🚀 Indítsa el az eseményt"
 
@@ -510,7 +510,7 @@ msgstr "Egyedi kérdések hozzáadása további információk gyűjtéséhez a p
 msgid "Add description"
 msgstr "Leírás hozzáadása"
 
-#: src/components/routes/event/GettingStarted/index.tsx:147
+#: src/components/routes/event/GettingStarted/index.tsx:145
 msgid "Add event details and manage event settings."
 msgstr "Adja meg az esemény részleteit és kezelje az esemény beállításait."
 
@@ -518,7 +518,7 @@ msgstr "Adja meg az esemény részleteit és kezelje az esemény beállításait
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Adjon hozzá utasításokat az offline fizetésekhez (pl. banki átutalás részletei, hová küldje a csekkeket, fizetési határidők)"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add More tickets"
 msgstr "További jegyek hozzáadása"
 
@@ -551,7 +551,7 @@ msgstr "Adó vagy díj hozzáadása"
 msgid "Add this event to your calendar"
 msgstr "Adja hozzá ezt az eseményt a naptárához"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add tickets"
 msgstr "Jegyek hozzáadása"
 
@@ -761,13 +761,17 @@ msgstr "Engedélyezze a keresőmotoroknak az esemény indexelését"
 #~ msgid "Almost there! Finish connecting your Stripe account to start accepting payments."
 #~ msgstr "Majdnem kész! Fejezze be Stripe fiókja csatlakoztatását a kifizetések fogadásának megkezdéséhez."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:90
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:87
 msgid "Almost there! We're just waiting for your payment to be processed. This should only take a few seconds."
 msgstr "Majdnem kész! Csak a fizetés feldolgozására várunk. Ez csak néhány másodpercet vesz igénybe."
 
 #: src/components/routes/auth/Register/index.tsx:75
 #~ msgid "Already have an account? <0>{0}</0>"
 #~ msgstr "Már van fiókja? <0>{0}</0>"
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:174
+msgid "Already paid?"
+msgstr ""
 
 #: src/components/modals/RefundOrderModal/index.tsx:85
 msgid "Already Refunded"
@@ -1278,7 +1282,7 @@ msgstr "Awesome Organizer Kft."
 msgid "Back to Accounts"
 msgstr "Vissza a fiókokhoz"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:129
+#: src/components/forms/PaystackCheckoutForm/index.tsx:133
 #: src/components/routes/product-widget/CollectInformation/index.tsx:336
 #: src/components/routes/product-widget/CollectInformation/index.tsx:366
 #: src/components/routes/product-widget/CollectInformation/index.tsx:395
@@ -1330,7 +1334,7 @@ msgstr "Alapvető információk"
 msgid "Beautiful checkout experience on any device"
 msgstr "Gyönyörű pénztári élmény bármilyen eszközön"
 
-#: src/components/routes/event/GettingStarted/index.tsx:102
+#: src/components/routes/event/GettingStarted/index.tsx:100
 msgid "Before your event can go live, there are a few things you need to do. Complete all the steps below to get started."
 msgstr "Mielőtt az esemény élővé válna, néhány dolgot meg kell tennie. Fejezze be az összes alábbi lépést a kezdéshez."
 
@@ -1735,8 +1739,12 @@ msgstr "Város"
 msgid "Clear Search Text"
 msgstr "Keresési szöveg törlése"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:164
+#: src/components/forms/PaystackCheckoutForm/index.tsx:168
 msgid "Click \"Pay\" below to complete your payment securely via Paystack."
+msgstr ""
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:185
+msgid "Click here to check your payment status"
 msgstr ""
 
 #: src/components/common/PromoCodeTable/index.tsx:98
@@ -1892,7 +1900,7 @@ msgstr "Töltse ki a profilját a csapathoz való csatlakozáshoz."
 
 #: src/components/common/OrdersTable/index.tsx:412
 #: src/components/modals/SendMessageModal/index.tsx:328
-#: src/components/routes/event/GettingStarted/index.tsx:80
+#: src/components/routes/event/GettingStarted/index.tsx:78
 #: src/components/routes/event/orders.tsx:23
 #: src/components/routes/my-tickets/index.tsx:34
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:350
@@ -2011,7 +2019,7 @@ msgstr "Megerősítés elküldve a következő címre:"
 msgid "Confirming email address..."
 msgstr "E-mail cím megerősítése..."
 
-#: src/components/routes/event/GettingStarted/index.tsx:98
+#: src/components/routes/event/GettingStarted/index.tsx:96
 msgid "Congratulations on creating an event!"
 msgstr "Gratulálunk az esemény létrehozásához!"
 
@@ -2032,7 +2040,7 @@ msgstr "Gratulálunk! Az eseményed mostantól látható a nyilvánosság szám�
 #~ msgstr "Fizetésfeldolgozás csatlakoztatása"
 
 #: src/components/routes/account/ManageAccount/sections/PaymentSettings/index.tsx:201
-#: src/components/routes/event/GettingStarted/index.tsx:167
+#: src/components/routes/event/GettingStarted/index.tsx:165
 msgid "Connect Paystack"
 msgstr ""
 
@@ -2069,7 +2077,7 @@ msgstr ""
 msgid "Connect your Paystack account to start accepting payments for your events. You'll need your API keys from the Paystack dashboard."
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:162
+#: src/components/routes/event/GettingStarted/index.tsx:160
 msgid "Connect your Paystack account to start accepting payments."
 msgstr ""
 
@@ -2140,7 +2148,7 @@ msgstr "Folytatás"
 msgid "Continue Button Text"
 msgstr "Folytatás gomb szövege"
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Continue set up"
 msgstr "Beállítás folytatása"
 
@@ -2424,7 +2432,7 @@ msgstr "Adó vagy díj létrehozása"
 msgid "Create Ticket or Product"
 msgstr "Jegy vagy termék létrehozása"
 
-#: src/components/routes/event/GettingStarted/index.tsx:132
+#: src/components/routes/event/GettingStarted/index.tsx:130
 msgid "Create tickets for your event, set prices, and manage available quantity."
 msgstr "Hozzon létre jegyeket az eseményéhez, állítsa be az árakat és kezelje az elérhető mennyiséget."
 
@@ -2618,11 +2626,11 @@ msgstr "Testreszabhatja a folytatás gomb szövegét."
 msgid "Customize your email template using Liquid templating"
 msgstr "Testreszabhatja az e-mail sablonját Liquid sablonok használatával"
 
-#: src/components/routes/event/GettingStarted/index.tsx:182
+#: src/components/routes/event/GettingStarted/index.tsx:180
 msgid "Customize your event page"
 msgstr "Testreszabhatja eseményoldalát"
 
-#: src/components/routes/event/GettingStarted/index.tsx:178
+#: src/components/routes/event/GettingStarted/index.tsx:176
 msgid "Customize your event page to match your brand and style."
 msgstr "Testreszabhatja eseményoldalát, hogy illeszkedjen márkájához és stílusához."
 
@@ -3602,7 +3610,7 @@ msgstr "Esemény beállítások"
 #: src/components/common/StatusToggle/index.tsx:63
 #: src/components/layouts/Event/index.tsx:170
 #: src/components/routes/event/EventDashboard/index.tsx:90
-#: src/components/routes/event/GettingStarted/index.tsx:73
+#: src/components/routes/event/GettingStarted/index.tsx:71
 msgid "Event status update failed. Please try again later"
 msgstr "Esemény állapotának frissítése sikertelen. Kérjük, próbálja újra később."
 
@@ -3610,7 +3618,7 @@ msgstr "Esemény állapotának frissítése sikertelen. Kérjük, próbálja új
 #: src/components/common/StatusToggle/index.tsx:55
 #: src/components/layouts/Event/index.tsx:166
 #: src/components/routes/event/EventDashboard/index.tsx:87
-#: src/components/routes/event/GettingStarted/index.tsx:70
+#: src/components/routes/event/GettingStarted/index.tsx:68
 msgid "Event status updated"
 msgstr "Esemény állapota frissítve"
 
@@ -5877,7 +5885,7 @@ msgstr "Miután létrehozott egy eseményt, itt fogja látni."
 msgid "Once you start collecting data, you'll see it here."
 msgstr "Miután elkezd gyűjteni adatokat, itt fogja látni."
 
-#: src/components/routes/event/GettingStarted/index.tsx:192
+#: src/components/routes/event/GettingStarted/index.tsx:190
 msgid "Once you're ready, set your event live and start selling products."
 msgstr "Amikor elkészült, tegye élővé eseményét, és kezdjen el termékeket értékesíteni."
 
@@ -6327,7 +6335,7 @@ msgstr "Kitöltés"
 msgid "Page"
 msgstr "Oldal"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:127
+#: src/components/forms/PaystackCheckoutForm/index.tsx:131
 msgid "Page no longer available"
 msgstr "Az oldal már nem elérhető"
 
@@ -6458,7 +6466,7 @@ msgstr "Adattartalom"
 
 #: src/components/common/OrdersTable/index.tsx:375
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/forms/PaystackCheckoutForm/index.tsx:152
+#: src/components/forms/PaystackCheckoutForm/index.tsx:156
 msgid "Payment"
 msgstr "Fizetés"
 
@@ -6523,15 +6531,15 @@ msgstr ""
 msgid "Payment provider"
 msgstr "Fizetési szolgáltató"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:69
+#: src/components/forms/PaystackCheckoutForm/index.tsx:70
 msgid "Payment provider failed to load. Please refresh and try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:64
+#: src/components/forms/PaystackCheckoutForm/index.tsx:65
 msgid "Payment provider is not ready. Please try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:115
+#: src/components/forms/PaystackCheckoutForm/index.tsx:119
 msgid "Payment received"
 msgstr "Fizetés megérkezett"
 
@@ -6555,7 +6563,7 @@ msgstr "Fizetési állapot"
 msgid "Payment Terms"
 msgstr "Fizetési feltételek"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:88
+#: src/components/forms/PaystackCheckoutForm/index.tsx:92
 msgid "Payment was cancelled. Please try again."
 msgstr ""
 
@@ -6604,7 +6612,7 @@ msgstr ""
 msgid "Paystack is connected"
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:161
+#: src/components/routes/event/GettingStarted/index.tsx:159
 msgid "Paystack is connected and ready to process payments."
 msgstr ""
 
@@ -6794,7 +6802,7 @@ msgstr "Kérjük, vegye figyelembe"
 msgid "Please provide an image."
 msgstr "Kérjük, adjon meg egy képet."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:142
+#: src/components/forms/PaystackCheckoutForm/index.tsx:146
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:46
 msgid "Please restart the checkout process."
 msgstr "Kérjük, indítsa újra a pénztári folyamatot."
@@ -7498,7 +7506,7 @@ msgstr "Összes újrapróbálása"
 msgid "Retry Job"
 msgstr "Feladat újrapróbálása"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:144
+#: src/components/forms/PaystackCheckoutForm/index.tsx:148
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:33
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:48
 msgid "Return to Event"
@@ -8088,7 +8096,7 @@ msgstr "Állítsa be a számlaszámozás kezdő számát. Ez nem módosítható,
 msgid "Set up check-in lists for different entrances, sessions, or days."
 msgstr "Bejelentkezési listák beállítása különböző bejáratokhoz, munkamenetekhez vagy napokhoz."
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Set up your event"
 msgstr "Állítsa be eseményét"
 
@@ -8096,7 +8104,7 @@ msgstr "Állítsa be eseményét"
 msgid "Set up your organization"
 msgstr "Állítsa be szervezetét"
 
-#: src/components/routes/event/GettingStarted/index.tsx:196
+#: src/components/routes/event/GettingStarted/index.tsx:194
 msgid "Set your event live"
 msgstr "Tegye élővé eseményét"
 
@@ -8265,7 +8273,7 @@ msgid "Sold Out"
 msgstr "Elfogyott"
 
 #: src/components/common/ErrorDisplay/index.tsx:15
-#: src/components/forms/PaystackCheckoutForm/index.tsx:141
+#: src/components/forms/PaystackCheckoutForm/index.tsx:145
 #: src/components/routes/auth/AcceptInvitation/index.tsx:48
 #: src/components/routes/product-widget/CollectInformation/index.tsx:392
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:45
@@ -9072,7 +9080,7 @@ msgstr "Ez az üzenet csak akkor jelenik meg, ha a megrendelés sikeresen befeje
 msgid "This name is visible to end users"
 msgstr "Ez a név látható a végfelhasználók számára"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:116
+#: src/components/forms/PaystackCheckoutForm/index.tsx:120
 msgid "This order has already been paid."
 msgstr "Ez a megrendelés már ki lett fizetve."
 
@@ -9096,7 +9104,7 @@ msgstr "Ez a rendelés feldolgozás alatt áll."
 msgid "This order is complete."
 msgstr "Ez a megrendelés kész."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:128
+#: src/components/forms/PaystackCheckoutForm/index.tsx:132
 msgid "This order page is no longer available."
 msgstr "Ez a megrendelési oldal már nem elérhető."
 
@@ -9977,7 +9985,7 @@ msgstr "Megtekintés a Google Térképen"
 msgid "View Order"
 msgstr "Rendelés megtekintése"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:117
+#: src/components/forms/PaystackCheckoutForm/index.tsx:121
 #: src/components/routes/product-widget/CollectInformation/index.tsx:356
 msgid "View Order Details"
 msgstr "Rendelés részleteinek megtekintése"
@@ -10059,7 +10067,7 @@ msgstr ""
 msgid "Warning: This is the system default configuration. Changes will affect all accounts that don't have a specific configuration assigned."
 msgstr "Figyelmeztetés: Ez a rendszer alapértelmezett konfigurációja. A módosítások minden olyan fiókot érintenek, amelyhez nincs konkrét konfiguráció hozzárendelve."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:89
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:86
 msgid "We could not process your payment. Please try again or contact support."
 msgstr "Nem sikerült feldolgozni a fizetését. Kérjük, próbálja újra, vagy lépjen kapcsolatba a támogatással."
 
@@ -10116,7 +10124,7 @@ msgstr "Javasolt méretek: 400px x 400px, maximális fájlméret: 5MB."
 msgid "We use cookies to help us understand how the site is used and to improve your experience."
 msgstr "Sütiket használunk annak megértéséhez, hogyan használják az oldalt, és hogy javítsuk az élményt."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:100
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:97
 msgid "We were unable to confirm your payment. Please try again or contact support."
 msgstr "Nem sikerült megerősíteni a fizetését. Kérjük, próbálja újra, vagy lépjen kapcsolatba a támogatással."
 
@@ -10136,7 +10144,7 @@ msgstr "Erre az e-mail címre küldjük a jegyeit"
 msgid "We'll validate your VAT number in the background. If there are any issues, we'll let you know."
 msgstr "Az ÁFA számot a háttérben érvényesítjük. Ha bármilyen probléma merül fel, értesítjük."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:91
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:88
 msgid "We're processing your order. Please wait..."
 msgstr "Megrendelését feldolgozzuk. Kérjük, várjon..."
 
@@ -10761,7 +10769,7 @@ msgstr "A fizetése banki szintű titkosítással védett"
 #~ msgid "Your payment was not successful, please try again."
 #~ msgstr "Fizetése sikertelen volt, kérjük, próbálja újra."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:155
+#: src/components/forms/PaystackCheckoutForm/index.tsx:159
 msgid "Your payment was unsuccessful. Please try again."
 msgstr "Fizetése sikertelen volt. Kérjük, próbálja újra."
 

@@ -159,19 +159,19 @@ msgstr "<0>Webhooks benachrichtigen externe Dienste sofort, wenn Ereignisse eint
 msgid "≈ {0} at current rate"
 msgstr "≈ {0} zum aktuellen Kurs"
 
-#: src/components/routes/event/GettingStarted/index.tsx:144
+#: src/components/routes/event/GettingStarted/index.tsx:142
 msgid "⚡️ Set up your event"
 msgstr "⚡️ Richten Sie Ihre Veranstaltung ein"
 
-#: src/components/routes/event/GettingStarted/index.tsx:129
+#: src/components/routes/event/GettingStarted/index.tsx:127
 msgid "🎟️ Add tickets"
 msgstr "🎟️ Tickets hinzufügen"
 
-#: src/components/routes/event/GettingStarted/index.tsx:175
+#: src/components/routes/event/GettingStarted/index.tsx:173
 msgid "🎨 Customize your event page"
 msgstr "🎨 Veranstaltungsseite anpassen"
 
-#: src/components/routes/event/GettingStarted/index.tsx:157
+#: src/components/routes/event/GettingStarted/index.tsx:155
 msgid "💳 Connect with Paystack"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #~ msgid "💳 Connect with Stripe"
 #~ msgstr "💳 Mit Stripe verbinden"
 
-#: src/components/routes/event/GettingStarted/index.tsx:189
+#: src/components/routes/event/GettingStarted/index.tsx:187
 msgid "🚀 Set your event live"
 msgstr "🚀 Veröffentliche dein Event"
 
@@ -510,7 +510,7 @@ msgstr "Fügen Sie benutzerdefinierte Fragen hinzu, um während des Bezahlvorgan
 msgid "Add description"
 msgstr "Beschreibung hinzufügen"
 
-#: src/components/routes/event/GettingStarted/index.tsx:147
+#: src/components/routes/event/GettingStarted/index.tsx:145
 msgid "Add event details and manage event settings."
 msgstr "Füge Veranstaltungsdetails hinzu und verwalte die Einstellungen."
 
@@ -518,7 +518,7 @@ msgstr "Füge Veranstaltungsdetails hinzu und verwalte die Einstellungen."
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Fügen Sie Anweisungen für Offline-Zahlungen hinzu (z. B. Überweisungsdetails, wo Schecks hingeschickt werden sollen, Zahlungsfristen)"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add More tickets"
 msgstr "Weitere Tickets hinzufügen"
 
@@ -551,7 +551,7 @@ msgstr "Steuern oder Gebühren hinzufügen"
 msgid "Add this event to your calendar"
 msgstr "Fügen Sie dieses Event zu Ihrem Kalender hinzu"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add tickets"
 msgstr "Tickets hinzufügen"
 
@@ -761,13 +761,17 @@ msgstr "Suchmaschinen erlauben, dieses Ereignis zu indizieren"
 #~ msgid "Almost there! Finish connecting your Stripe account to start accepting payments."
 #~ msgstr "Fast geschafft! Schließen Sie die Verbindung Ihres Stripe-Kontos ab, um Zahlungen zu akzeptieren."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:90
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:87
 msgid "Almost there! We're just waiting for your payment to be processed. This should only take a few seconds."
 msgstr "Fast geschafft! Wir warten nur noch auf die Verarbeitung Ihrer Zahlung. Das sollte nur wenige Sekunden dauern."
 
 #: src/components/routes/auth/Register/index.tsx:75
 #~ msgid "Already have an account? <0>{0}</0>"
 #~ msgstr "Haben Sie bereits ein Konto? <0>{0}</0>"
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:174
+msgid "Already paid?"
+msgstr ""
 
 #: src/components/modals/RefundOrderModal/index.tsx:85
 msgid "Already Refunded"
@@ -1278,7 +1282,7 @@ msgstr "Awesome Organizer Ltd."
 msgid "Back to Accounts"
 msgstr "Zurück zu Konten"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:129
+#: src/components/forms/PaystackCheckoutForm/index.tsx:133
 #: src/components/routes/product-widget/CollectInformation/index.tsx:336
 #: src/components/routes/product-widget/CollectInformation/index.tsx:366
 #: src/components/routes/product-widget/CollectInformation/index.tsx:395
@@ -1330,7 +1334,7 @@ msgstr "Grundinformationen"
 msgid "Beautiful checkout experience on any device"
 msgstr "Schönes Checkout-Erlebnis auf jedem Gerät"
 
-#: src/components/routes/event/GettingStarted/index.tsx:102
+#: src/components/routes/event/GettingStarted/index.tsx:100
 msgid "Before your event can go live, there are a few things you need to do. Complete all the steps below to get started."
 msgstr "Bevor dein Event live gehen kann, musst du einige Schritte erledigen. Schließe alle folgenden Schritte ab, um zu beginnen."
 
@@ -1735,8 +1739,12 @@ msgstr "Stadt"
 msgid "Clear Search Text"
 msgstr "Suchtext löschen"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:164
+#: src/components/forms/PaystackCheckoutForm/index.tsx:168
 msgid "Click \"Pay\" below to complete your payment securely via Paystack."
+msgstr ""
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:185
+msgid "Click here to check your payment status"
 msgstr ""
 
 #: src/components/common/PromoCodeTable/index.tsx:98
@@ -1892,7 +1900,7 @@ msgstr "Vervollständigen Sie Ihr Profil, um dem Team beizutreten."
 
 #: src/components/common/OrdersTable/index.tsx:412
 #: src/components/modals/SendMessageModal/index.tsx:328
-#: src/components/routes/event/GettingStarted/index.tsx:80
+#: src/components/routes/event/GettingStarted/index.tsx:78
 #: src/components/routes/event/orders.tsx:23
 #: src/components/routes/my-tickets/index.tsx:34
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:350
@@ -2011,7 +2019,7 @@ msgstr "Bestätigung gesendet an"
 msgid "Confirming email address..."
 msgstr "E-Mail-Adresse wird bestätigt …"
 
-#: src/components/routes/event/GettingStarted/index.tsx:98
+#: src/components/routes/event/GettingStarted/index.tsx:96
 msgid "Congratulations on creating an event!"
 msgstr "Herzlichen Glückwunsch zur Erstellung eines Events!"
 
@@ -2032,7 +2040,7 @@ msgstr "Herzlichen Glückwunsch! Ihre Veranstaltung ist jetzt öffentlich sichtb
 #~ msgstr "Zahlungsabwicklung verbinden"
 
 #: src/components/routes/account/ManageAccount/sections/PaymentSettings/index.tsx:201
-#: src/components/routes/event/GettingStarted/index.tsx:167
+#: src/components/routes/event/GettingStarted/index.tsx:165
 msgid "Connect Paystack"
 msgstr ""
 
@@ -2069,7 +2077,7 @@ msgstr ""
 msgid "Connect your Paystack account to start accepting payments for your events. You'll need your API keys from the Paystack dashboard."
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:162
+#: src/components/routes/event/GettingStarted/index.tsx:160
 msgid "Connect your Paystack account to start accepting payments."
 msgstr ""
 
@@ -2140,7 +2148,7 @@ msgstr "Weitermachen"
 msgid "Continue Button Text"
 msgstr "Text für Weiter-Schaltfläche"
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Continue set up"
 msgstr "Weiter einrichten"
 
@@ -2424,7 +2432,7 @@ msgstr "Steuer oder Gebühr erstellen"
 msgid "Create Ticket or Product"
 msgstr "Ticket oder Produkt erstellen"
 
-#: src/components/routes/event/GettingStarted/index.tsx:132
+#: src/components/routes/event/GettingStarted/index.tsx:130
 msgid "Create tickets for your event, set prices, and manage available quantity."
 msgstr "Erstellen Sie Tickets für Ihre Veranstaltung, legen Sie Preise fest und verwalten Sie die verfügbare Menge."
 
@@ -2618,11 +2626,11 @@ msgstr "Passen Sie den Text auf dem Weiter-Button an"
 msgid "Customize your email template using Liquid templating"
 msgstr "Passen Sie Ihre E-Mail-Vorlage mit Liquid-Vorlagen an"
 
-#: src/components/routes/event/GettingStarted/index.tsx:182
+#: src/components/routes/event/GettingStarted/index.tsx:180
 msgid "Customize your event page"
 msgstr "Passen Sie Ihre Veranstaltungsseite an"
 
-#: src/components/routes/event/GettingStarted/index.tsx:178
+#: src/components/routes/event/GettingStarted/index.tsx:176
 msgid "Customize your event page to match your brand and style."
 msgstr "Passen Sie Ihre Veranstaltungsseite an Ihre Marke und Ihren Stil an."
 
@@ -3602,7 +3610,7 @@ msgstr "Veranstaltungseinstellungen"
 #: src/components/common/StatusToggle/index.tsx:63
 #: src/components/layouts/Event/index.tsx:170
 #: src/components/routes/event/EventDashboard/index.tsx:90
-#: src/components/routes/event/GettingStarted/index.tsx:73
+#: src/components/routes/event/GettingStarted/index.tsx:71
 msgid "Event status update failed. Please try again later"
 msgstr "Die Aktualisierung des Ereignisstatus ist fehlgeschlagen. Bitte versuchen Sie es später erneut"
 
@@ -3610,7 +3618,7 @@ msgstr "Die Aktualisierung des Ereignisstatus ist fehlgeschlagen. Bitte versuche
 #: src/components/common/StatusToggle/index.tsx:55
 #: src/components/layouts/Event/index.tsx:166
 #: src/components/routes/event/EventDashboard/index.tsx:87
-#: src/components/routes/event/GettingStarted/index.tsx:70
+#: src/components/routes/event/GettingStarted/index.tsx:68
 msgid "Event status updated"
 msgstr "Veranstaltungsstatus aktualisiert"
 
@@ -5877,7 +5885,7 @@ msgstr "Sobald Sie ein Ereignis erstellt haben, wird es hier angezeigt."
 msgid "Once you start collecting data, you'll see it here."
 msgstr "Sobald Sie Daten sammeln, werden sie hier angezeigt."
 
-#: src/components/routes/event/GettingStarted/index.tsx:192
+#: src/components/routes/event/GettingStarted/index.tsx:190
 msgid "Once you're ready, set your event live and start selling products."
 msgstr "Sobald Sie bereit sind, setzen Sie Ihre Veranstaltung live und beginnen Sie mit dem Verkauf von Produkten."
 
@@ -6327,7 +6335,7 @@ msgstr "Innenabstand"
 msgid "Page"
 msgstr "Seite"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:127
+#: src/components/forms/PaystackCheckoutForm/index.tsx:131
 msgid "Page no longer available"
 msgstr "Seite nicht mehr verfügbar"
 
@@ -6458,7 +6466,7 @@ msgstr "Nutzlast"
 
 #: src/components/common/OrdersTable/index.tsx:375
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/forms/PaystackCheckoutForm/index.tsx:152
+#: src/components/forms/PaystackCheckoutForm/index.tsx:156
 msgid "Payment"
 msgstr "Zahlung"
 
@@ -6523,15 +6531,15 @@ msgstr ""
 msgid "Payment provider"
 msgstr "Zahlungsanbieter"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:69
+#: src/components/forms/PaystackCheckoutForm/index.tsx:70
 msgid "Payment provider failed to load. Please refresh and try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:64
+#: src/components/forms/PaystackCheckoutForm/index.tsx:65
 msgid "Payment provider is not ready. Please try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:115
+#: src/components/forms/PaystackCheckoutForm/index.tsx:119
 msgid "Payment received"
 msgstr "Zahlung erhalten"
 
@@ -6555,7 +6563,7 @@ msgstr "Zahlungsstatus"
 msgid "Payment Terms"
 msgstr "Zahlungsbedingungen"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:88
+#: src/components/forms/PaystackCheckoutForm/index.tsx:92
 msgid "Payment was cancelled. Please try again."
 msgstr ""
 
@@ -6604,7 +6612,7 @@ msgstr ""
 msgid "Paystack is connected"
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:161
+#: src/components/routes/event/GettingStarted/index.tsx:159
 msgid "Paystack is connected and ready to process payments."
 msgstr ""
 
@@ -6794,7 +6802,7 @@ msgstr "Bitte beachten Sie"
 msgid "Please provide an image."
 msgstr "Bitte ein Bild angeben."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:142
+#: src/components/forms/PaystackCheckoutForm/index.tsx:146
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:46
 msgid "Please restart the checkout process."
 msgstr "Bitte starten Sie den Bestellvorgang neu."
@@ -7498,7 +7506,7 @@ msgstr "Alle wiederholen"
 msgid "Retry Job"
 msgstr "Job wiederholen"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:144
+#: src/components/forms/PaystackCheckoutForm/index.tsx:148
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:33
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:48
 msgid "Return to Event"
@@ -8088,7 +8096,7 @@ msgstr "Legen Sie die Startnummer für die Rechnungsnummerierung fest. Dies kann
 msgid "Set up check-in lists for different entrances, sessions, or days."
 msgstr "Richten Sie Check-in-Listen für verschiedene Eingänge, Sitzungen oder Tage ein."
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Set up your event"
 msgstr "Richten Sie Ihre Veranstaltung ein"
 
@@ -8096,7 +8104,7 @@ msgstr "Richten Sie Ihre Veranstaltung ein"
 msgid "Set up your organization"
 msgstr "Richten Sie Ihre Organisation ein"
 
-#: src/components/routes/event/GettingStarted/index.tsx:196
+#: src/components/routes/event/GettingStarted/index.tsx:194
 msgid "Set your event live"
 msgstr "Schalten Sie Ihr Event live"
 
@@ -8265,7 +8273,7 @@ msgid "Sold Out"
 msgstr "Ausverkauft"
 
 #: src/components/common/ErrorDisplay/index.tsx:15
-#: src/components/forms/PaystackCheckoutForm/index.tsx:141
+#: src/components/forms/PaystackCheckoutForm/index.tsx:145
 #: src/components/routes/auth/AcceptInvitation/index.tsx:48
 #: src/components/routes/product-widget/CollectInformation/index.tsx:392
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:45
@@ -9072,7 +9080,7 @@ msgstr "Diese Nachricht wird nur angezeigt, wenn die Bestellung erfolgreich abge
 msgid "This name is visible to end users"
 msgstr "Dieser Name ist für Endbenutzer sichtbar"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:116
+#: src/components/forms/PaystackCheckoutForm/index.tsx:120
 msgid "This order has already been paid."
 msgstr "Diese Bestellung wurde bereits bezahlt."
 
@@ -9096,7 +9104,7 @@ msgstr "Diese Bestellung wird verarbeitet."
 msgid "This order is complete."
 msgstr "Diese Bestellung ist abgeschlossen."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:128
+#: src/components/forms/PaystackCheckoutForm/index.tsx:132
 msgid "This order page is no longer available."
 msgstr "Diese Bestellseite ist nicht mehr verfügbar."
 
@@ -9977,7 +9985,7 @@ msgstr "Auf Google Maps anzeigen"
 msgid "View Order"
 msgstr "Bestellung anzeigen"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:117
+#: src/components/forms/PaystackCheckoutForm/index.tsx:121
 #: src/components/routes/product-widget/CollectInformation/index.tsx:356
 msgid "View Order Details"
 msgstr "Bestelldetails anzeigen"
@@ -10059,7 +10067,7 @@ msgstr ""
 msgid "Warning: This is the system default configuration. Changes will affect all accounts that don't have a specific configuration assigned."
 msgstr "Warnung: Dies ist die Systemstandardkonfiguration. Änderungen wirken sich auf alle Konten aus, denen keine spezifische Konfiguration zugewiesen ist."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:89
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:86
 msgid "We could not process your payment. Please try again or contact support."
 msgstr "Wir konnten Ihre Zahlung nicht verarbeiten. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
 
@@ -10116,7 +10124,7 @@ msgstr "Wir empfehlen Abmessungen von 400 × 400 Pixeln und eine maximale Dateig
 msgid "We use cookies to help us understand how the site is used and to improve your experience."
 msgstr "Wir verwenden Cookies, um zu verstehen, wie die Website genutzt wird, und um Ihr Erlebnis zu verbessern."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:100
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:97
 msgid "We were unable to confirm your payment. Please try again or contact support."
 msgstr "Wir konnten Ihre Zahlung nicht bestätigen. Bitte versuchen Sie es erneut oder wenden Sie sich an den Support."
 
@@ -10136,7 +10144,7 @@ msgstr "Wir senden Ihre Tickets an diese E-Mail"
 msgid "We'll validate your VAT number in the background. If there are any issues, we'll let you know."
 msgstr "Wir validieren Ihre Umsatzsteuer-Identifikationsnummer im Hintergrund. Falls es Probleme gibt, werden wir Sie informieren."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:91
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:88
 msgid "We're processing your order. Please wait..."
 msgstr "Wir bearbeiten Ihre Bestellung. Bitte warten..."
 
@@ -10761,7 +10769,7 @@ msgstr "Ihre Zahlung ist mit Verschlüsselung auf Bankniveau geschützt"
 #~ msgid "Your payment was not successful, please try again."
 #~ msgstr "Ihre Zahlung war nicht erfolgreich, bitte versuchen Sie es erneut."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:155
+#: src/components/forms/PaystackCheckoutForm/index.tsx:159
 msgid "Your payment was unsuccessful. Please try again."
 msgstr "Ihre Zahlung war nicht erfolgreich. Bitte versuchen Sie es erneut."
 

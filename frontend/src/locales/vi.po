@@ -159,19 +159,19 @@ msgstr "<0>Webhooks thông báo ngay lập tức cho các dịch vụ bên ngoà
 msgid "≈ {0} at current rate"
 msgstr "≈ {0} theo tỷ giá hiện tại"
 
-#: src/components/routes/event/GettingStarted/index.tsx:144
+#: src/components/routes/event/GettingStarted/index.tsx:142
 msgid "⚡️ Set up your event"
 msgstr "Thiết lập sự kiện của bạn"
 
-#: src/components/routes/event/GettingStarted/index.tsx:129
+#: src/components/routes/event/GettingStarted/index.tsx:127
 msgid "🎟️ Add tickets"
 msgstr "🎟️ Thêm vé"
 
-#: src/components/routes/event/GettingStarted/index.tsx:175
+#: src/components/routes/event/GettingStarted/index.tsx:173
 msgid "🎨 Customize your event page"
 msgstr "🎟️ Tùy chỉnh trang sự kiện của bạn"
 
-#: src/components/routes/event/GettingStarted/index.tsx:157
+#: src/components/routes/event/GettingStarted/index.tsx:155
 msgid "💳 Connect with Paystack"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #~ msgid "💳 Connect with Stripe"
 #~ msgstr "💳 Kết nối với Stripe"
 
-#: src/components/routes/event/GettingStarted/index.tsx:189
+#: src/components/routes/event/GettingStarted/index.tsx:187
 msgid "🚀 Set your event live"
 msgstr "🚀 Đặt sự kiện của bạn công khai"
 
@@ -510,7 +510,7 @@ msgstr "Thêm câu hỏi tùy chỉnh để thu thập thông tin bổ sung tron
 msgid "Add description"
 msgstr "Thêm mô tả"
 
-#: src/components/routes/event/GettingStarted/index.tsx:147
+#: src/components/routes/event/GettingStarted/index.tsx:145
 msgid "Add event details and manage event settings."
 msgstr "Thêm chi tiết sự kiện và quản lý cài đặt sự kiện."
 
@@ -518,7 +518,7 @@ msgstr "Thêm chi tiết sự kiện và quản lý cài đặt sự kiện."
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Thêm hướng dẫn thanh toán offline (ví dụ: chi tiết chuyển khoản ngân hàng, nơi gửi séc, thời hạn thanh toán)"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add More tickets"
 msgstr "Thêm nhiều vé hơn"
 
@@ -551,7 +551,7 @@ msgstr "Thêm thuế hoặc phí"
 msgid "Add this event to your calendar"
 msgstr "Thêm sự kiện này vào lịch của bạn"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add tickets"
 msgstr "Thêm vé"
 
@@ -761,13 +761,17 @@ msgstr "Cho phép các công cụ tìm kiếm lập chỉ mục cho sự kiện 
 #~ msgid "Almost there! Finish connecting your Stripe account to start accepting payments."
 #~ msgstr "Gần xong rồi! Hoàn thành kết nối tài khoản Stripe để bắt đầu nhận thanh toán."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:90
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:87
 msgid "Almost there! We're just waiting for your payment to be processed. This should only take a few seconds."
 msgstr "Sắp xong rồi! Chúng tôi đang chờ thanh toán của bạn được xử lý. Quá trình này chỉ mất vài giây."
 
 #: src/components/routes/auth/Register/index.tsx:75
 #~ msgid "Already have an account? <0>{0}</0>"
 #~ msgstr "Đã có tài khoản? <0>{0}</0>"
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:174
+msgid "Already paid?"
+msgstr ""
 
 #: src/components/modals/RefundOrderModal/index.tsx:85
 msgid "Already Refunded"
@@ -1278,7 +1282,7 @@ msgstr "Nhà tổ chức tuyệt vời Ltd."
 msgid "Back to Accounts"
 msgstr "Quay lại tài khoản"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:129
+#: src/components/forms/PaystackCheckoutForm/index.tsx:133
 #: src/components/routes/product-widget/CollectInformation/index.tsx:336
 #: src/components/routes/product-widget/CollectInformation/index.tsx:366
 #: src/components/routes/product-widget/CollectInformation/index.tsx:395
@@ -1330,7 +1334,7 @@ msgstr "Thông tin cơ bản"
 msgid "Beautiful checkout experience on any device"
 msgstr "Trải nghiệm thanh toán tuyệt đẹp trên mọi thiết bị"
 
-#: src/components/routes/event/GettingStarted/index.tsx:102
+#: src/components/routes/event/GettingStarted/index.tsx:100
 msgid "Before your event can go live, there are a few things you need to do. Complete all the steps below to get started."
 msgstr "Trước khi sự kiện của bạn có thể phát trực tiếp, bạn cần thực hiện một vài việc. Hoàn thành tất cả các bước dưới đây để bắt đầu."
 
@@ -1735,8 +1739,12 @@ msgstr "Thành phố"
 msgid "Clear Search Text"
 msgstr "Xoá văn bản tìm kiếm"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:164
+#: src/components/forms/PaystackCheckoutForm/index.tsx:168
 msgid "Click \"Pay\" below to complete your payment securely via Paystack."
+msgstr ""
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:185
+msgid "Click here to check your payment status"
 msgstr ""
 
 #: src/components/common/PromoCodeTable/index.tsx:98
@@ -1892,7 +1900,7 @@ msgstr "Hoàn thành hồ sơ của bạn để tham gia nhóm."
 
 #: src/components/common/OrdersTable/index.tsx:412
 #: src/components/modals/SendMessageModal/index.tsx:328
-#: src/components/routes/event/GettingStarted/index.tsx:80
+#: src/components/routes/event/GettingStarted/index.tsx:78
 #: src/components/routes/event/orders.tsx:23
 #: src/components/routes/my-tickets/index.tsx:34
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:350
@@ -2011,7 +2019,7 @@ msgstr "Xác nhận đã gửi đến"
 msgid "Confirming email address..."
 msgstr "Đang xác nhận địa chỉ email..."
 
-#: src/components/routes/event/GettingStarted/index.tsx:98
+#: src/components/routes/event/GettingStarted/index.tsx:96
 msgid "Congratulations on creating an event!"
 msgstr "Chúc mừng bạn đã tạo sự kiện thành công!"
 
@@ -2032,7 +2040,7 @@ msgstr "Chúc mừng! Sự kiện của bạn hiện đã hiển thị công kha
 #~ msgstr "Kết nối xử lý thanh toán"
 
 #: src/components/routes/account/ManageAccount/sections/PaymentSettings/index.tsx:201
-#: src/components/routes/event/GettingStarted/index.tsx:167
+#: src/components/routes/event/GettingStarted/index.tsx:165
 msgid "Connect Paystack"
 msgstr ""
 
@@ -2069,7 +2077,7 @@ msgstr ""
 msgid "Connect your Paystack account to start accepting payments for your events. You'll need your API keys from the Paystack dashboard."
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:162
+#: src/components/routes/event/GettingStarted/index.tsx:160
 msgid "Connect your Paystack account to start accepting payments."
 msgstr ""
 
@@ -2140,7 +2148,7 @@ msgstr "Tiếp tục"
 msgid "Continue Button Text"
 msgstr "Văn bản nút Tiếp tục"
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Continue set up"
 msgstr "Tiếp tục thiết lập"
 
@@ -2424,7 +2432,7 @@ msgstr "Tạo thuế hoặc phí"
 msgid "Create Ticket or Product"
 msgstr "Tạo vé hoặc sản phẩm"
 
-#: src/components/routes/event/GettingStarted/index.tsx:132
+#: src/components/routes/event/GettingStarted/index.tsx:130
 msgid "Create tickets for your event, set prices, and manage available quantity."
 msgstr "Tạo vé cho sự kiện của bạn, đặt giá và quản lý số lượng có sẵn."
 
@@ -2618,11 +2626,11 @@ msgstr "Tùy chỉnh văn bản trên nút tiếp tục"
 msgid "Customize your email template using Liquid templating"
 msgstr "Tùy chỉnh mẫu email của bạn bằng mẫu Liquid"
 
-#: src/components/routes/event/GettingStarted/index.tsx:182
+#: src/components/routes/event/GettingStarted/index.tsx:180
 msgid "Customize your event page"
 msgstr "Tùy chỉnh trang sự kiện của bạn"
 
-#: src/components/routes/event/GettingStarted/index.tsx:178
+#: src/components/routes/event/GettingStarted/index.tsx:176
 msgid "Customize your event page to match your brand and style."
 msgstr "Tùy chỉnh trang sự kiện của bạn để phù hợp với thương hiệu và phong cách của bạn."
 
@@ -3602,7 +3610,7 @@ msgstr "Cài đặt sự kiện"
 #: src/components/common/StatusToggle/index.tsx:63
 #: src/components/layouts/Event/index.tsx:170
 #: src/components/routes/event/EventDashboard/index.tsx:90
-#: src/components/routes/event/GettingStarted/index.tsx:73
+#: src/components/routes/event/GettingStarted/index.tsx:71
 msgid "Event status update failed. Please try again later"
 msgstr "Cập nhật trạng thái sự kiện thất bại. Vui lòng thử lại sau"
 
@@ -3610,7 +3618,7 @@ msgstr "Cập nhật trạng thái sự kiện thất bại. Vui lòng thử l�
 #: src/components/common/StatusToggle/index.tsx:55
 #: src/components/layouts/Event/index.tsx:166
 #: src/components/routes/event/EventDashboard/index.tsx:87
-#: src/components/routes/event/GettingStarted/index.tsx:70
+#: src/components/routes/event/GettingStarted/index.tsx:68
 msgid "Event status updated"
 msgstr "Trạng thái sự kiện đã được cập nhật"
 
@@ -5877,7 +5885,7 @@ msgstr "Khi bạn tạo một sự kiện, bạn sẽ thấy nó ở đây."
 msgid "Once you start collecting data, you'll see it here."
 msgstr "Khi bạn bắt đầu thu thập dữ liệu, bạn sẽ thấy nó ở đây."
 
-#: src/components/routes/event/GettingStarted/index.tsx:192
+#: src/components/routes/event/GettingStarted/index.tsx:190
 msgid "Once you're ready, set your event live and start selling products."
 msgstr "Khi bạn đã sẵn sàng, hãy đặt sự kiện của bạn trực tiếp và bắt đầu bán sản phẩm."
 
@@ -6327,7 +6335,7 @@ msgstr "Khoảng cách"
 msgid "Page"
 msgstr "Trang"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:127
+#: src/components/forms/PaystackCheckoutForm/index.tsx:131
 msgid "Page no longer available"
 msgstr "Trang không còn khả dụng"
 
@@ -6458,7 +6466,7 @@ msgstr "Tải trọng"
 
 #: src/components/common/OrdersTable/index.tsx:375
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/forms/PaystackCheckoutForm/index.tsx:152
+#: src/components/forms/PaystackCheckoutForm/index.tsx:156
 msgid "Payment"
 msgstr "Thanh toán"
 
@@ -6523,15 +6531,15 @@ msgstr ""
 msgid "Payment provider"
 msgstr "Nhà cung cấp Thanh toán"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:69
+#: src/components/forms/PaystackCheckoutForm/index.tsx:70
 msgid "Payment provider failed to load. Please refresh and try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:64
+#: src/components/forms/PaystackCheckoutForm/index.tsx:65
 msgid "Payment provider is not ready. Please try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:115
+#: src/components/forms/PaystackCheckoutForm/index.tsx:119
 msgid "Payment received"
 msgstr "Đã nhận thanh toán"
 
@@ -6555,7 +6563,7 @@ msgstr "Tình trạng thanh toán"
 msgid "Payment Terms"
 msgstr "Điều khoản thanh toán"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:88
+#: src/components/forms/PaystackCheckoutForm/index.tsx:92
 msgid "Payment was cancelled. Please try again."
 msgstr ""
 
@@ -6604,7 +6612,7 @@ msgstr ""
 msgid "Paystack is connected"
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:161
+#: src/components/routes/event/GettingStarted/index.tsx:159
 msgid "Paystack is connected and ready to process payments."
 msgstr ""
 
@@ -6794,7 +6802,7 @@ msgstr "Xin lưu ý"
 msgid "Please provide an image."
 msgstr "Vui lòng cung cấp một hình ảnh."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:142
+#: src/components/forms/PaystackCheckoutForm/index.tsx:146
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:46
 msgid "Please restart the checkout process."
 msgstr "Vui lòng bắt đầu lại quy trình thanh toán."
@@ -7498,7 +7506,7 @@ msgstr "Thử lại tất cả"
 msgid "Retry Job"
 msgstr "Thử lại công việc"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:144
+#: src/components/forms/PaystackCheckoutForm/index.tsx:148
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:33
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:48
 msgid "Return to Event"
@@ -8088,7 +8096,7 @@ msgstr "Đặt số bắt đầu cho hóa đơn. Sau khi hóa đơn được t�
 msgid "Set up check-in lists for different entrances, sessions, or days."
 msgstr "Thiết lập danh sách check-in cho các lối vào, phiên hoặc ngày khác nhau."
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Set up your event"
 msgstr "Thiết lập sự kiện của bạn"
 
@@ -8096,7 +8104,7 @@ msgstr "Thiết lập sự kiện của bạn"
 msgid "Set up your organization"
 msgstr "Thiết lập tổ chức của bạn"
 
-#: src/components/routes/event/GettingStarted/index.tsx:196
+#: src/components/routes/event/GettingStarted/index.tsx:194
 msgid "Set your event live"
 msgstr "Đặt sự kiện của bạn trực tiếp"
 
@@ -8265,7 +8273,7 @@ msgid "Sold Out"
 msgstr "Đã bán hết"
 
 #: src/components/common/ErrorDisplay/index.tsx:15
-#: src/components/forms/PaystackCheckoutForm/index.tsx:141
+#: src/components/forms/PaystackCheckoutForm/index.tsx:145
 #: src/components/routes/auth/AcceptInvitation/index.tsx:48
 #: src/components/routes/product-widget/CollectInformation/index.tsx:392
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:45
@@ -9072,7 +9080,7 @@ msgstr "Thông báo này sẽ chỉ được hiển thị nếu đơn hàng đư
 msgid "This name is visible to end users"
 msgstr "Tên này hiển thị cho người dùng cuối"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:116
+#: src/components/forms/PaystackCheckoutForm/index.tsx:120
 msgid "This order has already been paid."
 msgstr "Đơn hàng này đã được thanh toán."
 
@@ -9096,7 +9104,7 @@ msgstr "Đơn hàng này đang được xử lý."
 msgid "This order is complete."
 msgstr "Đơn hàng này đã hoàn tất."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:128
+#: src/components/forms/PaystackCheckoutForm/index.tsx:132
 msgid "This order page is no longer available."
 msgstr "Trang Đơn hàng này không còn có sẵn."
 
@@ -9977,7 +9985,7 @@ msgstr "Xem trên Google Maps"
 msgid "View Order"
 msgstr "Xem đơn hàng"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:117
+#: src/components/forms/PaystackCheckoutForm/index.tsx:121
 #: src/components/routes/product-widget/CollectInformation/index.tsx:356
 msgid "View Order Details"
 msgstr "Xem chi tiết đơn hàng"
@@ -10059,7 +10067,7 @@ msgstr ""
 msgid "Warning: This is the system default configuration. Changes will affect all accounts that don't have a specific configuration assigned."
 msgstr "Cảnh báo: Đây là cấu hình mặc định của hệ thống. Thay đổi sẽ ảnh hưởng đến tất cả các tài khoản không được chỉ định cấu hình cụ thể."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:89
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:86
 msgid "We could not process your payment. Please try again or contact support."
 msgstr "Chúng tôi không thể xử lý thanh toán của bạn. Vui lòng thử lại hoặc liên hệ với ban tổ chức."
 
@@ -10116,7 +10124,7 @@ msgstr "Chúng tôi khuyến nghị kích thước 400px x 400px và dung lượ
 msgid "We use cookies to help us understand how the site is used and to improve your experience."
 msgstr "Chúng tôi sử dụng cookie để hiểu cách trang web được sử dụng và cải thiện trải nghiệm của bạn."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:100
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:97
 msgid "We were unable to confirm your payment. Please try again or contact support."
 msgstr "Chúng tôi không thể xác nhận thanh toán của bạn. Vui lòng thử lại hoặc liên hệ với ban tổ chức."
 
@@ -10136,7 +10144,7 @@ msgstr "Chúng tôi sẽ gửi vé đến email này"
 msgid "We'll validate your VAT number in the background. If there are any issues, we'll let you know."
 msgstr "Chúng tôi sẽ xác thực số VAT của bạn ở chế độ nền. Nếu có bất kỳ vấn đề nào, chúng tôi sẽ thông báo cho bạn."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:91
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:88
 msgid "We're processing your order. Please wait..."
 msgstr "Chúng tôi đang xử lý đơn hàng của bạn. Đợi một chút..."
 
@@ -10761,7 +10769,7 @@ msgstr "Thanh toán của bạn được bảo vệ bằng mã hóa cấp ngân 
 #~ msgid "Your payment was not successful, please try again."
 #~ msgstr "Thanh toán của bạn không thành công, vui lòng thử lại."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:155
+#: src/components/forms/PaystackCheckoutForm/index.tsx:159
 msgid "Your payment was unsuccessful. Please try again."
 msgstr "Thanh toán của bạn không thành công. Vui lòng thử lại."
 

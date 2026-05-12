@@ -159,19 +159,19 @@ msgstr "<0>Webhooks huarifa huduma za nje mara moja matukio yanapotokea, kama ku
 msgid "≈ {0} at current rate"
 msgstr "≈ {0} kwa kiwango cha sasa"
 
-#: src/components/routes/event/GettingStarted/index.tsx:144
+#: src/components/routes/event/GettingStarted/index.tsx:142
 msgid "⚡️ Set up your event"
 msgstr "⚡️ Sanidi tukio lako"
 
-#: src/components/routes/event/GettingStarted/index.tsx:129
+#: src/components/routes/event/GettingStarted/index.tsx:127
 msgid "🎟️ Add tickets"
 msgstr "🎟️ Ongeza tiketi"
 
-#: src/components/routes/event/GettingStarted/index.tsx:175
+#: src/components/routes/event/GettingStarted/index.tsx:173
 msgid "🎨 Customize your event page"
 msgstr "🎨 Binafsisha ukurasa wako wa tukio"
 
-#: src/components/routes/event/GettingStarted/index.tsx:157
+#: src/components/routes/event/GettingStarted/index.tsx:155
 msgid "💳 Connect with Paystack"
 msgstr ""
 
@@ -179,7 +179,7 @@ msgstr ""
 #~ msgid "💳 Connect with Stripe"
 #~ msgstr "💳 Unganisha na Stripe"
 
-#: src/components/routes/event/GettingStarted/index.tsx:189
+#: src/components/routes/event/GettingStarted/index.tsx:187
 msgid "🚀 Set your event live"
 msgstr "🚀 Washa tukio lako"
 
@@ -510,7 +510,7 @@ msgstr "Ongeza maswali maalum kukusanya taarifa za ziada wakati wa malipo"
 msgid "Add description"
 msgstr "Ongeza maelezo"
 
-#: src/components/routes/event/GettingStarted/index.tsx:147
+#: src/components/routes/event/GettingStarted/index.tsx:145
 msgid "Add event details and manage event settings."
 msgstr "Ongeza maelezo ya tukio na simamia mipangilio ya tukio."
 
@@ -518,7 +518,7 @@ msgstr "Ongeza maelezo ya tukio na simamia mipangilio ya tukio."
 msgid "Add instructions for offline payments (e.g., bank transfer details, where to send checks, payment deadlines)"
 msgstr "Ongeza maelekezo ya malipo ya nje ya mtandao (mfano, maelezo ya uhamisho wa benki, mahali pa kutuma hundi, muda wa mwisho wa malipo)"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add More tickets"
 msgstr "Ongeza Tiketi Zaidi"
 
@@ -551,7 +551,7 @@ msgstr "Ongeza Kodi au Ada"
 msgid "Add this event to your calendar"
 msgstr "Ongeza tukio hili kwenye kalenda yako"
 
-#: src/components/routes/event/GettingStarted/index.tsx:137
+#: src/components/routes/event/GettingStarted/index.tsx:135
 msgid "Add tickets"
 msgstr "Ongeza tiketi"
 
@@ -761,13 +761,17 @@ msgstr "Ruhusu injini za utafutaji kuorodhesha tukio hili"
 #~ msgid "Almost there! Finish connecting your Stripe account to start accepting payments."
 #~ msgstr "Karibu! Maliza kuunganisha akaunti yako ya Stripe kuanza kukubali malipo."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:90
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:87
 msgid "Almost there! We're just waiting for your payment to be processed. This should only take a few seconds."
 msgstr "Karibu! Tunasubiri tu malipo yako yashughulikiwe. Hii inapaswa kuchukua sekunde chache tu."
 
 #: src/components/routes/auth/Register/index.tsx:75
 #~ msgid "Already have an account? <0>{0}</0>"
 #~ msgstr "Una akaunti tayari? <0>{0}</0>"
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:174
+msgid "Already paid?"
+msgstr ""
 
 #: src/components/modals/RefundOrderModal/index.tsx:85
 msgid "Already Refunded"
@@ -1278,7 +1282,7 @@ msgstr "Awesome Organizer Ltd."
 msgid "Back to Accounts"
 msgstr "Rudi kwa Akaunti"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:129
+#: src/components/forms/PaystackCheckoutForm/index.tsx:133
 #: src/components/routes/product-widget/CollectInformation/index.tsx:336
 #: src/components/routes/product-widget/CollectInformation/index.tsx:366
 #: src/components/routes/product-widget/CollectInformation/index.tsx:395
@@ -1330,7 +1334,7 @@ msgstr "Taarifa za Msingi"
 msgid "Beautiful checkout experience on any device"
 msgstr "Uzoefu mzuri wa malipo kwenye kifaa chochote"
 
-#: src/components/routes/event/GettingStarted/index.tsx:102
+#: src/components/routes/event/GettingStarted/index.tsx:100
 msgid "Before your event can go live, there are a few things you need to do. Complete all the steps below to get started."
 msgstr "Kabla tukio lako halijawashwa, kuna mambo machache unayohitaji kufanya. Kamilisha hatua zote hapa chini kuanza."
 
@@ -1735,8 +1739,12 @@ msgstr "Mji"
 msgid "Clear Search Text"
 msgstr "Futa Maandishi ya Utafutaji"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:164
+#: src/components/forms/PaystackCheckoutForm/index.tsx:168
 msgid "Click \"Pay\" below to complete your payment securely via Paystack."
+msgstr ""
+
+#: src/components/forms/PaystackCheckoutForm/index.tsx:185
+msgid "Click here to check your payment status"
 msgstr ""
 
 #: src/components/common/PromoCodeTable/index.tsx:98
@@ -1892,7 +1900,7 @@ msgstr "Kamilisha wasifu wako kujiunga na timu."
 
 #: src/components/common/OrdersTable/index.tsx:412
 #: src/components/modals/SendMessageModal/index.tsx:328
-#: src/components/routes/event/GettingStarted/index.tsx:80
+#: src/components/routes/event/GettingStarted/index.tsx:78
 #: src/components/routes/event/orders.tsx:23
 #: src/components/routes/my-tickets/index.tsx:34
 #: src/components/routes/organizer/OrganizerDashboard/index.tsx:350
@@ -2011,7 +2019,7 @@ msgstr "Uthibitisho umetumwa kwa"
 msgid "Confirming email address..."
 msgstr "Inathibitisha anwani ya barua pepe..."
 
-#: src/components/routes/event/GettingStarted/index.tsx:98
+#: src/components/routes/event/GettingStarted/index.tsx:96
 msgid "Congratulations on creating an event!"
 msgstr "Hongera kwa kuunda tukio!"
 
@@ -2032,7 +2040,7 @@ msgstr "Hongera! Tukio lako sasa linaonekana kwa umma."
 #~ msgstr "Unganisha usindikaji wa malipo"
 
 #: src/components/routes/account/ManageAccount/sections/PaymentSettings/index.tsx:201
-#: src/components/routes/event/GettingStarted/index.tsx:167
+#: src/components/routes/event/GettingStarted/index.tsx:165
 msgid "Connect Paystack"
 msgstr ""
 
@@ -2069,7 +2077,7 @@ msgstr ""
 msgid "Connect your Paystack account to start accepting payments for your events. You'll need your API keys from the Paystack dashboard."
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:162
+#: src/components/routes/event/GettingStarted/index.tsx:160
 msgid "Connect your Paystack account to start accepting payments."
 msgstr ""
 
@@ -2140,7 +2148,7 @@ msgstr "Endelea"
 msgid "Continue Button Text"
 msgstr "Maandishi ya Kitufe cha Kuendelea"
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Continue set up"
 msgstr "Endelea na usanidi"
 
@@ -2424,7 +2432,7 @@ msgstr "Unda Kodi au Ada"
 msgid "Create Ticket or Product"
 msgstr "Unda Tiketi au Bidhaa"
 
-#: src/components/routes/event/GettingStarted/index.tsx:132
+#: src/components/routes/event/GettingStarted/index.tsx:130
 msgid "Create tickets for your event, set prices, and manage available quantity."
 msgstr "Unda tiketi kwa tukio lako, weka bei, na simamia idadi inayopatikana."
 
@@ -2618,11 +2626,11 @@ msgstr "Binafsisha maandishi yanayoonyeshwa kwenye kitufe cha kuendelea"
 msgid "Customize your email template using Liquid templating"
 msgstr "Binafsisha kiolezo chako cha barua pepe ukitumia templeti ya Liquid"
 
-#: src/components/routes/event/GettingStarted/index.tsx:182
+#: src/components/routes/event/GettingStarted/index.tsx:180
 msgid "Customize your event page"
 msgstr "Binafsisha ukurasa wako wa tukio"
 
-#: src/components/routes/event/GettingStarted/index.tsx:178
+#: src/components/routes/event/GettingStarted/index.tsx:176
 msgid "Customize your event page to match your brand and style."
 msgstr "Binafsisha ukurasa wako wa tukio kulingana na chapa na mtindo wako."
 
@@ -3604,7 +3612,7 @@ msgstr "Mipangilio ya Tukio"
 #: src/components/common/StatusToggle/index.tsx:63
 #: src/components/layouts/Event/index.tsx:170
 #: src/components/routes/event/EventDashboard/index.tsx:90
-#: src/components/routes/event/GettingStarted/index.tsx:73
+#: src/components/routes/event/GettingStarted/index.tsx:71
 msgid "Event status update failed. Please try again later"
 msgstr "Kusasisha hali ya tukio kumeshindwa. Tafadhali jaribu tena baadaye"
 
@@ -3612,7 +3620,7 @@ msgstr "Kusasisha hali ya tukio kumeshindwa. Tafadhali jaribu tena baadaye"
 #: src/components/common/StatusToggle/index.tsx:55
 #: src/components/layouts/Event/index.tsx:166
 #: src/components/routes/event/EventDashboard/index.tsx:87
-#: src/components/routes/event/GettingStarted/index.tsx:70
+#: src/components/routes/event/GettingStarted/index.tsx:68
 msgid "Event status updated"
 msgstr "Hali ya tukio imesasishwa"
 
@@ -5879,7 +5887,7 @@ msgstr "Mara ukiunda tukio, utaona hapa."
 msgid "Once you start collecting data, you'll see it here."
 msgstr "Mara ukianza kukusanya data, utaona hapa."
 
-#: src/components/routes/event/GettingStarted/index.tsx:192
+#: src/components/routes/event/GettingStarted/index.tsx:190
 msgid "Once you're ready, set your event live and start selling products."
 msgstr "Mara ukiwa tayari, washa tukio lako na uanze kuuza bidhaa."
 
@@ -6329,7 +6337,7 @@ msgstr "Nafasi"
 msgid "Page"
 msgstr "Ukurasa"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:127
+#: src/components/forms/PaystackCheckoutForm/index.tsx:131
 msgid "Page no longer available"
 msgstr "Ukurasa haupatikani tena"
 
@@ -6460,7 +6468,7 @@ msgstr "Mzigo wa Data"
 
 #: src/components/common/OrdersTable/index.tsx:375
 #: src/components/common/ProgressStepper/index.tsx:19
-#: src/components/forms/PaystackCheckoutForm/index.tsx:152
+#: src/components/forms/PaystackCheckoutForm/index.tsx:156
 msgid "Payment"
 msgstr "Malipo"
 
@@ -6525,15 +6533,15 @@ msgstr ""
 msgid "Payment provider"
 msgstr "Mtoa huduma wa malipo"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:69
+#: src/components/forms/PaystackCheckoutForm/index.tsx:70
 msgid "Payment provider failed to load. Please refresh and try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:64
+#: src/components/forms/PaystackCheckoutForm/index.tsx:65
 msgid "Payment provider is not ready. Please try again."
 msgstr ""
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:115
+#: src/components/forms/PaystackCheckoutForm/index.tsx:119
 msgid "Payment received"
 msgstr "Malipo yamepokelewa"
 
@@ -6557,7 +6565,7 @@ msgstr "Hali ya Malipo"
 msgid "Payment Terms"
 msgstr "Masharti ya Malipo"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:88
+#: src/components/forms/PaystackCheckoutForm/index.tsx:92
 msgid "Payment was cancelled. Please try again."
 msgstr ""
 
@@ -6606,7 +6614,7 @@ msgstr ""
 msgid "Paystack is connected"
 msgstr ""
 
-#: src/components/routes/event/GettingStarted/index.tsx:161
+#: src/components/routes/event/GettingStarted/index.tsx:159
 msgid "Paystack is connected and ready to process payments."
 msgstr ""
 
@@ -6796,7 +6804,7 @@ msgstr "Tafadhali Kumbuka"
 msgid "Please provide an image."
 msgstr "Tafadhali toa picha."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:142
+#: src/components/forms/PaystackCheckoutForm/index.tsx:146
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:46
 msgid "Please restart the checkout process."
 msgstr "Tafadhali anza upya mchakato wa malipo."
@@ -7502,7 +7510,7 @@ msgstr "Jaribu Tena Zote"
 msgid "Retry Job"
 msgstr "Jaribu Tena Kazi"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:144
+#: src/components/forms/PaystackCheckoutForm/index.tsx:148
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:33
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:48
 msgid "Return to Event"
@@ -8092,7 +8100,7 @@ msgstr "Weka nambari ya kuanza kwa nambari za ankara. Hii haiwezi kubadilishwa m
 msgid "Set up check-in lists for different entrances, sessions, or days."
 msgstr "Weka orodha za kuingia kwa milango tofauti, vikao, au siku."
 
-#: src/components/routes/event/GettingStarted/index.tsx:150
+#: src/components/routes/event/GettingStarted/index.tsx:148
 msgid "Set up your event"
 msgstr "Sanidi tukio lako"
 
@@ -8100,7 +8108,7 @@ msgstr "Sanidi tukio lako"
 msgid "Set up your organization"
 msgstr "Weka shirika lako"
 
-#: src/components/routes/event/GettingStarted/index.tsx:196
+#: src/components/routes/event/GettingStarted/index.tsx:194
 msgid "Set your event live"
 msgstr "Washa tukio lako"
 
@@ -8269,7 +8277,7 @@ msgid "Sold Out"
 msgstr "Imeisha"
 
 #: src/components/common/ErrorDisplay/index.tsx:15
-#: src/components/forms/PaystackCheckoutForm/index.tsx:141
+#: src/components/forms/PaystackCheckoutForm/index.tsx:145
 #: src/components/routes/auth/AcceptInvitation/index.tsx:48
 #: src/components/routes/product-widget/CollectInformation/index.tsx:392
 #: src/components/routes/product-widget/Payment/PaymentMethods/Paystack/index.tsx:45
@@ -9076,7 +9084,7 @@ msgstr "Ujumbe huu utaonyeshwa tu ikiwa agizo limekamilika kwa mafanikio. Maagiz
 msgid "This name is visible to end users"
 msgstr "Jina hili linaonekana kwa watumiaji wa mwisho"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:116
+#: src/components/forms/PaystackCheckoutForm/index.tsx:120
 msgid "This order has already been paid."
 msgstr "Agizo hili limelipwa tayari."
 
@@ -9100,7 +9108,7 @@ msgstr "Agizo hili linashughulikiwa."
 msgid "This order is complete."
 msgstr "Agizo hili limekamilika."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:128
+#: src/components/forms/PaystackCheckoutForm/index.tsx:132
 msgid "This order page is no longer available."
 msgstr "Ukurasa huu wa agizo haupatikani tena."
 
@@ -9981,7 +9989,7 @@ msgstr "Tazama kwenye Google Maps"
 msgid "View Order"
 msgstr "Tazama Agizo"
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:117
+#: src/components/forms/PaystackCheckoutForm/index.tsx:121
 #: src/components/routes/product-widget/CollectInformation/index.tsx:356
 msgid "View Order Details"
 msgstr "Tazama Maelezo ya Agizo"
@@ -10063,7 +10071,7 @@ msgstr "Ofa ya orodha ya kusubiri imeisha muda"
 msgid "Warning: This is the system default configuration. Changes will affect all accounts that don't have a specific configuration assigned."
 msgstr "Onyo: Hii ni usanidi wa msingi wa mfumo. Mabadiliko yataathiri akaunti zote ambazo hazina usanidi maalum uliogawiwa."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:89
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:86
 msgid "We could not process your payment. Please try again or contact support."
 msgstr "Hatukuweza kushughulikia malipo yako. Tafadhali jaribu tena au wasiliana na msaada."
 
@@ -10120,7 +10128,7 @@ msgstr "Tunapendekeza vipimo vya 400px kwa 400px, na ukubwa wa juu wa faili wa 5
 msgid "We use cookies to help us understand how the site is used and to improve your experience."
 msgstr "Tunatumia vidakuzi kutusaidia kuelewa jinsi tovuti inavyotumiwa na kuboresha uzoefu wako."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:100
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:97
 msgid "We were unable to confirm your payment. Please try again or contact support."
 msgstr "Hatukuweza kuthibitisha malipo yako. Tafadhali jaribu tena au wasiliana na msaada."
 
@@ -10140,7 +10148,7 @@ msgstr "Tutatuma tiketi zako kwa barua pepe hii"
 msgid "We'll validate your VAT number in the background. If there are any issues, we'll let you know."
 msgstr "Tutathibitisha nambari yako ya VAT nyuma ya pazia. Ikiwa kuna matatizo yoyote, tutakujulisha."
 
-#: src/components/routes/product-widget/PaymentReturn/index.tsx:91
+#: src/components/routes/product-widget/PaymentReturn/index.tsx:88
 msgid "We're processing your order. Please wait..."
 msgstr "Tunashughulikia agizo lako. Tafadhali subiri..."
 
@@ -10765,7 +10773,7 @@ msgstr "Malipo yako yanalindwa na usimbaji wa kiwango cha benki"
 #~ msgid "Your payment was not successful, please try again."
 #~ msgstr "Malipo yako hayakufanikiwa, tafadhali jaribu tena."
 
-#: src/components/forms/PaystackCheckoutForm/index.tsx:155
+#: src/components/forms/PaystackCheckoutForm/index.tsx:159
 msgid "Your payment was unsuccessful. Please try again."
 msgstr "Malipo yako hayakufanikiwa. Tafadhali jaribu tena."
 
