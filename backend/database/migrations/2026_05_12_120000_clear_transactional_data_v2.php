@@ -7,10 +7,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // Disable foreign key checks
-        DB::statement('SET session_replication_role = replica;');
-
         $tables = [
+            // Delete in dependency order (children first)
+            'attendee_check_ins',
+            'attendees',
             'order_items',
             'order_refunds',
             'order_audit_logs',
@@ -22,19 +22,17 @@ return new class extends Migration
             'stripe_customers',
             'invoices',
             'orders',
-            'attendee_check_ins',
-            'attendees',
             'event_statistics',
             'event_daily_statistics',
             'promo_codes',
             'affiliates',
-            'capacity_assignments',
             'product_capacity_assignments',
-            'check_in_lists',
+            'capacity_assignments',
             'product_check_in_lists',
+            'check_in_lists',
             'waitlist_entries',
-            'messages',
             'outgoing_messages',
+            'messages',
             'webhook_logs',
             'ticket_lookup_tokens',
             'failed_jobs',
@@ -43,14 +41,11 @@ return new class extends Migration
 
         foreach ($tables as $table) {
             try {
-                DB::statement("TRUNCATE TABLE \"{$table}\" CASCADE");
+                DB::table($table)->delete();
             } catch (\Exception $e) {
-                // Table might not exist, skip
+                // Table might not exist or have constraints, skip
             }
         }
-
-        // Re-enable foreign key checks
-        DB::statement('SET session_replication_role = DEFAULT;');
     }
 
     public function down(): void
