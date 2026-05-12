@@ -164,6 +164,24 @@ export default function PaystackCheckoutForm({setSubmitHandler}: PaystackCheckou
                     {t`Click "Pay" below to complete your payment securely via Paystack.`}
                 </Alert>
             )}
+
+            {isPaystackFetched && (
+                <Alert color="gray" mt={10} variant="light" style={{fontSize: '0.85rem'}}>
+                    {t`Already paid? `}
+                    <a
+                        href="#"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const sessionId = new URL(window.location.href).searchParams.get('session_identifier');
+                            const returnPath = `/checkout/${eventId}/${orderShortId}/payment_return`;
+                            window.location.href = window.location.origin + returnPath + (sessionId ? `?session_identifier=${sessionId}` : '');
+                        }}
+                        style={{textDecoration: 'underline', cursor: 'pointer'}}
+                    >
+                        {t`Click here to check your payment status`}
+                    </a>
+                </Alert>
+            )}
         </form>
     );
 }
