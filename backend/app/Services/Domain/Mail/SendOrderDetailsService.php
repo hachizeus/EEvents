@@ -18,6 +18,8 @@ use HiEvents\Repository\Interfaces\OrderRepositoryInterface;
 use HiEvents\Services\Domain\Attendee\SendAttendeeTicketService;
 use HiEvents\Services\Domain\Email\MailBuilderService;
 use Illuminate\Mail\Mailer;
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class SendOrderDetailsService
 {
@@ -45,20 +47,43 @@ class SendOrderDetailsService
             ->findById($order->getEventId());
 
         if ($order->isOrderCompleted() || $order->isOrderAwaitingOfflinePayment()) {
-            $this->sendOrderSummaryEmails($order, $event);
-            $this->sendAttendeeTicketEmails($order, $event);
+            try {
+                $this->sendOrderSummaryEmails($order, $event);
+            } catch (Throwable $e) {
+                Log::error('Failed to send order summary email', [
+                    'order_id' => $order->getId(),
+                    'email' => $order->getEmail(),
+                    'error' => $e->getMessage(),
+                ]);
+            }
+
+            try {
+                $this->sendAttendeeTicketEmails($order, $event);
+            } catch (Throwable $e) {
+                Log::error('Failed to send attendee ticket emails', [
+                    'order_id' => $order->getId(),
+                    'error' => $e->getMessage(),
+                ]);
+            }
         }
 
         if ($order->isOrderFailed()) {
-            $this->mailer
-                ->to($order->getEmail())
-                ->locale($order->getLocale())
-                ->send(new OrderFailed(
-                    order: $order,
-                    event: $event,
-                    organizer: $event->getOrganizer(),
-                    eventSettings: $event->getEventSettings(),
-                ));
+            try {
+                $this->mailer
+                    ->to($order->getEmail())
+                    ->locale($order->getLocale())
+                    ->send(new OrderFailed(
+                        order: $order,
+                        event: $event,
+                        organizer: $event->getOrganizer(),
+                        eventSettings: $event->getEventSettings(),
+                    ));
+            } catch (Throwable $e) {
+                Log::error('Failed to send order failed email', [
+                    'order_id' => $order->getId(),
+                    'error' => $e->getMessage(),
+                ]);
+            }
         }
     }
 

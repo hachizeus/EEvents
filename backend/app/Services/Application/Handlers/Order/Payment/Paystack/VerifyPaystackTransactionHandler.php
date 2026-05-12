@@ -19,6 +19,7 @@ use HiEvents\Services\Domain\Payment\Paystack\PaystackTransactionService;
 use HiEvents\Services\Domain\Product\ProductQuantityUpdateService;
 use Illuminate\Database\DatabaseManager;
 use Psr\Log\LoggerInterface;
+use Throwable;
 
 class VerifyPaystackTransactionHandler
 {
