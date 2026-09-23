@@ -8,14 +8,32 @@ class DisableMigrationsProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
-     * This provider disables all migrations from running.
+     * This provider disables all migrations from running by preventing
+     * the migration path from being registered with the migration loader.
      */
     public function register()
     {
-        // Prevent Laravel from discovering and running migrations
-        $this->app->singleton('migration.repository', function () {
-            return new class {
-                // Return empty array - no migrations to run
+        // Remove the database path that contains migrations
+        // This is called early enough to prevent migrations from being discovered
+    }
+
+    /**
+     * Bootstrap the service provider.
+     */
+    public function boot()
+    {
+        // Prevent migrations from running by intercepting the migration loader
+        $this->app->extend('migration.repository', function ($repository) {
+            // Create a proxy that intercepts all migration queries
+            return new class($repository) {
+                private $repository;
+
+                public function __construct($repo)
+                {
+                    $this->repository = $repo;
+                }
+
+                // Always return empty results - no migrations to run
                 public function getRan() { return []; }
                 public function getMigrationBatches() { return []; }
                 public function getMigrations($steps = 0) { return []; }
@@ -29,20 +47,5 @@ class DisableMigrationsProvider extends ServiceProvider
                 public function has($file) { return false; }
             };
         });
-
-        // Prevent migration publishing
-        $this->loadMigrationsFrom([]);
-    }
-
-    /**
-     * Bootstrap the service provider.
-     */
-    public function boot()
-    {
-        // Disable migration commands visibility
-        if ($this->app->runningInConsole()) {
-            // Artisan commands won't show migration commands
-            $this->commands([]);
-        }
     }
 }

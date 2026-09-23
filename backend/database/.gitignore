@@ -1,1 +1,6 @@
 *.sqlite*
+migrations/*
+!migrations/.gitkeep
+migrations.disabled/*
+!migrations.disabled/.gitkeep
+
