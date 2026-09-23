@@ -226,7 +226,7 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\DisableMigrationsProvider::class,
+        \HiEvents\Providers\DisableMigrationsProvider::class,
         \HiEvents\Providers\AppServiceProvider::class,
         \HiEvents\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
