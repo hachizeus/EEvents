@@ -18,6 +18,11 @@ class NoOpMigrationRepository implements MigrationRepositoryInterface
     public function down($file) { return true; }
     public function rollback($migrations, $pretend = false) { return true; }
     public function has($file) { return false; }
+    public function getMigrationsByBatch($batch) { return []; }
+    public function getLast() { return []; }
+    public function createRepository() { return true; }
+    public function repositoryExists() { return true; }
+    public function deleteRepository() { return true; }
 }
 
 class DisableMigrationsProvider extends ServiceProvider
