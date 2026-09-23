@@ -2,19 +2,38 @@
 
 namespace HiEvents\Providers;
 
+use Illuminate\Database\Migrations\MigrationRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+
+class NoOpMigrationRepository implements MigrationRepositoryInterface
+{
+    public function getRan() { return []; }
+    public function getMigrationBatches() { return []; }
+    public function getMigrations($steps = 0) { return []; }
+    public function getLastBatchNumber() { return 0; }
+    public function getNextBatchNumber() { return 1; }
+    public function log($file, $batch) { return true; }
+    public function delete($migration) { return true; }
+    public function up($file, $batch) { return true; }
+    public function down($file) { return true; }
+    public function rollback($migrations, $pretend = false) { return true; }
+    public function has($file) { return false; }
+}
 
 class DisableMigrationsProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
-     * This provider disables all migrations from running by preventing
-     * the migration path from being registered with the migration loader.
+     * This provider disables all migrations from running by providing
+     * a no-op migration repository.
      */
     public function register()
     {
-        // Remove the database path that contains migrations
-        // This is called early enough to prevent migrations from being discovered
+        // Override the migration repository with a no-op implementation
+        $this->app->bind(
+            MigrationRepositoryInterface::class,
+            NoOpMigrationRepository::class
+        );
     }
 
     /**
@@ -22,30 +41,6 @@ class DisableMigrationsProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Prevent migrations from running by intercepting the migration loader
-        $this->app->extend('migration.repository', function ($repository) {
-            // Create a proxy that intercepts all migration queries
-            return new class($repository) {
-                private $repository;
-
-                public function __construct($repo)
-                {
-                    $this->repository = $repo;
-                }
-
-                // Always return empty results - no migrations to run
-                public function getRan() { return []; }
-                public function getMigrationBatches() { return []; }
-                public function getMigrations($steps = 0) { return []; }
-                public function getLastBatchNumber() { return 0; }
-                public function getNextBatchNumber() { return 1; }
-                public function log($file, $batch) { return true; }
-                public function delete($migration) { return true; }
-                public function up($file, $batch) { return true; }
-                public function down($file) { return true; }
-                public function rollback($migrations, $pretend = false) { return true; }
-                public function has($file) { return false; }
-            };
-        });
+        // No additional bootstrap needed
     }
 }
