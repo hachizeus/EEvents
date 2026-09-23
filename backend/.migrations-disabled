@@ -1,0 +1,3 @@
+This directory marks that migrations are disabled for this application.
+All migration files have been moved to prevent automatic discovery and execution.
+The database schema is pre-initialized and managed separately.

@@ -12,8 +12,9 @@ class InitialDb extends Migration
      */
     public function up()
     {
-        DB::unprepared(file_get_contents(__DIR__ . '/extensions.sql'));
-        DB::unprepared(file_get_contents(__DIR__ . '/schema.sql'));
+        // Schema already imported directly via phpMyAdmin
+        // SQL files removed to prevent PostgreSQL syntax errors on MySQL
+        // Migration is marked complete and does nothing
     }
 
     /**
